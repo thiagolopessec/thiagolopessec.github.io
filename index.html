@@ -627,7 +627,7 @@
     };
 
     const app = {
-        lang: 'pt',
+        lang: localStorage.getItem('lang') || (document.documentElement.lang?.toLowerCase().startsWith('pt') ? 'pt' : 'en'),
         setLang(lang) {
             this.lang = lang;
             const data = translations[lang];
@@ -637,6 +637,7 @@
             });
             document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            try { localStorage.setItem('lang', lang); } catch {}
         },
         
         runHackerEffect(element) {
@@ -711,6 +712,8 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
+        // Apply persisted language and UI state
+        app.setLang(app.lang);
         app.runHackerEffect(document.getElementById("hacker-name"));
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
