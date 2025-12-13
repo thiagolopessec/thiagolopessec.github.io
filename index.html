@@ -71,6 +71,7 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
             background-color: var(--bg-body);
@@ -78,6 +79,12 @@
             font-family: 'Inter', system-ui, sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        a:focus-visible, button:focus-visible, .card:focus-visible {
+            outline: 2px solid var(--accent-secondary);
+            outline-offset: 3px;
+            border-radius: 6px;
         }
 
         h1, h2, h3, .mono, button, input, .badge, .code-font { 
@@ -100,6 +107,21 @@
             transition: all 0.2s;
         }
         .lang-btn.active { background: var(--border-color); color: var(--text-primary); }
+
+        /* Mini navigation for quick jumps */
+        .mini-nav {
+            display: flex; gap: 0.75rem; align-items: center;
+            flex-wrap: wrap; margin: 0 auto 1.5rem auto;
+            padding: 0.6rem 0.75rem; border: 1px solid var(--border-color);
+            border-radius: var(--radius-md); background: rgba(255,255,255,0.02);
+            position: sticky; top: 1rem; z-index: 10;
+        }
+        .mini-nav a {
+            color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
+            padding: 4px 8px; border-radius: 6px; transition: all 0.2s;
+        }
+        .mini-nav a:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
+        .mini-nav a.active-link { color: var(--accent-primary); background: rgba(16,185,129,0.12); }
 
         /* HEADER */
         header { 
@@ -278,6 +300,14 @@
         <button class="lang-btn" id="btn-en" onclick="app.setLang('en')">EN</button>
     </nav>
 
+    <nav class="mini-nav" aria-label="Navegação rápida">
+        <a href="#education">Edu/Cert</a>
+        <a href="#stack">Stack</a>
+        <a href="#projects">Projetos</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#lab">Lab</a>
+    </nav>
+
     <!-- HEADER -->
     <header class="reveal">
         <div class="profile-container">
@@ -310,7 +340,7 @@
     </header>
 
     <!-- EDUCATION & CERTIFICATION -->
-    <section class="reveal">
+    <section class="reveal" id="education">
         <div class="section-header">
             <h2 class="section-title mono" data-translate="edu_title">01. Formação & Certificações</h2>
             <div class="section-line"></div>
@@ -339,7 +369,7 @@
     </section>
 
     <!-- STACK -->
-    <section class="reveal">
+    <section class="reveal" id="stack">
         <div class="section-header">
             <h2 class="section-title mono" data-translate="stack_title">02. Tech Stack</h2>
             <div class="section-line"></div>
@@ -371,7 +401,7 @@
     </section>
 
     <!-- PROJECTS -->
-    <section class="reveal">
+    <section class="reveal" id="projects">
         <div class="section-header">
             <h2 class="section-title mono" data-translate="projects_title">03. Projetos</h2>
             <div class="section-line"></div>
@@ -402,7 +432,7 @@
     </section>
 
     <!-- ROADMAP (CRONOGRAMA REAL) -->
-    <section class="reveal">
+    <section class="reveal" id="roadmap">
         <div class="section-header">
             <h2 class="section-title mono" data-translate="roadmap_title">04. Jornada (Zero to Hero)</h2>
             <div class="section-line"></div>
@@ -460,7 +490,7 @@
     </section>
 
     <!-- LAB TOOL -->
-    <section class="reveal">
+    <section class="reveal" id="lab">
         <div class="section-header">
             <h2 class="section-title mono" data-translate="lab_title">05. Lab: Criptografia</h2>
             <div class="section-line"></div>
@@ -486,7 +516,7 @@
                     </button>
                 </div>
                 
-                <div class="mono" id="output_text" style="min-height: 20px; color: var(--text-secondary)">
+                <div class="mono" id="output_text" style="min-height: 20px; color: var(--text-secondary)" aria-live="polite" role="status">
                     // Awaiting Input...
                 </div>
             </div>
@@ -771,6 +801,33 @@
             });
         }, { threshold: 0.1 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        const outputEl = document.getElementById('output_text');
+        const inputEl = document.getElementById('input_text');
+        if (inputEl && outputEl) {
+            inputEl.addEventListener('input', () => {
+                outputEl.style.color = 'var(--text-secondary)';
+                outputEl.innerText = '// Awaiting Input...';
+            });
+        }
+
+        const miniLinks = Array.from(document.querySelectorAll('.mini-nav a'));
+        const spyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    miniLinks.forEach(link => {
+                        const target = link.getAttribute('href');
+                        const isActive = target === `#${entry.target.id}`;
+                        link.classList.toggle('active-link', isActive);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        miniLinks
+            .map(link => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean)
+            .forEach(section => spyObserver.observe(section));
     });
 </script>
 </body>
