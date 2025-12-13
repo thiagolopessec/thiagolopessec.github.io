@@ -72,12 +72,14 @@
 
         /* Light Theme Overrides */
         body[data-theme="light"] {
-            --bg-body: #f7f7f8;
-            --bg-card: #ffffff;
-            --bg-card-hover: #f2f2f3;
-            --text-primary: #0b0b0c;
-            --text-secondary: #3d3d41;
-            --border-color: #e4e4e7;
+            /* Calm security-light palette with high contrast */
+            --bg-body: #f5f7fa;           /* subtle blue-tinted white */
+            --bg-card: #ffffff;           /* pure white cards */
+            --bg-card-hover: #f3f6fb;     /* gentle hover */
+            --text-primary: #0f172a;      /* slate-900 */
+            --text-secondary: #475569;    /* slate-600 */
+            --border-color: #d4dbea;      /* soft cool border */
+            /* keep accents but they pop too much on light, soften visual via usage not value */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -200,9 +202,11 @@
             color: var(--accent-secondary); text-decoration: none; border-bottom: 1px dashed;
             pointer-events: auto; cursor: pointer; position: relative; z-index: 10;
         }
-        .project-link:hover {
-            opacity: 0.8; text-decoration: underline;
-        }
+        .project-link:hover { opacity: 0.85; text-decoration: underline; }
+
+        /* Light theme card shadow tweak for comfort */
+        body[data-theme="light"] .card { box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06); }
+        body[data-theme="light"] .card:hover { box-shadow: 0 6px 22px rgba(15, 23, 42, 0.12); }
 
         /* TIMELINE */
         .timeline { 
