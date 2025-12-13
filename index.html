@@ -321,9 +321,10 @@
             <div class="card edu-card">
                 <div class="card-icon">🎓</div>
                 <h3 data-translate="edu_1_title">Análise e Desenvolvimento de Sistemas</h3>
-                <p data-translate="edu_1_desc">FADERGS (Previsão: 2026). Foco em arquitetura de software, redes e segurança da informação.</p>
+                <p data-translate="edu_1_desc">FADERGS. Foco em arquitetura de software, redes e segurança da informação.</p>
                 <div class="tags">
-                    <span class="tag" style="color: var(--accent-purple)">Em Curso</span>
+                    <!-- ALTERAÇÃO AQUI: ID ADICIONADO PARA O CONTADOR -->
+                    <span id="grad-counter" class="tag" style="color: var(--accent-purple); font-weight: bold;">Calculando...</span>
                 </div>
             </div>
             <div class="card">
@@ -535,7 +536,7 @@
             
             edu_title: "01. Formação & Certificações",
             edu_1_title: "Análise e Desenvolvimento de Sistemas",
-            edu_1_desc: "FADERGS (Previsão: 2026). Foco em arquitetura de software, redes e segurança da informação.",
+            edu_1_desc: "FADERGS. Foco em arquitetura de software, redes e segurança da informação.",
             edu_2_title: "Certificações Profissionais",
             edu_2_desc: "Foco atual em certificações de entrada e fundamentos de segurança (Security+, LGPD).",
             
@@ -585,7 +586,7 @@
             
             edu_title: "01. Education & Certs",
             edu_1_title: "Systems Analysis & Development",
-            edu_1_desc: "FADERGS (Forecast: 2026). Focus on software architecture, networks, and info security.",
+            edu_1_desc: "FADERGS. Focus on software architecture, networks, and info security.",
             edu_2_title: "Professional Certifications",
             edu_2_desc: "Current focus on entry-level security certifications and fundamentals (Security+, GDPR).",
             
@@ -643,8 +644,35 @@
             document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             try { localStorage.setItem('lang', lang); } catch {}
+            
+            // Atualiza o contador ao trocar de idioma
+            this.updateGraduationCountdown();
         },
         
+        // NOVA FUNÇÃO: CONTADOR REGRESSIVO
+        updateGraduationCountdown() {
+            const targetDate = new Date('2026-02-09T00:00:00');
+            const now = new Date();
+            const difference = targetDate - now;
+            const el = document.getElementById('grad-counter');
+            
+            if (!el) return;
+
+            if (difference <= 0) {
+                el.innerText = this.lang === 'pt' ? "Concluído!" : "Graduated!";
+                return;
+            }
+
+            const daysLeft = Math.ceil(difference / (1000 * 60 * 60 * 24));
+            
+            // Formatação baseada no idioma
+            if (this.lang === 'pt') {
+                el.innerText = `⏳ Faltam ${daysLeft} dias`;
+            } else {
+                el.innerText = `⏳ ${daysLeft} days left`;
+            }
+        },
+
         runHackerEffect(element) {
             const originalText = element.dataset.value;
             const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -731,6 +759,10 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Apply persisted language and UI state
         app.setLang(app.lang);
+        
+        // Garante que o contador rode na inicialização
+        app.updateGraduationCountdown(); 
+
         app.runHackerEffect(document.getElementById("hacker-name"));
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
