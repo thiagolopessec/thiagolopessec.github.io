@@ -378,7 +378,7 @@
             <!-- ⭐ DESTAQUE: PROJETO DO PORT SCANNER PYTHON (FERRAMENTA DE REDE) ⭐ -->
             <div class="card" style="border-left: 4px solid var(--accent-primary); box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%);">
                 <h3 style="color: var(--accent-primary); font-size: 1.2rem;">🔍 Port Scanner Python</h3>
-                <p data-translate="proj_1_desc">Referência interativa de conceitos Python desenvolvida como ferramenta de estudo e consulta rápida.</p>
+                <p data-translate="proj_1_desc">Ferramenta Python para escanear portas de hosts na rede, identificar serviços ativos e mapear potenciais vulnerabilidades de segurança.</p>
                 <div class="tags" style="margin-top: auto;">
                     <span class="tag" style="background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-primary); color: var(--accent-primary);">Web App</span>
                     <span class="tag" style="background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-primary); color: var(--accent-primary);">Front-end</span>
@@ -542,7 +542,7 @@
             skill_3_desc: "Estudos práticos com Wazuh (SIEM) e monitoramento de endpoints em ambiente controlado.",
             
             projects_title: "03. Projetos",
-            proj_1_desc: "Referência interativa de conceitos Python desenvolvida como ferramenta de estudo e consulta rápida.",
+            proj_1_desc: "Ferramenta Python para escanear portas de hosts na rede, identificar serviços ativos e mapear potenciais vulnerabilidades de segurança.",
             proj_2_desc: "Ambiente dockerizado rodando Wazuh Manager e Agentes para simulação de detecção de ameaças.",
             
             // ROADMAP REAL
@@ -592,7 +592,7 @@
             skill_3_desc: "Practical studies with Wazuh (SIEM) and endpoint monitoring in a controlled environment.",
             
             projects_title: "03. Projects",
-            proj_1_desc: "Interactive reference for Python concepts developed as a study and quick lookup tool.",
+            proj_1_desc: "Python tool to scan network host ports, identify active services and map potential security vulnerabilities.",
             proj_2_desc: "Dockerized environment running Wazuh Manager and Agents for threat detection simulation.",
             
             // ROADMAP REAL EN
@@ -679,12 +679,18 @@
 
         encrypt() {
             const input = document.getElementById('input_text').value;
-            const shift = document.getElementById('shift_amount').value;
+            let shift = parseInt(document.getElementById('shift_amount').value) || 0;
             const t = translations[this.lang];
             const out = document.getElementById('output_text');
             
             if(!input) {
                 out.innerText = t.out_empty;
+                out.style.color = 'var(--accent-alert)';
+                return;
+            }
+            
+            if(isNaN(shift) || shift < 0 || shift > 25) {
+                out.innerText = 'ERRO: Shift deve estar entre 0 e 25';
                 out.style.color = 'var(--accent-alert)';
                 return;
             }
@@ -696,12 +702,18 @@
 
         decrypt() {
             const input = document.getElementById('input_text').value;
-            const shift = document.getElementById('shift_amount').value;
+            let shift = parseInt(document.getElementById('shift_amount').value) || 0;
             const t = translations[this.lang];
             const out = document.getElementById('output_text');
             
             if(!input) {
                 out.innerText = t.out_empty;
+                out.style.color = 'var(--accent-alert)';
+                return;
+            }
+            
+            if(isNaN(shift) || shift < 0 || shift > 25) {
+                out.innerText = 'ERRO: Shift deve estar entre 0 e 25';
                 out.style.color = 'var(--accent-alert)';
                 return;
             }
