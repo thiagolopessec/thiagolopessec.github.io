@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dicionário Python</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="header section">
+    <h1>Dicionário Python</h1>
+    <div class="language-switch">
+      <button class="btn" onclick="app.setLang('pt')">PT</button>
+      <button class="btn-alt" onclick="app.setLang('en')">EN</button>
+    </div>
+  </header>
+  <section class="section">
+    <input id="search" class="card" placeholder="Buscar..." aria-label="Buscar termo" />
+    <div id="results" class="section"></div>
+  </section>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/dicionario.js"></script>
+</body>
+</html>

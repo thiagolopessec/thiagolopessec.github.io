@@ -1,0 +1,26 @@
+/* Legacy theme stylesheet for dictionary and alternate pages */
+:root {
+  --bg: #0a0a0b;
+  --card-bg: #121214;
+  --text: #ededed;
+  --text-muted: #a1a1aa;
+  --primary: #10b981;
+  --secondary: #3b82f6;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg); color: var(--text);
+}
+.header { padding: 24px; }
+.section { padding: 24px; max-width: 960px; margin: 0 auto; }
+.card { background: var(--card-bg); border-radius: 12px; padding: 16px; border: 1px solid #1c1c1f; }
+.btn { background: var(--primary); color: #000; border: none; padding: 10px 14px; border-radius: 8px; cursor: pointer; }
+.btn-alt { background: var(--secondary); color: #fff; border: none; padding: 10px 14px; border-radius: 8px; cursor: pointer; }
+.language-switch { display: flex; gap: 8px; }
+
+/* Utility for results */
+.result-card { margin: 12px 0; }
+.pitfall { color: #fca5a5; white-space: pre-wrap; }
+.example { color: #93c5fd; white-space: pre-wrap; }
