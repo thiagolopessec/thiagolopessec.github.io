@@ -70,18 +70,6 @@
             --radius-lg: 12px;
         }
 
-        /* Light Theme Overrides */
-        body[data-theme="light"] {
-            /* Calm security-light palette with high contrast */
-            --bg-body: #f5f7fa;           /* subtle blue-tinted white */
-            --bg-card: #ffffff;           /* pure white cards */
-            --bg-card-hover: #f3f6fb;     /* gentle hover */
-            --text-primary: #0f172a;      /* slate-900 */
-            --text-secondary: #475569;    /* slate-600 */
-            --border-color: #d4dbea;      /* soft cool border */
-            /* keep accents but they pop too much on light, soften visual via usage not value */
-        }
-
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
@@ -112,8 +100,6 @@
             transition: all 0.2s;
         }
         .lang-btn.active { background: var(--border-color); color: var(--text-primary); }
-        .theme-btn { background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 4px 10px; cursor: pointer; font-size: 0.75rem; border-radius: var(--radius-md); transition: all 0.2s; }
-        .theme-btn:hover { color: var(--text-primary); }
 
         /* HEADER */
         header { 
@@ -204,10 +190,6 @@
         }
         .project-link:hover { opacity: 0.85; text-decoration: underline; }
 
-        /* Light theme card shadow tweak for comfort */
-        body[data-theme="light"] .card { box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06); }
-        body[data-theme="light"] .card:hover { box-shadow: 0 6px 22px rgba(15, 23, 42, 0.12); }
-
         /* TIMELINE */
         .timeline { 
             position: relative; border-left: 2px solid var(--border-color); 
@@ -294,7 +276,6 @@
     <nav class="lang-switch">
         <button class="lang-btn active" id="btn-pt" onclick="app.setLang('pt')">PT</button>
         <button class="lang-btn" id="btn-en" onclick="app.setLang('en')">EN</button>
-        <button class="theme-btn" id="btn-theme" aria-label="Alternar tema" onclick="app.toggleTheme()">Light</button>
     </nav>
 
     <!-- HEADER -->
@@ -651,7 +632,6 @@
 
     const app = {
         lang: localStorage.getItem('lang') || (document.documentElement.lang?.toLowerCase().startsWith('pt') ? 'pt' : 'en'),
-        theme: localStorage.getItem('theme') || 'dark',
         setLang(lang) {
             this.lang = lang;
             const data = translations[lang];
@@ -665,23 +645,6 @@
             
             // Atualiza o contador ao trocar de idioma
             this.updateGraduationCountdown();
-        },
-        applyTheme() {
-            const body = document.body;
-            if (this.theme === 'light') {
-                body.setAttribute('data-theme', 'light');
-                const btn = document.getElementById('btn-theme');
-                if (btn) btn.textContent = 'Dark';
-            } else {
-                body.removeAttribute('data-theme');
-                const btn = document.getElementById('btn-theme');
-                if (btn) btn.textContent = 'Light';
-            }
-            try { localStorage.setItem('theme', this.theme); } catch {}
-        },
-        toggleTheme() {
-            this.theme = (this.theme === 'light') ? 'dark' : 'light';
-            this.applyTheme();
         },
         
         // NOVA FUNÇÃO: CONTADOR REGRESSIVO
@@ -794,7 +757,6 @@
     document.addEventListener('DOMContentLoaded', () => {
         // Apply persisted language and UI state
         app.setLang(app.lang);
-        app.applyTheme();
         
         // Garante que o contador rode na inicialização
         app.updateGraduationCountdown(); 
