@@ -186,6 +186,10 @@
         .project-link {
             display: inline-block; margin-top: 1rem; font-size: 0.8rem;
             color: var(--accent-secondary); text-decoration: none; border-bottom: 1px dashed;
+            pointer-events: auto; cursor: pointer; position: relative; z-index: 10;
+        }
+        .project-link:hover {
+            opacity: 0.8; text-decoration: underline;
         }
 
         /* TIMELINE */
