@@ -6,55 +6,59 @@
 
 ---
 
-## 🚨 O Diferencial: Do Trauma ao Terminal
+## 🧭 Identidade: De Ambiente Crítico (Saúde) para Operações de Segurança (SOC)
 
-Trago **12 anos de experiência em Urgência e Emergência (PACS)** para a Segurança da Informação.
-O meu *mindset* não foi formado em bootcamps, mas na linha de frente da Saúde Pública e na gestão de crise da COVID-19.
+Sou profissional em transição para **Cibersegurança** com foco em **Blue Team / Security Operations (SOC)**, trazendo **15 anos de experiência em Urgência e Emergência (PACS — SUS / Porto Alegre)**.
 
-**A minha stack transferível:**
-* **Triagem de Risco:** Capacidade de classificar e priorizar incidentes críticos sob pressão extrema.
-* **Protocolos Rígidos:** Adesão radical a procedimentos operacionais (SOPs) para mitigação de danos.
-* **Resiliência:** Operação contínua em ambientes de alta complexidade e stress.
+Meu *mindset* não foi construído em cenários ideais: foi formado em **ambientes críticos**, com **alta pressão**, **recursos limitados** e **decisões rápidas e responsáveis**.
 
-*Atualmente migrando de salvar vidas biológicas para proteger ativos digitais.*
+**Competências transferíveis (Healthcare -> Cyber):**
+- **Triagem de risco:** priorização de incidentes e tomada de decisão com informação incompleta.  
+- **Disciplina operacional:** aderência a procedimentos (SOPs), rastreabilidade e comunicação objetiva.  
+- **Gestão de crise:** atuação sob pressão, foco em contenção e continuidade do serviço.  
+
+> Migrando de sustentar sistemas críticos na saúde para **proteger ativos digitais** e **reduzir risco operacional**.
 
 ---
 
-## 🛠️ Tech Stack & Arsenal
-
-O meu foco é **Defesa, Monitoramento e Automação**.
+## 🧰 Tech Stack (Foco: Defesa, Monitoramento e Automação)
 
 | Área | Tecnologias & Ferramentas |
 | :--- | :--- |
-| **🛡️ Blue Team** | **Wazuh (SIEM)**, Análise de Logs, Threat Hunting (Básico), Mitre ATT&CK |
-| **🐍 Automação** | **Python**, Bash Scripting, Regex, Integração de APIs (Discord/Notion) |
-| **🐳 Infra** | **Docker**, Linux Hardening, Redes TCP/IP |
-| **📜 Compliance** | LGPD Foundation, Governança de Dados |
+| **🛡️ Blue Team / SOC** | **Wazuh (SIEM)**, Análise de Logs, Triage de Alertas, MITRE ATT&CK (fundamentos) |
+| **🐍 Automação** | **Python**, Bash, Regex, integração com APIs/Webhooks |
+| **🐧 Linux & Redes** | Linux fundamentals, TCP/IP, troubleshooting, hardening básico |
+| **📜 Governança** | LGPD (fundamentos), boas práticas de segurança e organização de evidências |
 
 ---
 
-## ⚡ Projetos Ativos
+## ⚙️ Projetos Ativos (Hands-on)
 
-Projetos desenhados para provar competência prática, não apenas teórica.
+Projetos desenhados para demonstrar **capacidade operacional** e **evolução técnica**.
 
 | Projeto | Stack | Status | Descrição |
 | :--- | :--- | :--- | :--- |
-| **[Wazuh Home Lab]** | Docker, ELK, Wazuh | 🟡 Em Dev | Infraestrutura completa de SIEM simulando detecção de ataques e ingestão de logs. |
-| **[Port Scanner]** | Python, Sockets | 🟢 Concluído | CLI para reconhecimento de rede, validação de portas e mapeamento de superfície. |
-| **[Crypto Lab]** | Python, Algoritmos | 🟡 Em Dev | Implementação de cifras clássicas (César) e ferramentas de hash para estudo de criptografia. |
-| **[Log Parser Bot]** | Python, Regex | 🚧 Em Breve | Bot para sanitização e alerta de logs críticos via Webhook. |
+| **Wazuh Home Lab** | Docker, Wazuh, Logs | 🟡 Em Dev | Lab para ingestão de logs, simulação de alertas e estudo de detecção baseada em eventos. |
+| **Port Scanner (Python)** | Python, Sockets | 🟢 Concluído | Descoberta de serviços e inventário básico, apoiando análise de superfície de ataque e hardening em ambiente controlado. |
+| **Crypto Lab (César)** | Python | 🟡 Em Dev | Implementação de cifra clássica para reforçar fundamentos e lógica aplicada. |
+| **Log Parser / Alert Bot** | Python, Regex, Webhook | 🚧 Em Breve | Parsing e sanitização de logs com alertas via webhook (uso defensivo em lab). |
 
 ---
 
-## 🗺️ Roadmap Tático (Zero to Hero)
+## 🗺️ Roadmap — Google Cybersecurity Certificate (Coursera)
 
-Acompanhe a minha evolução técnica em tempo real.
+Estou seguindo o **Google Cybersecurity Certificate (Coursera)** como trilha estruturada (8 cursos), com foco em construir base sólida para **SOC / Blue Team**.
 
-- [ ] **Fase 1: Fundamentos** (Lógica Python, Networking TCP/IP)
-- [ ] **Fase 2: Reconnaissance** (Scripting de Scanners, Bash)
-- [ ] **Fase 3: SIEM & Observabilidade** (Wazuh Deploy, Log Pipeline) 🔄 *Em Execução*
-- [ ] **Fase 4: Purple Teaming** (Ataque controlado vs Resposta a Incidente)
-- [ ] **🎓 Graduação ADS** (Previsão: Fev/2026)
+- [ ] **Curso 1/8 — Foundations of Cybersecurity** 🔄 *Em execução*
+- [ ] **Curso 2/8 — Play It Safe: Manage Security Risks**
+- [ ] **Curso 3/8 — Connect and Protect: Networks and Network Security**
+- [ ] **Curso 4/8 — Tools of the Trade: Linux and SQL**
+- [ ] **Curso 5/8 — Assets, Threats, and Vulnerabilities**
+- [ ] **Curso 6/8 — Sound the Alarm: Detection and Response**
+- [ ] **Curso 7/8 — Automate Cybersecurity Tasks with Python**
+- [ ] **Curso 8/8 — Put It to Work: Prepare for Cybersecurity Jobs**
+
+🎓 **ADS (FADERGS):** em andamento.
 
 ---
 
@@ -67,10 +71,10 @@ Acompanhe a minha evolução técnica em tempo real.
 
 ---
 
-### 📫 Contato Operacional
+## 📫 Contato
 
-Estou aberto a oportunidades de estágio ou Jr em SOC/NOC onde a **disciplina operacional** seja valorizada.
+Estou aberto a oportunidades **Jr / Estágio** em **SOC / Blue Team / Security Operations**, onde **disciplina operacional**, **triagem de risco** e **capacidade de resposta** sejam valorizadas.
 
-* 🌐 **Portfolio Interativo:** [thiagolopessec.github.io](https://thiagolopessec.github.io/)
-* 💼 **LinkedIn:** [linkedin.com/in/thiagolopessec](https://linkedin.com/in/thiagolopessec)
-* 📧 **Email:** tlopes.dev@gmail.com
+- 🌐 **Portfolio:** https://thiagolopessec.github.io/
+- 💼 **LinkedIn:** https://linkedin.com/in/thiagolopessec
+- 📧 **Email:** tlopes.dev@gmail.com
