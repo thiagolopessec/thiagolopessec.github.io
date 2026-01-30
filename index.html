@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <!-- 
-    ========================================================================
-    🛡️ PORTFÓLIO: THIAGO LOPES — BLUE TEAM / SECURITY OPERATIONS
-
-    CONTEXTO PROFISSIONAL (HEALTHCARE -> CYBER):
-    - 15 anos em Urgência/Emergência (PACS) — Porto Alegre (SUS)
-    - Ambiente crítico, alta pressão, recursos limitados, decisões rápidas e responsáveis
-    - Disciplina operacional, triagem de risco e gestão de crise
-
-    FOCO ATUAL:
-    - Blue Team / SOC (Detecção, Resposta e Melhoria Contínua)
-    - Automação com Python (ferramentas e scripts auxiliares)
-    - SIEM/Wazuh (lab e estudos práticos)
-    - Google Cybersecurity Certificate (Coursera) — Roadmap 8 cursos
-
-    Contato: tlopes.dev@gmail.com
-    ========================================================================
+====================================================================
+🛡️ THIAGO LOPES — BLUE TEAM / SECURITY OPERATIONS PORTFOLIO
+- PT/EN toggle
+- Recruiter-friendly UX + visual refinements
+- Roadmap: Google Cybersecurity Certificate (Coursera) — 8 courses
+- Print-friendly mode (@media print)
+====================================================================
 -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- SEO & Identity -->
+  <!-- SEO -->
   <title>Thiago Lopes | Blue Team & Security Ops</title>
   <meta name="description" content="Portfólio de Thiago Lopes — Blue Team, Security Operations, automação Python e SIEM (Wazuh). Roadmap: Google Cybersecurity Certificate (Coursera)." />
   <meta name="author" content="Thiago Lopes" />
@@ -31,8 +22,8 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thiagolopessec.github.io/" />
-  <meta property="og:title" content="Thiago Lopes | Cyber Security Portfolio" />
-  <meta property="og:description" content="Blue Team Ops, automação Python e SIEM (Wazuh). Confira projetos, labs e jornada no Google Cybersecurity Certificate." />
+  <meta property="og:title" content="Thiago Lopes | Blue Team & Security Ops" />
+  <meta property="og:description" content="Blue Team Ops, automação Python e SIEM (Wazuh). Projetos, labs e jornada no Google Cybersecurity Certificate." />
   <meta property="og:image" content="https://github.com/thiagolopessec.png" />
   <meta property="og:locale" content="pt_BR" />
 
@@ -45,973 +36,1254 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
 
   <style>
-    :root {
-      --bg-body: #0a0a0b;
-      --bg-card: #121214;
-      --bg-card-hover: #1c1c1f;
+    :root{
+      /* Dashboard palette */
+      --bg-body:#0a0a0b;
+      --bg-card:#121214;
+      --bg-card-hover:#1c1c1f;
 
-      --text-primary: #ededed;
-      --text-secondary: #a1a1aa;
+      --text-primary:#ededed;
+      --text-secondary:#a1a1aa;
 
-      --accent-primary: #10b981; /* Emerald */
-      --accent-secondary: #3b82f6; /* Blue */
-      --accent-purple: #8b5cf6; /* Purple */
-      --accent-alert: #ef4444;
+      --accent-primary:#10b981; /* emerald */
+      --accent-secondary:#3b82f6; /* blue */
+      --accent-purple:#8b5cf6; /* purple */
+      --accent-alert:#ef4444;
 
-      --border-color: #27272a;
-      --radius-md: 8px;
-      --radius-lg: 12px;
+      --border-color:#27272a;
+      --radius-md:10px;
+      --radius-lg:14px;
+
+      --shadow-lg: 0 14px 38px -18px rgba(0,0,0,0.7);
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background-color: var(--bg-body);
-      color: var(--text-primary);
-      font-family: 'Inter', system-ui, sans-serif;
-      line-height: 1.6;
-      overflow-x: hidden;
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--bg-body);
+      color:var(--text-primary);
+      font-family:'Inter',system-ui,sans-serif;
+      line-height:1.7;
+      overflow-x:hidden;
     }
 
-    a:focus-visible, button:focus-visible, .card:focus-visible {
-      outline: 2px solid var(--accent-secondary);
-      outline-offset: 3px;
-      border-radius: 6px;
+    h1,h2,h3,.mono,button,input,.tag{
+      font-family:'JetBrains Mono',monospace;
     }
 
-    h1, h2, h3, .mono, button, input, .badge, .code-font {
-      font-family: 'JetBrains Mono', monospace;
+    a{color:inherit}
+    a:focus-visible,button:focus-visible,.card:focus-visible{
+      outline:2px solid var(--accent-secondary);
+      outline-offset:3px;
+      border-radius:8px;
     }
 
-    .container { max-width: 1000px; margin: 0 auto; padding: 2rem; position: relative; }
-    .grid { display: grid; gap: 1.5rem; }
-    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .container{max-width:1020px;margin:0 auto;padding:2rem;position:relative}
 
-    /* Lang Switch */
-    .lang-switch {
-      position: absolute; top: 1.5rem; right: 2rem;
-      display: flex; gap: 8px; z-index: 20;
+    /* Language switch */
+    .lang-switch{
+      position:absolute; top:1.25rem; right:2rem;
+      display:flex; gap:8px; z-index:30;
     }
-    .lang-btn {
-      background: transparent; border: 1px solid var(--border-color);
-      color: var(--text-secondary); padding: 4px 10px;
-      cursor: pointer; font-size: 0.75rem; border-radius: var(--radius-md);
-      transition: all 0.2s;
+    .lang-btn{
+      background:transparent;
+      border:1px solid var(--border-color);
+      color:var(--text-secondary);
+      padding:6px 10px;
+      cursor:pointer;
+      font-size:0.75rem;
+      border-radius:var(--radius-md);
+      transition:all .18s ease;
     }
-    .lang-btn.active { background: var(--border-color); color: var(--text-primary); }
+    .lang-btn:hover{border-color:rgba(255,255,255,0.18); color:var(--text-primary)}
+    .lang-btn.active{background:rgba(255,255,255,0.05); color:var(--text-primary)}
 
-    /* Mini navigation */
-    .mini-nav {
-      display: flex; gap: 0.75rem; align-items: center;
-      flex-wrap: wrap; margin: 0 auto 1.5rem auto;
-      padding: 0.6rem 0.75rem; border: 1px solid var(--border-color);
-      border-radius: var(--radius-md); background: rgba(255,255,255,0.02);
-      position: sticky; top: 1rem; z-index: 10;
+    /* Sticky mini nav */
+    .mini-nav{
+      display:flex; gap:.6rem; align-items:center; flex-wrap:wrap;
+      margin:0 auto 1.25rem auto;
+      padding:.65rem .75rem;
+      border:1px solid var(--border-color);
+      border-radius:var(--radius-md);
+      background:rgba(255,255,255,0.02);
+      position:sticky; top:1rem; z-index:20;
+      backdrop-filter: blur(6px);
     }
-    .mini-nav a {
-      color: var(--text-secondary); text-decoration: none; font-size: 0.85rem;
-      padding: 4px 8px; border-radius: 6px; transition: all 0.2s;
+    .mini-nav a{
+      color:var(--text-secondary);
+      text-decoration:none;
+      font-size:.85rem;
+      padding:5px 9px;
+      border-radius:8px;
+      transition:all .18s ease;
     }
-    .mini-nav a:hover { color: var(--text-primary); background: rgba(255,255,255,0.04); }
-    .mini-nav a.active-link { color: var(--accent-primary); background: rgba(16,185,129,0.12); }
+    .mini-nav a:hover{color:var(--text-primary); background:rgba(255,255,255,0.04)}
+    .mini-nav a.active-link{color:var(--accent-primary); background:rgba(16,185,129,0.12)}
 
-    /* HEADER */
-    header {
-      display: flex; flex-direction: column; align-items: center; text-align: center;
-      padding: 5rem 0 3rem; border-bottom: 1px solid var(--border-color); margin-bottom: 4rem;
-    }
+    /* Grid */
+    .grid{display:grid; gap:1.2rem}
+    .grid-2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
 
-    .profile-container { position: relative; width: 120px; height: 120px; margin-bottom: 1.5rem; }
-    .profile-img {
-      width: 100%; height: 100%; border-radius: 50%;
-      object-fit: cover; border: 2px solid var(--border-color);
-      z-index: 2; position: relative; background: var(--bg-card);
-    }
-
-    .status-ring {
-      position: absolute; inset: -4px; border-radius: 50%;
-      border: 2px solid transparent; border-top-color: var(--accent-primary);
-      border-right-color: var(--accent-primary);
-      animation: spin 3s linear infinite; z-index: 1; opacity: 0.7;
-    }
-    @keyframes spin { 100% { transform: rotate(360deg); } }
-
-    h1 {
-      font-size: 2.5rem; font-weight: 800; letter-spacing: -0.05em; margin-bottom: 0.5rem;
-      background: linear-gradient(to right, #fff, #a1a1aa);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    /* Header */
+    header{
+      display:flex; flex-direction:column; align-items:center; text-align:center;
+      padding:5.25rem 0 3.25rem;
+      border-bottom:1px solid var(--border-color);
+      margin-bottom:3.25rem;
     }
 
-    .tagline {
-      color: var(--accent-primary); font-size: 0.9rem;
-      background: rgba(16, 185, 129, 0.1); padding: 4px 12px;
-      border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.2);
-      margin-bottom: 1.5rem; display: inline-block;
+    .profile-container{position:relative; width:118px; height:118px; margin-bottom:1.25rem}
+    .profile-img{
+      width:100%; height:100%;
+      border-radius:50%;
+      object-fit:cover;
+      border:2px solid var(--border-color);
+      background:var(--bg-card);
+      position:relative; z-index:2;
+    }
+    .status-ring{
+      position:absolute; inset:-5px; border-radius:50%;
+      border:2px solid transparent;
+      border-top-color:var(--accent-primary);
+      border-right-color:var(--accent-primary);
+      opacity:.65;
+      animation:spin 4.2s linear infinite;
+      z-index:1;
+    }
+    @keyframes spin{100%{transform:rotate(360deg)}}
+
+    h1{
+      font-size:2.55rem;
+      font-weight:800;
+      letter-spacing:-0.05em;
+      margin-bottom:.55rem;
+      background:linear-gradient(to right,#fff,#a1a1aa);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    .social-nav { display: flex; gap: 1rem; margin-top: 1rem; }
-    .social-link {
-      color: var(--text-secondary); text-decoration: none; font-size: 1.05rem;
-      transition: color 0.2s; display: flex; align-items: center; gap: 0.5rem;
-    }
-    .social-link:hover { color: var(--text-primary); }
-
-    /* SECTIONS */
-    section { margin-bottom: 5rem; }
-    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-    .section-title { font-size: 1.5rem; color: var(--text-primary); }
-    .section-line { flex-grow: 1; height: 1px; background: var(--border-color); }
-
-    /* CARDS */
-    .card {
-      background: var(--bg-card); border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg); padding: 1.5rem;
-      transition: all 0.2s ease; display: flex; flex-direction: column; height: 100%;
-    }
-    .card:hover {
-      border-color: var(--accent-secondary); transform: translateY(-2px);
-      box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+    .tagline{
+      color:var(--accent-primary);
+      font-size:0.9rem;
+      background:rgba(16,185,129,0.11);
+      padding:6px 14px;
+      border-radius:999px;
+      border:1px solid rgba(16,185,129,0.22);
+      display:inline-block;
+      margin-bottom:.9rem;
     }
 
-    .card-icon { font-size: 1.5rem; margin-bottom: 1rem; }
-    .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-primary); }
-    .card p { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; flex-grow: 1; }
-
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 1rem; }
-    .tag {
-      font-size: 0.75rem; padding: 2px 8px; border-radius: 4px;
-      background: rgba(255,255,255,0.05); color: var(--text-secondary);
-      font-family: 'JetBrains Mono', monospace;
+    .subtitle{
+      color:var(--text-secondary);
+      font-size:.92rem;
+      max-width:860px;
+      line-height:1.75;
+      margin-bottom:1.05rem;
     }
 
-    /* EDUCATION special */
-    .edu-card {
-      border-left: 3px solid var(--accent-purple);
-      background: linear-gradient(90deg, rgba(139, 92, 246, 0.05) 0%, transparent 100%);
+    .pill-row{
+      display:flex; flex-wrap:wrap; justify-content:center;
+      gap:8px; margin:.25rem 0 1rem;
+    }
+    .pill{
+      font-size:.74rem;
+      padding:4px 10px;
+      border:1px solid var(--border-color);
+      border-radius:999px;
+      color:var(--text-secondary);
+      background:rgba(255,255,255,0.02);
+      font-family:'JetBrains Mono',monospace;
     }
 
-    /* PROJECT LINKS */
-    .project-link {
-      display: inline-block; margin-top: 1rem; font-size: 0.8rem;
-      color: var(--accent-secondary); text-decoration: none; border-bottom: 1px dashed;
-      pointer-events: auto; cursor: pointer; position: relative; z-index: 10;
+    .cta{
+      margin-top:.35rem;
+      display:flex; gap:.75rem; flex-wrap:wrap; justify-content:center;
     }
-    .project-link:hover { opacity: 0.85; text-decoration: underline; }
+    .cta a{
+      text-decoration:none;
+      border:1px solid var(--border-color);
+      padding:.7rem 1rem;
+      border-radius:var(--radius-md);
+      font-size:.85rem;
+      color:var(--text-primary);
+      background:rgba(255,255,255,0.02);
+      transition:all .18s ease;
+      display:inline-flex; gap:.5rem; align-items:center;
+    }
+    .cta a:hover{border-color:rgba(16,185,129,0.6); color:var(--accent-primary)}
+    .cta a.primary{
+      border-color:rgba(16,185,129,0.35);
+      background:rgba(16,185,129,0.08);
+    }
+    .cta a.primary:hover{border-color:rgba(16,185,129,0.8)}
 
-    /* TIMELINE */
-    .timeline { position: relative; border-left: 2px solid var(--border-color); margin-left: 1rem; padding-left: 2rem; }
-    .timeline-item { position: relative; margin-bottom: 2.25rem; }
-    .timeline-item:last-child { margin-bottom: 0; }
+    .social-nav{display:flex; gap:1rem; margin-top:1.05rem; flex-wrap:wrap; justify-content:center}
+    .social-link{
+      color:var(--text-secondary);
+      text-decoration:none;
+      font-size:1.02rem;
+      transition:color .18s ease;
+    }
+    .social-link:hover{color:var(--text-primary)}
+    .sep{color:var(--border-color)}
 
-    .timeline-marker {
-      position: absolute; left: -2.6rem; top: 0;
-      width: 1.2rem; height: 1.2rem; border-radius: 50%;
-      background: var(--bg-body); border: 2px solid var(--border-color);
-      display: grid; place-items: center; font-size: 0.7rem; z-index: 2; transition: all 0.3s;
+    /* Sections */
+    section{margin-bottom:4rem}
+    section.alt{
+      padding:2.25rem 0;
+      border-top:1px solid rgba(255,255,255,0.02);
+      border-bottom:1px solid rgba(255,255,255,0.02);
+      background:rgba(255,255,255,0.015);
+      border-radius:var(--radius-lg);
+    }
+    .section-header{
+      display:flex; align-items:center; gap:1rem;
+      margin-bottom:1.6rem;
+      padding:0 0.2rem;
+    }
+    .section-title{font-size:1.45rem; color:var(--text-primary)}
+    .section-line{flex-grow:1; height:1px; background:var(--border-color)}
+    .section-kicker{
+      font-size:.75rem;
+      color:var(--text-secondary);
+      border:1px solid var(--border-color);
+      padding:3px 8px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.02);
+      margin-left:auto;
+      font-family:'JetBrains Mono',monospace;
     }
 
-    .timeline-item.done .timeline-marker {
-      border-color: var(--accent-primary); color: var(--accent-primary); background: rgba(16, 185, 129, 0.1);
+    /* Cards */
+    .card{
+      background:var(--bg-card);
+      border:1px solid var(--border-color);
+      border-radius:var(--radius-lg);
+      padding:1.4rem;
+      transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+      display:flex; flex-direction:column; height:100%;
     }
-    .timeline-item.active .timeline-marker {
-      border-color: var(--accent-primary); color: var(--accent-primary);
-      box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2); animation: pulse 2s infinite;
+    .card:hover{
+      border-color:rgba(59,130,246,0.7);
+      transform:translateY(-2px);
+      box-shadow:var(--shadow-lg);
     }
-    .timeline-item.future .timeline-marker { border-color: var(--text-secondary); opacity: 0.5; }
+    .card-icon{font-size:1.5rem; margin-bottom:.9rem}
+    .card h3{font-size:1.05rem; margin-bottom:.45rem}
+    .card p{font-size:.92rem; color:var(--text-secondary); line-height:1.55; flex:1}
 
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-      70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
-    }
-
-    .timeline-content h3 { font-size: 1rem; margin-bottom: 0.25rem; }
-    .timeline-content span { font-size: 0.75rem; display: block; margin-bottom: 0.5rem; font-weight: bold; }
-    .timeline-content p { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
-
-    .timeline-dates {
-      font-size: 0.75rem; color: var(--text-secondary); opacity: 0.7;
-      font-family: 'JetBrains Mono', monospace; margin-bottom: 0.5rem;
-      display: inline-block; padding: 2px 6px; border: 1px solid var(--border-color);
-      border-radius: 4px;
-    }
-
-    /* CERT BADGES */
-    .roadmap-cert {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 4px; padding: 4px 8px; margin-top: 8px;
-      font-size: 0.75rem; color: var(--accent-primary); font-family: 'JetBrains Mono', monospace;
-    }
-    .roadmap-cert::before { content: '🎯'; font-size: 0.9rem; }
-
-    .roadmap-cert.pending {
-      background: rgba(255, 255, 255, 0.05); border-color: var(--border-color);
-      color: var(--text-secondary); filter: grayscale(1);
+    .card-footer{margin-top:auto}
+    .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:1rem}
+    .tag{
+      font-size:.74rem;
+      padding:3px 9px;
+      border-radius:7px;
+      background:rgba(255,255,255,0.05);
+      color:var(--text-secondary);
     }
 
-    /* LAB TERMINAL */
-    .terminal-window {
-      background: #0d0d0d; border: 1px solid var(--border-color);
-      border-radius: var(--radius-lg); overflow: hidden;
+    .project-link{
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+      margin-top:1rem;
+      font-size:.84rem;
+      color:var(--accent-secondary);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(59,130,246,0.55);
+      width:fit-content;
     }
-    .terminal-header {
-      background: #1a1a1a; padding: 0.75rem 1rem;
-      display: flex; gap: 8px; align-items: center; border-bottom: 1px solid var(--border-color);
+    .project-link:hover{opacity:.9; border-bottom-style:solid}
+
+    /* Roadmap Progress */
+    .progress-wrap{
+      margin:.4rem 0 1.2rem;
+      padding:0 .2rem;
     }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot.red { background: #ef4444; }
-    .dot.yellow { background: #f59e0b; }
-    .dot.green { background: #10b981; }
-    .terminal-body { padding: 2rem; }
-
-    .terminal-input {
-      width: 100%; background: transparent; border: none;
-      border-bottom: 1px solid var(--border-color);
-      color: var(--accent-primary); font-family: 'JetBrains Mono', monospace;
-      padding: 0.5rem 0; font-size: 1rem; margin-bottom: 1.5rem;
+    .progress-meta{
+      display:flex; align-items:center; justify-content:space-between;
+      color:var(--text-secondary);
+      font-size:.8rem;
+      margin-bottom:.5rem;
+      font-family:'JetBrains Mono',monospace;
+      gap:1rem;
     }
-    .terminal-input:focus { outline: none; border-color: var(--accent-primary); }
-
-    .btn {
-      background: var(--bg-card-hover); color: var(--text-primary);
-      border: 1px solid var(--border-color); padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-md); font-size: 0.9rem; cursor: pointer;
-      width: 100%; margin-bottom: 1rem;
+    .progress{
+      width:100%;
+      height:10px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid var(--border-color);
+      border-radius:999px;
+      overflow:hidden;
     }
-    .btn:hover { border-color: var(--accent-primary); color: var(--accent-primary); }
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg, rgba(16,185,129,0.95), rgba(59,130,246,0.95));
+      border-radius:999px;
+      transition:width .35s ease;
+    }
 
-    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+    /* Timeline */
+    .timeline{position:relative; border-left:2px solid var(--border-color); margin-left:1rem; padding-left:2rem}
+    .timeline-item{position:relative; margin-bottom:2.1rem}
+    .timeline-item:last-child{margin-bottom:0}
+    .timeline-marker{
+      position:absolute; left:-2.6rem; top:.1rem;
+      width:1.18rem; height:1.18rem;
+      border-radius:50%;
+      background:var(--bg-body);
+      border:2px solid var(--border-color);
+      z-index:2;
+    }
+    .timeline-item.done .timeline-marker{
+      border-color:var(--accent-primary);
+      background:rgba(16,185,129,0.12);
+      box-shadow:0 0 0 4px rgba(16,185,129,0.12);
+    }
+    .timeline-item.active .timeline-marker{
+      border-color:var(--accent-primary);
+      background:rgba(16,185,129,0.12);
+      box-shadow:0 0 0 4px rgba(16,185,129,0.18);
+      animation:pulse 2s infinite;
+    }
+    .timeline-item.future .timeline-marker{border-color:rgba(161,161,170,0.65); opacity:.7}
+    @keyframes pulse{
+      0%{box-shadow:0 0 0 0 rgba(16,185,129,0.35)}
+      70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}
+      100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}
+    }
+    .timeline-dates{
+      font-size:.75rem;
+      color:var(--text-secondary);
+      opacity:.85;
+      display:inline-block;
+      padding:2px 7px;
+      border:1px solid var(--border-color);
+      border-radius:7px;
+      margin-bottom:.45rem;
+      font-family:'JetBrains Mono',monospace;
+      background:rgba(255,255,255,0.02);
+    }
+    .timeline-content span{
+      font-size:.75rem;
+      font-weight:700;
+      margin-bottom:.45rem;
+      display:block;
+      font-family:'JetBrains Mono',monospace;
+    }
+    .timeline-content h3{font-size:1rem; margin-bottom:.35rem}
+    .timeline-content p{font-size:.92rem; color:var(--text-secondary); line-height:1.55}
 
-    @media (max-width: 640px) { h1 { font-size: 1.8rem; } }
+    .roadmap-cert{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:rgba(16,185,129,0.1);
+      border:1px solid rgba(16,185,129,0.32);
+      border-radius:8px;
+      padding:5px 10px;
+      margin-top:10px;
+      font-size:.76rem;
+      color:var(--accent-primary);
+      font-family:'JetBrains Mono',monospace;
+      width:fit-content;
+    }
+    .roadmap-cert::before{content:'🎯'}
+    .roadmap-cert.pending{
+      background:rgba(255,255,255,0.04);
+      border-color:var(--border-color);
+      color:var(--text-secondary);
+      filter:grayscale(1);
+    }
+
+    /* Lab terminal */
+    .terminal-window{
+      background:#0d0d0d;
+      border:1px solid var(--border-color);
+      border-radius:var(--radius-lg);
+      overflow:hidden;
+    }
+    .terminal-header{
+      background:#1a1a1a;
+      padding:.75rem 1rem;
+      display:flex; gap:8px; align-items:center;
+      border-bottom:1px solid var(--border-color);
+    }
+    .dot{width:10px;height:10px;border-radius:50%}
+    .dot.red{background:#ef4444}
+    .dot.yellow{background:#f59e0b}
+    .dot.green{background:#10b981}
+    .terminal-title{color:var(--text-secondary)}
+    .terminal-body{padding:1.6rem}
+    .terminal-input{
+      width:100%;
+      background:transparent;
+      border:none;
+      border-bottom:1px solid var(--border-color);
+      color:var(--accent-primary);
+      padding:.5rem 0;
+      font-size:1rem;
+      margin-bottom:1.1rem;
+      font-family:'JetBrains Mono',monospace;
+    }
+    .terminal-input:focus{outline:none; border-color:rgba(16,185,129,0.75)}
+    .btn{
+      background:var(--bg-card-hover);
+      color:var(--text-primary);
+      border:1px solid var(--border-color);
+      padding:.72rem 1rem;
+      border-radius:var(--radius-md);
+      font-size:.88rem;
+      cursor:pointer;
+      width:100%;
+      transition:all .18s ease;
+    }
+    .btn:hover{border-color:rgba(16,185,129,0.55); color:var(--accent-primary)}
+
+    /* Reveal */
+    .reveal{opacity:0; transform:translateY(16px); transition:all .55s cubic-bezier(0.2,0.8,0.2,1)}
+    .reveal.active{opacity:1; transform:translateY(0)}
+
+    /* Footer */
+    footer{
+      margin-top:3rem;
+      padding:1.5rem 0 1rem;
+      border-top:1px solid var(--border-color);
+    }
+    footer p{color:var(--text-secondary); font-size:.82rem; text-align:center}
+
+    /* Responsive */
+    @media (max-width:640px){
+      h1{font-size:1.85rem}
+      .container{padding:1.25rem}
+      header{padding:4.4rem 0 2.4rem}
+      .lang-switch{right:1.25rem}
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .status-ring, .reveal, .timeline-item.active .timeline-marker{animation:none !important}
+      *{scroll-behavior:auto !important}
+    }
+
+    /* =====================================================
+       PRINT FRIENDLY MODE
+       ===================================================== */
+    @media print{
+      *{
+        background:transparent !important;
+        color:#000 !important;
+        box-shadow:none !important;
+        text-shadow:none !important;
+        animation:none !important;
+        transition:none !important;
+      }
+      html,body{
+        background:#fff !important;
+        color:#000 !important;
+        font-size:12pt;
+        line-height:1.4;
+      }
+      .lang-switch,.mini-nav,.status-ring,
+      .terminal-window,button,input,.btn,.cta{
+        display:none !important;
+      }
+      header{
+        padding:1.2rem 0 !important;
+        margin-bottom:1.2rem !important;
+        border-bottom:1px solid #ccc !important;
+      }
+      h1{
+        font-size:22pt !important;
+        -webkit-text-fill-color:#000 !important;
+      }
+      .tagline{
+        border:1px solid #000 !important;
+        background:none !important;
+      }
+      .card{
+        border:1px solid #ccc !important;
+        page-break-inside:avoid;
+        margin-bottom:1rem !important;
+      }
+      section, .timeline-item{page-break-inside:avoid}
+      a::after{
+        content:" (" attr(href) ")";
+        font-size:9pt;
+        color:#555 !important;
+      }
+      footer{
+        border-top:1px solid #ccc !important;
+        margin-top:1.2rem !important;
+        padding-top:.5rem !important;
+      }
+    }
   </style>
 </head>
 
 <body>
-<div class="container">
+  <div class="container">
 
-  <nav class="lang-switch">
-    <button class="lang-btn active" id="btn-pt" onclick="app.setLang('pt')">PT</button>
-    <button class="lang-btn" id="btn-en" onclick="app.setLang('en')">EN</button>
-  </nav>
-
-  <nav class="mini-nav" aria-label="Navegação rápida">
-    <a href="#education" data-translate="nav_edu">Edu/Cert</a>
-    <a href="#stack" data-translate="nav_stack">Stack</a>
-    <a href="#projects" data-translate="nav_projects">Projetos</a>
-    <a href="#roadmap" data-translate="nav_roadmap">Roadmap</a>
-    <a href="#lab" data-translate="nav_lab">Lab</a>
-  </nav>
-
-  <!-- HEADER -->
-  <header class="reveal">
-    <div class="profile-container">
-      <div class="status-ring"></div>
-      <img src="https://github.com/thiagolopessec.png" loading="lazy" alt="Thiago Lopes" class="profile-img">
-    </div>
-
-    <h1 id="hacker-name" data-value="Thiago Lopes">Thiago Lopes</h1>
-    <div class="tagline mono">&lt;Security Operations / Blue Team&gt;</div>
-
-    <p style="max-width: 760px; color: var(--text-secondary);" data-translate="bio">
-      Profissional em transição para Cibersegurança, com 15 anos em Urgência/Emergência (PACS). 
-      Levo disciplina operacional, triagem de risco e gestão de crise para detecção e resposta a incidentes em Security Operations (Blue Team / SOC).
-    </p>
-
-    <nav class="social-nav">
-      <a href="https://github.com/thiagolopessec" target="_blank" class="social-link" rel="noopener">
-        <span class="mono">GitHub</span>
-      </a>
-      <span style="color: var(--border-color)">|</span>
-      <a href="https://linkedin.com/in/thiagolopessec" target="_blank" class="social-link" rel="noopener">
-        <span class="mono">LinkedIn</span>
-      </a>
-      <span style="color: var(--border-color)">|</span>
-      <a href="mailto:tlopes.dev@gmail.com" class="social-link">
-        <span class="mono">Email</span>
-      </a>
+    <!-- Language Switch -->
+    <nav class="lang-switch" aria-label="Language switch">
+      <button class="lang-btn active" id="btn-pt" onclick="app.setLang('pt')">PT</button>
+      <button class="lang-btn" id="btn-en" onclick="app.setLang('en')">EN</button>
     </nav>
-  </header>
 
-  <!-- EDUCATION & CERTIFICATION -->
-  <section class="reveal" id="education">
-    <div class="section-header">
-      <h2 class="section-title mono" data-translate="edu_title">01. Formação & Certificações</h2>
-      <div class="section-line"></div>
-    </div>
+    <!-- Mini Nav -->
+    <nav class="mini-nav" aria-label="Navegação rápida / Quick nav">
+      <a href="#education" data-translate="nav_edu">Edu/Cert</a>
+      <a href="#stack" data-translate="nav_stack">Stack</a>
+      <a href="#projects" data-translate="nav_projects">Projetos</a>
+      <a href="#roadmap" data-translate="nav_roadmap">Roadmap</a>
+      <a href="#lab" data-translate="nav_lab">Lab</a>
+    </nav>
 
-    <div class="grid grid-2">
-      <div class="card edu-card">
-        <div class="card-icon">🎓</div>
-        <h3 data-translate="edu_1_title">Análise e Desenvolvimento de Sistemas</h3>
-        <p data-translate="edu_1_desc">FADERGS. Base em redes, arquitetura e segurança da informação.</p>
-        <div class="tags">
-          <span id="grad-counter" class="tag" style="color: var(--accent-purple); font-weight: bold;">Calculando...</span>
-          <span class="tag" data-translate="edu_tag_1">Redes</span>
-          <span class="tag" data-translate="edu_tag_2">Segurança</span>
-        </div>
+    <!-- HEADER -->
+    <header class="reveal" id="about">
+      <div class="profile-container">
+        <div class="status-ring"></div>
+        <img class="profile-img" src="https://github.com/thiagolopessec.png" alt="Thiago Lopes" loading="lazy" />
       </div>
 
-      <div class="card">
-        <div class="card-icon">📜</div>
-        <h3 data-translate="edu_2_title">Google Cybersecurity Certificate</h3>
-        <p data-translate="edu_2_desc">
-          Certificação profissional (Coursera). Roadmap completo com 8 cursos e entregáveis práticos.
-        </p>
-        <div class="tags">
-          <span class="tag" style="border: 1px solid var(--accent-primary); color: var(--accent-primary)" data-translate="cert_in_progress">Em andamento</span>
-          <span class="tag">SOC</span>
-          <span class="tag">Blue Team</span>
-          <span class="tag">SIEM</span>
-        </div>
+      <h1 id="name" data-value="Thiago Lopes">Thiago Lopes</h1>
+      <div class="tagline mono">&lt;Security Operations / Blue Team&gt;</div>
+
+      <div class="pill-row" aria-label="Key focus areas">
+        <span class="pill">SOC</span>
+        <span class="pill">Incident Response</span>
+        <span class="pill">Log Analysis</span>
+        <span class="pill">Python Automation</span>
+        <span class="pill">Wazuh (SIEM)</span>
       </div>
-    </div>
-  </section>
 
-  <!-- STACK -->
-  <section class="reveal" id="stack">
-    <div class="section-header">
-      <h2 class="section-title mono" data-translate="stack_title">02. Tech Stack</h2>
-      <div class="section-line"></div>
-    </div>
+      <p class="subtitle" data-translate="bio">
+        Profissional em transição para Cibersegurança, com 15 anos em Urgência/Emergência (PACS).
+        Levo disciplina operacional, triagem de risco e gestão de crise para detecção e resposta a incidentes (Blue Team / SOC).
+      </p>
 
-    <div class="grid grid-2">
-      <article class="card">
-        <div class="card-icon">🐍</div>
-        <h3 data-translate="skill_1_title">Python (Automação)</h3>
-        <p data-translate="skill_1_desc">
-          Scripts para tarefas repetitivas, parsing de logs e integração com APIs para apoiar operações de segurança.
-        </p>
-        <div class="tags">
-          <span class="tag">Automation</span>
-          <span class="tag">Scripting</span>
-          <span class="tag">Parsing</span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-icon">🛡️</div>
-        <h3 data-translate="skill_2_title">Security Operations (SOC/Blue Team)</h3>
-        <p data-translate="skill_2_desc">
-          Fundamentos de monitoramento, análise de eventos, resposta a incidentes e melhoria contínua de controles.
-        </p>
-        <div class="tags">
-          <span class="tag">Incident Response</span>
-          <span class="tag">Monitoring</span>
-          <span class="tag">Risk Triage</span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-icon">🦅</div>
-        <h3 data-translate="skill_3_title">SIEM / Wazuh (Lab)</h3>
-        <p data-translate="skill_3_desc">
-          Laboratório controlado com Wazuh para ingestão de logs, alertas e estudo de detecção baseada em eventos.
-        </p>
-        <div class="tags">
-          <span class="tag">Wazuh</span>
-          <span class="tag">Logs</span>
-          <span class="tag">Docker</span>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card-icon">🐧</div>
-        <h3 data-translate="skill_4_title">Linux (Fundamentos)</h3>
-        <p data-translate="skill_4_desc">
-          Linha de comando, permissões, processos e manipulação de arquivos — base para análise e investigação.
-        </p>
-        <div class="tags">
-          <span class="tag">Shell</span>
-          <span class="tag">Permissions</span>
-          <span class="tag">Processes</span>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="reveal" id="projects">
-    <div class="section-header">
-      <h2 class="section-title mono" data-translate="projects_title">03. Projetos</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="grid grid-2">
-
-      <!-- Project 1 -->
-      <div class="card" style="border-left: 4px solid var(--accent-primary); box-shadow: 0 0 20px rgba(16, 185, 129, 0.2); background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, transparent 100%);">
-        <h3 style="color: var(--accent-primary); font-size: 1.2rem;" data-translate="proj_1_title">🔍 Port Scanner (Python)</h3>
-        <p data-translate="proj_1_desc">
-          Ferramenta para descoberta de serviços e inventário básico, apoiando análise de superfície de ataque e hardening em ambiente controlado.
-        </p>
-        <div class="tags" style="margin-top: auto;">
-          <span class="tag" style="background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-primary); color: var(--accent-primary);">Python</span>
-          <span class="tag" style="background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-primary); color: var(--accent-primary);">Networking</span>
-        </div>
-        <a href="https://github.com/thiagolopessec/projetos_python/blob/main/port_scanner.py" target="_blank" rel="noopener noreferrer" class="project-link" style="color: var(--accent-primary); border-color: var(--accent-primary); font-weight: bold;" data-translate="proj_link">
-          Ver projeto -&gt;
+      <!-- Recruiter-friendly CTA -->
+      <div class="cta" role="group" aria-label="Calls to action">
+        <a class="primary" href="mailto:tlopes.dev@gmail.com">
+          <span class="mono" data-translate="cta_email">Contactar</span> ✉️
+        </a>
+        <a href="#projects">
+          <span class="mono" data-translate="cta_projects">Ver Projetos</span> 🧪
+        </a>
+        <a href="javascript:void(0)" onclick="window.print()">
+          <span class="mono" data-translate="cta_pdf">Salvar PDF</span> 🖨️
         </a>
       </div>
 
-      <!-- Project 2 -->
-      <div class="card" style="border-left: 3px solid var(--accent-secondary);">
-        <h3 data-translate="proj_2_title">🛡️ Security Home Lab (Wazuh)</h3>
-        <p data-translate="proj_2_desc">
-          Ambiente dockerizado com Wazuh Manager e agentes para ingestão de logs e simulação de alertas em endpoints.
-        </p>
-        <div class="tags" style="margin-top: auto;">
-          <span class="tag">Infrastructure</span>
-          <span class="tag">Docker</span>
-          <span class="tag">SIEM</span>
-        </div>
-        <span class="project-link" style="opacity: .75; border-bottom: none;" data-translate="proj_2_hint">Write-up em breve (prints + relatório)</span>
-      </div>
-    </div>
-  </section>
+      <nav class="social-nav" aria-label="Social links">
+        <a class="social-link" href="https://github.com/thiagolopessec" target="_blank" rel="noopener">GitHub</a>
+        <span class="sep">|</span>
+        <a class="social-link" href="https://linkedin.com/in/thiagolopessec" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="sep">|</span>
+        <a class="social-link" href="mailto:tlopes.dev@gmail.com" rel="noopener">Email</a>
+      </nav>
+    </header>
 
-  <!-- ROADMAP (GOOGLE CYBERSECURITY CERTIFICATE - COURSERA) -->
-  <section class="reveal" id="roadmap">
-    <div class="section-header">
-      <h2 class="section-title mono" data-translate="roadmap_title">04. Roadmap — Google Cybersecurity Certificate (Coursera)</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="timeline">
-
-      <!-- Course 1 -->
-      <div class="timeline-item active">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="mono" style="color: var(--accent-primary);" data-translate="c1_status">EM EXECUÇÃO</span>
-          <div class="timeline-dates" data-translate="c1_dates">Curso 1/8</div>
-          <h3 data-translate="c1_title">Foundations of Cybersecurity</h3>
-          <p data-translate="c1_desc">Introdução ao papel do analista, impacto de ataques, ética e fundamentos (inclui CIA Triad e visão geral de domínios de segurança).</p>
-          <div class="roadmap-cert" data-translate="c1_deliv">Entregável: atividades + quizzes do curso</div>
-        </div>
+    <!-- EDUCATION -->
+    <section class="reveal alt" id="education">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="edu_title">01. Formação & Certificações</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="edu_kicker">Credenciais</span>
       </div>
 
-      <!-- Course 2 -->
-      <div class="timeline-item future">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="mono" style="color: var(--text-secondary);" data-translate="c2_status">PRÓXIMO</span>
-          <div class="timeline-dates" data-translate="c2_dates">Curso 2/8</div>
-          <h3 data-translate="c2_title">Play It Safe: Manage Security Risks</h3>
-          <p data-translate="c2_desc">Gestão de riscos: ameaças, vulnerabilidades, controles e noções de frameworks aplicados.</p>
-          <div class="roadmap-cert pending" data-translate="c2_deliv">Entregável: exercícios + análise de risco</div>
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-icon">🎓</div>
+          <h3 data-translate="edu_1_title">Análise e Desenvolvimento de Sistemas</h3>
+          <p data-translate="edu_1_desc">FADERGS. Base em redes, arquitetura e segurança da informação.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span id="grad-counter" class="tag" style="border:1px solid rgba(139,92,246,0.45); color:var(--accent-purple); font-weight:700;">
+                Calculando...
+              </span>
+              <span class="tag" data-translate="edu_tag_1">Redes</span>
+              <span class="tag" data-translate="edu_tag_2">Segurança</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">📜</div>
+          <h3 data-translate="edu_2_title">Google Cybersecurity Certificate</h3>
+          <p data-translate="edu_2_desc">Certificação profissional (Coursera). Roadmap completo com 8 cursos e entregáveis práticos.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag" style="border:1px solid rgba(16,185,129,0.45); color:var(--accent-primary);" data-translate="cert_in_progress">Em andamento</span>
+              <span class="tag">SOC</span>
+              <span class="tag">Blue Team</span>
+              <span class="tag">SIEM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="reveal" id="stack">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="stack_title">02. Tech Stack</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="stack_kicker">Foco operacional</span>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card">
+          <div class="card-icon">🐍</div>
+          <h3 data-translate="skill_1_title">Python (Automação)</h3>
+          <p data-translate="skill_1_desc">Scripts para tarefas repetitivas, parsing de logs e integrações com APIs para apoiar operações de segurança.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">Automation</span>
+              <span class="tag">Scripting</span>
+              <span class="tag">Parsing</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🛡️</div>
+          <h3 data-translate="skill_2_title">Security Operations (SOC/Blue Team)</h3>
+          <p data-translate="skill_2_desc">Monitoramento, análise de eventos, triagem de alertas e fundamentos de resposta a incidentes.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">Triage</span>
+              <span class="tag">IR Basics</span>
+              <span class="tag">MITRE</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🦅</div>
+          <h3 data-translate="skill_3_title">SIEM / Wazuh (Lab)</h3>
+          <p data-translate="skill_3_desc">Lab controlado com Wazuh para ingestão de logs, alertas e estudo de detecção baseada em eventos.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">Wazuh</span>
+              <span class="tag">Logs</span>
+              <span class="tag">Docker</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🐧</div>
+          <h3 data-translate="skill_4_title">Linux (Fundamentos)</h3>
+          <p data-translate="skill_4_desc">Linha de comando, permissões, processos e manipulação de arquivos — base para análise e investigação.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">Shell</span>
+              <span class="tag">Permissions</span>
+              <span class="tag">Processes</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="reveal alt" id="projects">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="projects_title">03. Projetos</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="projects_kicker">Evidência prática</span>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card" style="border-left:4px solid rgba(16,185,129,0.9); background:linear-gradient(135deg, rgba(16,185,129,0.06), transparent);">
+          <div class="card-icon">🔍</div>
+          <h3 data-translate="proj_1_title">Port Scanner (Python)</h3>
+          <p data-translate="proj_1_desc">Descoberta de serviços e inventário básico, apoiando análise de superfície de ataque e hardening em ambiente controlado.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag" style="border:1px solid rgba(16,185,129,0.45); color:var(--accent-primary); background:rgba(16,185,129,0.12)">Python</span>
+              <span class="tag" style="border:1px solid rgba(16,185,129,0.45); color:var(--accent-primary); background:rgba(16,185,129,0.12)">Networking</span>
+            </div>
+            <a class="project-link" data-translate="proj_link" href="https://github.com/thiagolopessec/projetos_python/blob/main/port_scanner.py" target="_blank" rel="noopener noreferrer">
+              Ver projeto →
+            </a>
+          </div>
+        </div>
+
+        <div class="card" style="border-left:3px solid rgba(59,130,246,0.8);">
+          <div class="card-icon">🛡️</div>
+          <h3 data-translate="proj_2_title">Security Home Lab (Wazuh)</h3>
+          <p data-translate="proj_2_desc">Ambiente com Wazuh para ingestão de logs, simulação de alertas e prática de triagem em cenário controlado.</p>
+          <div class="card-footer">
+            <div class="tags">
+              <span class="tag">SIEM</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Logs</span>
+            </div>
+            <a class="project-link" data-translate="proj_2_link" href="#" onclick="return false;">
+              Write-up (em breve) →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROADMAP -->
+    <section class="reveal" id="roadmap">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="roadmap_title">04. Roadmap — Google Cybersecurity Certificate</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="roadmap_kicker">Trilha oficial</span>
+      </div>
+
+      <!-- Progress bar -->
+      <div class="progress-wrap">
+        <div class="progress-meta">
+          <span class="mono" data-translate="progress_label">Progresso</span>
+          <span class="mono" id="progress_text">0%</span>
+        </div>
+        <div class="progress" aria-label="Course progress">
+          <div class="progress-bar" id="progress_bar"></div>
         </div>
       </div>
 
-      <!-- Course 3 -->
-      <div class="timeline-item future">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="mono" style="color: var(--text-secondary);" data-translate="c3_status">PLANEJADO</span>
-          <div class="timeline-dates" data-translate="c3_dates">Curso 3/8</div>
-          <h3 data-translate="c3_title">Connect and Protect: Networks and Network Security</h3>
-          <p data-translate="c3_desc">Fundamentos de redes, segurança de tráfego, dispositivos de proteção e princípios de defesa em camadas.</p>
-          <div class="roadmap-cert pending" data-translate="c3_deliv">Entregável: exercícios + notas de estudo</div>
-        </div>
-      </div>
-
-      <!-- Course 4 -->
-      <div class="timeline-item future">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="mono" style="color: var(--text-secondary);" data-translate="c4_status">FUTURO</span>
-          <div class="timeline-dates" data-translate="c4_dates">Curso 4/8</div>
-          <h3 data-translate="c4_title">Tools of the Trade: Linux and SQL</h3>
-          <p data-translate="c4_desc">Linux e SQL aplicados à investigação e análise — base operacional para SOC e troubleshooting.</p>
-          <div class="roadmap-cert pending" data-translate="c4_deliv">Entregável: comandos + queries (cheatsheet)</div>
-        </div>
-      </div>
-
-      <!-- Course 5 -->
-      <div class="timeline-item future">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="mono" style="color: var(--text-secondary);" data-translate="c5_status">FUTURO</span>
-          <div class="timeline-dates" data-translate="c5_dates">Curso 5/8</div>
-          <h3 data-translate="c5_title">Assets, Threats, and Vulnerabilities</h3>
-          <p data-translate="c5_desc">Gestão de ativos, avaliação de ameaças e vulnerabilidades, e práticas de hardening.</p>
-          <div class="roadmap-cert pending" data-translate="c5_deliv">Entregável: inventário de ativos (lab) + relatório</div>
-        </div>
-      </div>
-
-      <!-- Course 6 -->
-      <div class="timeline-item future">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="mono" style="color: var(--text-secondary);" data-translate="c6_status">FUTURO</span>
-          <div class="timeline-dates" data-translate="c6_dates">Curso 6/8</div>
-          <h3 data-translate="c6_title">Sound the Alarm: Detection and Response</h3>
-          <p data-translate="c6_desc">Detecção e resposta: monitoramento, priorização de alertas, triagem e fluxo de incident response.</p>
-          <div class="roadmap-cert pending" data-translate="c6_deliv">Entregável: simulação + relatório de incidente</div>
-        </div>
-      </div>
-
-      <!-- Course 7 -->
-      <div class="timeline-item future">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="mono" style="color: var(--text-secondary);" data-translate="c7_status">FUTURO</span>
-          <div class="timeline-dates" data-translate="c7_dates">Curso 7/8</div>
-          <h3 data-translate="c7_title">Automate Cybersecurity Tasks with Python</h3>
-          <p data-translate="c7_desc">Automação de tarefas de segurança com Python: scripts úteis para SOC e operações.</p>
-          <div class="roadmap-cert pending" data-translate="c7_deliv">Entregável: scripts + repositório organizado</div>
-        </div>
-      </div>
-
-      <!-- Course 8 -->
-      <div class="timeline-item future">
-        <div class="timeline-marker"></div>
-        <div class="timeline-content">
-          <span class="mono" style="color: var(--text-secondary);" data-translate="c8_status">FUTURO</span>
-          <div class="timeline-dates" data-translate="c8_dates">Curso 8/8</div>
-          <h3 data-translate="c8_title">Put It to Work: Prepare for Cybersecurity Jobs</h3>
-          <p data-translate="c8_desc">Preparação para vagas: portfólio, entrevista, rotina do analista e próximos passos para empregabilidade.</p>
-          <div class="roadmap-cert pending" data-translate="c8_deliv">Entregável: portfólio final + currículo</div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- LAB TOOL -->
-  <section class="reveal" id="lab">
-    <div class="section-header">
-      <h2 class="section-title mono" data-translate="lab_title">05. Lab: Criptografia</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="terminal-window">
-      <div class="terminal-header">
-        <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-        <div class="terminal-title mono">caesar_cipher.py</div>
-      </div>
-
-      <div class="terminal-body">
-        <input type="text" id="input_text" class="terminal-input" placeholder="ENTER_MESSAGE >>" autocomplete="off">
-        <input type="number" id="shift_amount" class="terminal-input" value="3" placeholder="SHIFT_KEY >>">
-
-        <div style="display: flex; gap: 10px; margin-bottom: 1rem;">
-          <button class="btn" onclick="app.encrypt()" style="border-color: var(--accent-primary); color: var(--accent-primary)">
-            <span data-translate="btn_encrypt">CRIPTOGRAFAR</span>
-          </button>
-          <button class="btn" onclick="app.decrypt()" style="border-color: var(--accent-secondary); color: var(--accent-secondary)">
-            <span data-translate="btn_decrypt">DESCRIPTOGRAFAR</span>
-          </button>
+      <div class="timeline" aria-label="Roadmap timeline">
+        <div class="timeline-item active" data-course="1">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span style="color:var(--accent-primary)" class="mono" data-translate="c1_status">EM EXECUÇÃO</span>
+            <div class="timeline-dates" data-translate="c1_dates">Curso 1/8</div>
+            <h3 data-translate="c1_title">Foundations of Cybersecurity</h3>
+            <p data-translate="c1_desc">Introdução ao papel do analista, impacto de ataques, ética e fundamentos (inclui CIA Triad e visão geral de domínios).</p>
+            <div class="roadmap-cert" data-translate="c1_deliv">Entregável: atividades + quizzes do curso</div>
+          </div>
         </div>
 
-        <div class="mono" id="output_text" style="min-height: 20px; color: var(--text-secondary)" aria-live="polite" role="status">
-          // Awaiting Input...
+        <div class="timeline-item future" data-course="2">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="mono" style="color:var(--text-secondary)" data-translate="c2_status">PRÓXIMO</span>
+            <div class="timeline-dates" data-translate="c2_dates">Curso 2/8</div>
+            <h3 data-translate="c2_title">Play It Safe: Manage Security Risks</h3>
+            <p data-translate="c2_desc">Gestão de riscos: ameaças, vulnerabilidades, controles e noções de frameworks aplicados.</p>
+            <div class="roadmap-cert pending" data-translate="c2_deliv">Entregável: exercícios + análise de risco</div>
+          </div>
+        </div>
+
+        <div class="timeline-item future" data-course="3">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="mono" style="color:var(--text-secondary)" data-translate="c3_status">PLANEJADO</span>
+            <div class="timeline-dates" data-translate="c3_dates">Curso 3/8</div>
+            <h3 data-translate="c3_title">Connect and Protect: Networks and Network Security</h3>
+            <p data-translate="c3_desc">Fundamentos de redes, segurança de tráfego, dispositivos de proteção e defesa em camadas.</p>
+            <div class="roadmap-cert pending" data-translate="c3_deliv">Entregável: exercícios + notas de estudo</div>
+          </div>
+        </div>
+
+        <div class="timeline-item future" data-course="4">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="mono" style="color:var(--text-secondary)" data-translate="c4_status">FUTURO</span>
+            <div class="timeline-dates" data-translate="c4_dates">Curso 4/8</div>
+            <h3 data-translate="c4_title">Tools of the Trade: Linux and SQL</h3>
+            <p data-translate="c4_desc">Linux e SQL aplicados à investigação e análise — base operacional para SOC.</p>
+            <div class="roadmap-cert pending" data-translate="c4_deliv">Entregável: cheatsheet (comandos + queries)</div>
+          </div>
+        </div>
+
+        <div class="timeline-item future" data-course="5">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="mono" style="color:var(--text-secondary)" data-translate="c5_status">FUTURO</span>
+            <div class="timeline-dates" data-translate="c5_dates">Curso 5/8</div>
+            <h3 data-translate="c5_title">Assets, Threats, and Vulnerabilities</h3>
+            <p data-translate="c5_desc">Gestão de ativos, avaliação de ameaças/vulnerabilidades e hardening.</p>
+            <div class="roadmap-cert pending" data-translate="c5_deliv">Entregável: inventário (lab) + relatório</div>
+          </div>
+        </div>
+
+        <div class="timeline-item future" data-course="6">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="mono" style="color:var(--text-secondary)" data-translate="c6_status">FUTURO</span>
+            <div class="timeline-dates" data-translate="c6_dates">Curso 6/8</div>
+            <h3 data-translate="c6_title">Sound the Alarm: Detection and Response</h3>
+            <p data-translate="c6_desc">Detecção e resposta: monitoramento, triagem de alertas e fluxo de incident response.</p>
+            <div class="roadmap-cert pending" data-translate="c6_deliv">Entregável: simulação + relatório de incidente</div>
+          </div>
+        </div>
+
+        <div class="timeline-item future" data-course="7">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="mono" style="color:var(--text-secondary)" data-translate="c7_status">FUTURO</span>
+            <div class="timeline-dates" data-translate="c7_dates">Curso 7/8</div>
+            <h3 data-translate="c7_title">Automate Cybersecurity Tasks with Python</h3>
+            <p data-translate="c7_desc">Automação de tarefas de segurança com Python (uso em SOC e operações).</p>
+            <div class="roadmap-cert pending" data-translate="c7_deliv">Entregável: scripts + repositório organizado</div>
+          </div>
+        </div>
+
+        <div class="timeline-item future" data-course="8">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <span class="mono" style="color:var(--text-secondary)" data-translate="c8_status">FUTURO</span>
+            <div class="timeline-dates" data-translate="c8_dates">Curso 8/8</div>
+            <h3 data-translate="c8_title">Put It to Work: Prepare for Cybersecurity Jobs</h3>
+            <p data-translate="c8_desc">Preparação para vagas: portfólio, entrevista e próximos passos de empregabilidade.</p>
+            <div class="roadmap-cert pending" data-translate="c8_deliv">Entregável: portfólio final + currículo</div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <p class="mono" style="color: var(--text-secondary); font-size: 0.8rem; text-align: center;">
-      Thiago Lopes © 2026. <span style="color: var(--accent-primary);" data-translate="footer_tag">Estudante de ADS & Blue Team.</span>
-    </p>
-  </footer>
+    <!-- LAB -->
+    <section class="reveal alt" id="lab">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="lab_title">05. Lab: Criptografia</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="lab_kicker">Hands-on</span>
+      </div>
 
-</div>
+      <div class="terminal-window" role="region" aria-label="Caesar cipher lab">
+        <div class="terminal-header">
+          <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          <div class="terminal-title mono">caesar_cipher.py</div>
+        </div>
 
-<script>
-  /*
-   * Console Briefing (Recruiters)
-   * Execute showMyStory() in console to read.
-   */
-  function showMyStory() {
-    const story = `
-======================================================
-🛡️ THIAGO LOPES — SECURITY OPERATIONS / BLUE TEAM
-======================================================
+        <div class="terminal-body">
+          <input type="text" id="input_text" class="terminal-input" placeholder="ENTER_MESSAGE >>" autocomplete="off">
+          <input type="number" id="shift_amount" class="terminal-input" value="3" placeholder="SHIFT_KEY >>">
 
-Background:
-- 15 anos em Urgência/Emergência (PACS) — SUS (Porto Alegre)
-- Disciplina operacional, triagem de risco e gestão de crise
+          <div style="display:flex; gap:10px; margin-bottom:1rem;">
+            <button class="btn" onclick="app.encrypt()" style="border-color:rgba(16,185,129,0.55); color:var(--accent-primary)">
+              <span data-translate="btn_encrypt">CRIPTOGRAFAR</span>
+            </button>
+            <button class="btn" onclick="app.decrypt()" style="border-color:rgba(59,130,246,0.55); color:var(--accent-secondary)">
+              <span data-translate="btn_decrypt">DESCRIPTOGRAFAR</span>
+            </button>
+          </div>
 
-Now:
-- Google Cybersecurity Certificate (Coursera) — 8-course roadmap
-- Blue Team / SOC focus (Detection, Response, Continuous Improvement)
+          <div class="mono" id="output_text" style="min-height:20px; color:var(--text-secondary)" aria-live="polite" role="status">
+            // Awaiting Input...
+          </div>
+        </div>
+      </div>
+    </section>
 
-Projects:
-- Python Port Scanner (service discovery / baseline inventory)
-- Wazuh Home Lab (log ingestion & alert simulation)
+    <footer>
+      <p class="mono">
+        Thiago Lopes © 2026 — <span style="color:var(--accent-primary)" data-translate="footer_tag">ADS student & Blue Team.</span>
+      </p>
+    </footer>
 
-Contact: tlopes.dev@gmail.com
-`;
-    console.log(story);
-  }
+  </div>
 
-  const translations = {
-    pt: {
-      nav_edu: "Edu/Cert",
-      nav_stack: "Stack",
-      nav_projects: "Projetos",
-      nav_roadmap: "Roadmap",
-      nav_lab: "Lab",
+  <script>
+    // ====== TRANSLATIONS ======
+    const translations = {
+      pt: {
+        nav_edu: "Edu/Cert",
+        nav_stack: "Stack",
+        nav_projects: "Projetos",
+        nav_roadmap: "Roadmap",
+        nav_lab: "Lab",
 
-      bio: "Profissional em transição para Cibersegurança, com <strong>15 anos em Urgência/Emergência (PACS)</strong>. Levo disciplina operacional, triagem de risco e gestão de crise para detecção e resposta a incidentes em <strong>Security Operations (Blue Team / SOC)</strong>.",
+        bio: "Profissional em transição para Cibersegurança, com <strong>15 anos em Urgência/Emergência (PACS)</strong>. Levo disciplina operacional, triagem de risco e gestão de crise para <strong>detecção e resposta a incidentes</strong> (Blue Team / SOC).",
 
-      edu_title: "01. Formação & Certificações",
-      edu_1_title: "Análise e Desenvolvimento de Sistemas",
-      edu_1_desc: "FADERGS. Base em redes, arquitetura e segurança da informação.",
-      edu_tag_1: "Redes",
-      edu_tag_2: "Segurança",
-      edu_2_title: "Google Cybersecurity Certificate",
-      edu_2_desc: "Certificação profissional (Coursera). Roadmap completo com 8 cursos e entregáveis práticos.",
-      cert_in_progress: "Em andamento",
+        cta_email: "Contactar",
+        cta_projects: "Ver Projetos",
+        cta_pdf: "Salvar PDF",
 
-      stack_title: "02. Tech Stack",
-      skill_1_title: "Python (Automação)",
-      skill_1_desc: "Scripts para tarefas repetitivas, parsing de logs e integração com APIs para apoiar operações de segurança.",
-      skill_2_title: "Security Operations (SOC/Blue Team)",
-      skill_2_desc: "Fundamentos de monitoramento, análise de eventos, resposta a incidentes e melhoria contínua de controles.",
-      skill_3_title: "SIEM / Wazuh (Lab)",
-      skill_3_desc: "Laboratório controlado com Wazuh para ingestão de logs, alertas e estudo de detecção baseada em eventos.",
-      skill_4_title: "Linux (Fundamentos)",
-      skill_4_desc: "Linha de comando, permissões, processos e manipulação de arquivos — base para análise e investigação.",
+        edu_title: "01. Formação & Certificações",
+        edu_kicker: "Credenciais",
+        edu_1_title: "Análise e Desenvolvimento de Sistemas",
+        edu_1_desc: "FADERGS. Base em redes, arquitetura e segurança da informação.",
+        edu_tag_1: "Redes",
+        edu_tag_2: "Segurança",
+        edu_2_title: "Google Cybersecurity Certificate",
+        edu_2_desc: "Certificação profissional (Coursera). Roadmap completo com 8 cursos e entregáveis práticos.",
+        cert_in_progress: "Em andamento",
 
-      projects_title: "03. Projetos",
-      proj_1_title: "🔍 Port Scanner (Python)",
-      proj_1_desc: "Ferramenta para descoberta de serviços e inventário básico, apoiando análise de superfície de ataque e hardening em ambiente controlado.",
-      proj_link: "Ver projeto ->",
-      proj_2_title: "🛡️ Security Home Lab (Wazuh)",
-      proj_2_desc: "Ambiente dockerizado com Wazuh Manager e agentes para ingestão de logs e simulação de alertas em endpoints.",
-      proj_2_hint: "Write-up em breve (prints + relatório)",
+        stack_title: "02. Tech Stack",
+        stack_kicker: "Foco operacional",
+        skill_1_title: "Python (Automação)",
+        skill_1_desc: "Scripts para tarefas repetitivas, parsing de logs e integrações com APIs para apoiar operações de segurança.",
+        skill_2_title: "Security Operations (SOC/Blue Team)",
+        skill_2_desc: "Monitoramento, análise de eventos, triagem de alertas e fundamentos de resposta a incidentes.",
+        skill_3_title: "SIEM / Wazuh (Lab)",
+        skill_3_desc: "Lab controlado com Wazuh para ingestão de logs, alertas e estudo de detecção baseada em eventos.",
+        skill_4_title: "Linux (Fundamentos)",
+        skill_4_desc: "Linha de comando, permissões, processos e manipulação de arquivos — base para análise e investigação.",
 
-      roadmap_title: "04. Roadmap — Google Cybersecurity Certificate (Coursera)",
-      c1_status: "EM EXECUÇÃO",
-      c1_dates: "Curso 1/8",
-      c1_title: "Foundations of Cybersecurity",
-      c1_desc: "Introdução ao papel do analista, impacto de ataques, ética e fundamentos (inclui CIA Triad e visão geral de domínios de segurança).",
-      c1_deliv: "Entregável: atividades + quizzes do curso",
+        projects_title: "03. Projetos",
+        projects_kicker: "Evidência prática",
+        proj_1_title: "Port Scanner (Python)",
+        proj_1_desc: "Descoberta de serviços e inventário básico, apoiando análise de superfície de ataque e hardening em ambiente controlado.",
+        proj_link: "Ver projeto →",
+        proj_2_title: "Security Home Lab (Wazuh)",
+        proj_2_desc: "Ambiente com Wazuh para ingestão de logs, simulação de alertas e prática de triagem em cenário controlado.",
+        proj_2_link: "Write-up (em breve) →",
 
-      c2_status: "PRÓXIMO",
-      c2_dates: "Curso 2/8",
-      c2_title: "Play It Safe: Manage Security Risks",
-      c2_desc: "Gestão de riscos: ameaças, vulnerabilidades, controles e noções de frameworks aplicados.",
-      c2_deliv: "Entregável: exercícios + análise de risco",
+        roadmap_title: "04. Roadmap — Google Cybersecurity Certificate",
+        roadmap_kicker: "Trilha oficial",
+        progress_label: "Progresso",
 
-      c3_status: "PLANEJADO",
-      c3_dates: "Curso 3/8",
-      c3_title: "Connect and Protect: Networks and Network Security",
-      c3_desc: "Fundamentos de redes, segurança de tráfego, dispositivos de proteção e princípios de defesa em camadas.",
-      c3_deliv: "Entregável: exercícios + notas de estudo",
+        c1_status: "EM EXECUÇÃO",
+        c1_dates: "Curso 1/8",
+        c1_title: "Foundations of Cybersecurity",
+        c1_desc: "Introdução ao papel do analista, impacto de ataques, ética e fundamentos (inclui CIA Triad e visão geral de domínios).",
+        c1_deliv: "Entregável: atividades + quizzes do curso",
 
-      c4_status: "FUTURO",
-      c4_dates: "Curso 4/8",
-      c4_title: "Tools of the Trade: Linux and SQL",
-      c4_desc: "Linux e SQL aplicados à investigação e análise — base operacional para SOC e troubleshooting.",
-      c4_deliv: "Entregável: comandos + queries (cheatsheet)",
+        c2_status: "PRÓXIMO",
+        c2_dates: "Curso 2/8",
+        c2_title: "Play It Safe: Manage Security Risks",
+        c2_desc: "Gestão de riscos: ameaças, vulnerabilidades, controles e noções de frameworks aplicados.",
+        c2_deliv: "Entregável: exercícios + análise de risco",
 
-      c5_status: "FUTURO",
-      c5_dates: "Curso 5/8",
-      c5_title: "Assets, Threats, and Vulnerabilities",
-      c5_desc: "Gestão de ativos, avaliação de ameaças e vulnerabilidades, e práticas de hardening.",
-      c5_deliv: "Entregável: inventário de ativos (lab) + relatório",
+        c3_status: "PLANEJADO",
+        c3_dates: "Curso 3/8",
+        c3_title: "Connect and Protect: Networks and Network Security",
+        c3_desc: "Fundamentos de redes, segurança de tráfego, dispositivos de proteção e defesa em camadas.",
+        c3_deliv: "Entregável: exercícios + notas de estudo",
 
-      c6_status: "FUTURO",
-      c6_dates: "Curso 6/8",
-      c6_title: "Sound the Alarm: Detection and Response",
-      c6_desc: "Detecção e resposta: monitoramento, priorização de alertas, triagem e fluxo de incident response.",
-      c6_deliv: "Entregável: simulação + relatório de incidente",
+        c4_status: "FUTURO",
+        c4_dates: "Curso 4/8",
+        c4_title: "Tools of the Trade: Linux and SQL",
+        c4_desc: "Linux e SQL aplicados à investigação e análise — base operacional para SOC.",
+        c4_deliv: "Entregável: cheatsheet (comandos + queries)",
 
-      c7_status: "FUTURO",
-      c7_dates: "Curso 7/8",
-      c7_title: "Automate Cybersecurity Tasks with Python",
-      c7_desc: "Automação de tarefas de segurança com Python: scripts úteis para SOC e operações.",
-      c7_deliv: "Entregável: scripts + repositório organizado",
+        c5_status: "FUTURO",
+        c5_dates: "Curso 5/8",
+        c5_title: "Assets, Threats, and Vulnerabilities",
+        c5_desc: "Gestão de ativos, avaliação de ameaças/vulnerabilidades e hardening.",
+        c5_deliv: "Entregável: inventário (lab) + relatório",
 
-      c8_status: "FUTURO",
-      c8_dates: "Curso 8/8",
-      c8_title: "Put It to Work: Prepare for Cybersecurity Jobs",
-      c8_desc: "Preparação para vagas: portfólio, entrevista, rotina do analista e próximos passos para empregabilidade.",
-      c8_deliv: "Entregável: portfólio final + currículo",
+        c6_status: "FUTURO",
+        c6_dates: "Curso 6/8",
+        c6_title: "Sound the Alarm: Detection and Response",
+        c6_desc: "Detecção e resposta: monitoramento, triagem de alertas e fluxo de incident response.",
+        c6_deliv: "Entregável: simulação + relatório de incidente",
 
-      lab_title: "05. Lab: Criptografia",
-      btn_encrypt: "CRIPTOGRAFAR",
-      btn_decrypt: "DESCRIPTOGRAFAR",
-      out_encrypt: "DADO CIFRADO: ",
-      out_decrypt: "DADO DECIFRADO: ",
-      out_empty: "ERRO: Entrada vazia.",
+        c7_status: "FUTURO",
+        c7_dates: "Curso 7/8",
+        c7_title: "Automate Cybersecurity Tasks with Python",
+        c7_desc: "Automação de tarefas de segurança com Python (uso em SOC e operações).",
+        c7_deliv: "Entregável: scripts + repositório organizado",
 
-      footer_tag: "Estudante de ADS & Blue Team."
-    },
+        c8_status: "FUTURO",
+        c8_dates: "Curso 8/8",
+        c8_title: "Put It to Work: Prepare for Cybersecurity Jobs",
+        c8_desc: "Preparação para vagas: portfólio, entrevista e próximos passos de empregabilidade.",
+        c8_deliv: "Entregável: portfólio final + currículo",
 
-    en: {
-      nav_edu: "Edu/Cert",
-      nav_stack: "Stack",
-      nav_projects: "Projects",
-      nav_roadmap: "Roadmap",
-      nav_lab: "Lab",
+        lab_title: "05. Lab: Criptografia",
+        lab_kicker: "Hands-on",
+        btn_encrypt: "CRIPTOGRAFAR",
+        btn_decrypt: "DESCRIPTOGRAFAR",
+        out_encrypt: "DADO CIFRADO: ",
+        out_decrypt: "DADO DECIFRADO: ",
+        out_empty: "ERRO: Entrada vazia.",
 
-      bio: "Career switcher into Cybersecurity with <strong>15 years in frontline Emergency Care (PACS)</strong>. Bringing operational discipline, risk triage, and crisis management into <strong>Security Operations (Blue Team / SOC)</strong> focused on detection and incident response.",
+        footer_tag: "Estudante de ADS & Blue Team."
+      },
 
-      edu_title: "01. Education & Certifications",
-      edu_1_title: "Systems Analysis & Development",
-      edu_1_desc: "FADERGS. Foundations in networking, architecture, and information security.",
-      edu_tag_1: "Networking",
-      edu_tag_2: "Security",
-      edu_2_title: "Google Cybersecurity Certificate",
-      edu_2_desc: "Professional certificate (Coursera). Full 8-course roadmap with practical deliverables.",
-      cert_in_progress: "In progress",
+      en: {
+        nav_edu: "Edu/Cert",
+        nav_stack: "Stack",
+        nav_projects: "Projects",
+        nav_roadmap: "Roadmap",
+        nav_lab: "Lab",
 
-      stack_title: "02. Tech Stack",
-      skill_1_title: "Python (Automation)",
-      skill_1_desc: "Scripts for repetitive tasks, log parsing, and API integrations to support security operations.",
-      skill_2_title: "Security Operations (SOC/Blue Team)",
-      skill_2_desc: "Foundations of monitoring, event analysis, incident response, and continuous control improvement.",
-      skill_3_title: "SIEM / Wazuh (Lab)",
-      skill_3_desc: "Controlled Wazuh lab for log ingestion, alerting, and event-based detection studies.",
-      skill_4_title: "Linux (Fundamentals)",
-      skill_4_desc: "Command line, permissions, processes, and file handling — core skills for analysis and investigation.",
+        bio: "Career switcher into Cybersecurity with <strong>15 years in frontline Emergency Care (PACS)</strong>. Bringing operational discipline, risk triage and crisis management into <strong>detection and incident response</strong> (Blue Team / SOC).",
 
-      projects_title: "03. Projects",
-      proj_1_title: "🔍 Port Scanner (Python)",
-      proj_1_desc: "Service discovery and basic inventory tool supporting attack surface analysis and hardening in a controlled environment.",
-      proj_link: "View project ->",
-      proj_2_title: "🛡️ Security Home Lab (Wazuh)",
-      proj_2_desc: "Dockerized environment running Wazuh Manager and agents for log ingestion and endpoint alert simulation.",
-      proj_2_hint: "Write-up soon (screenshots + report)",
+        cta_email: "Contact",
+        cta_projects: "View Projects",
+        cta_pdf: "Save PDF",
 
-      roadmap_title: "04. Roadmap — Google Cybersecurity Certificate (Coursera)",
-      c1_status: "IN PROGRESS",
-      c1_dates: "Course 1/8",
-      c1_title: "Foundations of Cybersecurity",
-      c1_desc: "Intro to the analyst role, business impact of attacks, ethics and core foundations (includes CIA triad and a security domains overview).",
-      c1_deliv: "Deliverable: course activities + quizzes",
+        edu_title: "01. Education & Certifications",
+        edu_kicker: "Credentials",
+        edu_1_title: "Systems Analysis & Development",
+        edu_1_desc: "FADERGS. Foundations in networking, architecture and information security.",
+        edu_tag_1: "Networking",
+        edu_tag_2: "Security",
+        edu_2_title: "Google Cybersecurity Certificate",
+        edu_2_desc: "Professional certificate (Coursera). Full 8-course roadmap with practical deliverables.",
+        cert_in_progress: "In progress",
 
-      c2_status: "NEXT UP",
-      c2_dates: "Course 2/8",
-      c2_title: "Play It Safe: Manage Security Risks",
-      c2_desc: "Risk management: threats, vulnerabilities, controls, and applied frameworks basics.",
-      c2_deliv: "Deliverable: exercises + risk analysis",
+        stack_title: "02. Tech Stack",
+        stack_kicker: "Ops focus",
+        skill_1_title: "Python (Automation)",
+        skill_1_desc: "Scripts for repetitive tasks, log parsing and API integrations to support security operations.",
+        skill_2_title: "Security Operations (SOC/Blue Team)",
+        skill_2_desc: "Monitoring, event analysis, alert triage and incident response fundamentals.",
+        skill_3_title: "SIEM / Wazuh (Lab)",
+        skill_3_desc: "Controlled Wazuh lab for log ingestion, alerting and event-based detection studies.",
+        skill_4_title: "Linux (Fundamentals)",
+        skill_4_desc: "Command line, permissions, processes and file handling — core skills for analysis and investigation.",
 
-      c3_status: "PLANNED",
-      c3_dates: "Course 3/8",
-      c3_title: "Connect and Protect: Networks and Network Security",
-      c3_desc: "Networking fundamentals, traffic security, protective devices, and defense-in-depth principles.",
-      c3_deliv: "Deliverable: exercises + study notes",
+        projects_title: "03. Projects",
+        projects_kicker: "Hands-on proof",
+        proj_1_title: "Port Scanner (Python)",
+        proj_1_desc: "Service discovery and basic inventory tool supporting attack surface analysis and hardening in a controlled environment.",
+        proj_link: "View project →",
+        proj_2_title: "Security Home Lab (Wazuh)",
+        proj_2_desc: "Wazuh environment for log ingestion, alert simulation and triage practice in a controlled scenario.",
+        proj_2_link: "Write-up (soon) →",
 
-      c4_status: "FUTURE",
-      c4_dates: "Course 4/8",
-      c4_title: "Tools of the Trade: Linux and SQL",
-      c4_desc: "Linux and SQL for investigation and analysis — operational foundation for SOC and troubleshooting.",
-      c4_deliv: "Deliverable: commands + queries (cheatsheet)",
+        roadmap_title: "04. Roadmap — Google Cybersecurity Certificate",
+        roadmap_kicker: "Official track",
+        progress_label: "Progress",
 
-      c5_status: "FUTURE",
-      c5_dates: "Course 5/8",
-      c5_title: "Assets, Threats, and Vulnerabilities",
-      c5_desc: "Asset management, threat/vulnerability assessment, and hardening practices.",
-      c5_deliv: "Deliverable: lab asset inventory + report",
+        c1_status: "IN PROGRESS",
+        c1_dates: "Course 1/8",
+        c1_title: "Foundations of Cybersecurity",
+        c1_desc: "Intro to the analyst role, business impact, ethics and core foundations (includes the CIA triad and domain overview).",
+        c1_deliv: "Deliverable: activities + quizzes",
 
-      c6_status: "FUTURE",
-      c6_dates: "Course 6/8",
-      c6_title: "Sound the Alarm: Detection and Response",
-      c6_desc: "Detection and response: monitoring, alert triage, and incident response workflows.",
-      c6_deliv: "Deliverable: simulation + incident report",
+        c2_status: "NEXT UP",
+        c2_dates: "Course 2/8",
+        c2_title: "Play It Safe: Manage Security Risks",
+        c2_desc: "Risk management: threats, vulnerabilities, controls and applied framework basics.",
+        c2_deliv: "Deliverable: exercises + risk analysis",
 
-      c7_status: "FUTURE",
-      c7_dates: "Course 7/8",
-      c7_title: "Automate Cybersecurity Tasks with Python",
-      c7_desc: "Python automation for cybersecurity tasks — useful scripts for SOC and operations.",
-      c7_deliv: "Deliverable: scripts + organized repository",
+        c3_status: "PLANNED",
+        c3_dates: "Course 3/8",
+        c3_title: "Connect and Protect: Networks and Network Security",
+        c3_desc: "Networking fundamentals, traffic security, protective devices and defense-in-depth principles.",
+        c3_deliv: "Deliverable: exercises + study notes",
 
-      c8_status: "FUTURE",
-      c8_dates: "Course 8/8",
-      c8_title: "Put It to Work: Prepare for Cybersecurity Jobs",
-      c8_desc: "Job preparation: portfolio, interviews, analyst routine, and next steps toward employability.",
-      c8_deliv: "Deliverable: final portfolio + resume",
+        c4_status: "FUTURE",
+        c4_dates: "Course 4/8",
+        c4_title: "Tools of the Trade: Linux and SQL",
+        c4_desc: "Linux and SQL for investigation and analysis — operational foundation for SOC.",
+        c4_deliv: "Deliverable: cheatsheet (commands + queries)",
 
-      lab_title: "05. Lab: Cryptography",
-      btn_encrypt: "ENCRYPT",
-      btn_decrypt: "DECRYPT",
-      out_encrypt: "ENCRYPTED DATA: ",
-      out_decrypt: "DECRYPTED DATA: ",
-      out_empty: "ERROR: Empty input.",
+        c5_status: "FUTURE",
+        c5_dates: "Course 5/8",
+        c5_title: "Assets, Threats, and Vulnerabilities",
+        c5_desc: "Asset management, threat/vulnerability assessment and hardening.",
+        c5_deliv: "Deliverable: lab inventory + report",
 
-      footer_tag: "ADS student & Blue Team."
-    }
-  };
+        c6_status: "FUTURE",
+        c6_dates: "Course 6/8",
+        c6_title: "Sound the Alarm: Detection and Response",
+        c6_desc: "Detection and response: monitoring, alert triage and incident response workflows.",
+        c6_deliv: "Deliverable: simulation + incident report",
 
-  const app = {
-    lang: localStorage.getItem('lang') || (document.documentElement.lang?.toLowerCase().startsWith('pt') ? 'pt' : 'en'),
+        c7_status: "FUTURE",
+        c7_dates: "Course 7/8",
+        c7_title: "Automate Cybersecurity Tasks with Python",
+        c7_desc: "Python automation for cybersecurity tasks (SOC/ops oriented).",
+        c7_deliv: "Deliverable: scripts + organized repository",
 
-    setLang(lang) {
-      this.lang = lang;
-      const data = translations[lang];
-      document.querySelectorAll('[data-translate]').forEach(el => {
-        const key = el.getAttribute('data-translate');
-        if (data[key]) el.innerHTML = data[key];
-      });
+        c8_status: "FUTURE",
+        c8_dates: "Course 8/8",
+        c8_title: "Put It to Work: Prepare for Cybersecurity Jobs",
+        c8_desc: "Job preparation: portfolio, interview and next steps toward employability.",
+        c8_deliv: "Deliverable: final portfolio + resume",
 
-      document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-      try { localStorage.setItem('lang', lang); } catch {}
+        lab_title: "05. Lab: Cryptography",
+        lab_kicker: "Hands-on",
+        btn_encrypt: "ENCRYPT",
+        btn_decrypt: "DECRYPT",
+        out_encrypt: "ENCRYPTED DATA: ",
+        out_decrypt: "DECRYPTED DATA: ",
+        out_empty: "ERROR: Empty input.",
 
-      this.updateGraduationCountdown();
-    },
-
-    // Countdown (use as a simple milestone label)
-    updateGraduationCountdown() {
-      const targetDate = new Date('2026-02-09T00:00:00'); // keep your date
-      const now = new Date();
-      const difference = targetDate - now;
-      const el = document.getElementById('grad-counter');
-      if (!el) return;
-
-      if (difference <= 0) {
-        el.innerText = this.lang === 'pt' ? "Marco atingido ✅" : "Milestone reached ✅";
-        return;
+        footer_tag: "ADS student & Blue Team."
       }
+    };
 
-      const daysLeft = Math.ceil(difference / (1000 * 60 * 60 * 24));
+    // ====== APP ======
+    const app = {
+      lang: localStorage.getItem('lang') || (document.documentElement.lang?.toLowerCase().startsWith('pt') ? 'pt' : 'en'),
 
-      if (this.lang === 'pt') {
-        el.innerText = `⏳ Próximo marco em ${daysLeft} dias`;
-      } else {
-        el.innerText = `⏳ Next milestone in ${daysLeft} days`;
-      }
-    },
+      // Configure progress (change this as you advance)
+      currentCourse: 1, // <-- update to 2..8 when you advance
 
-    runHackerEffect(element) {
-      const originalText = element.dataset.value;
-      const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      let iterations = 0;
+      setLang(lang){
+        this.lang = lang;
+        const data = translations[lang];
 
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        element.innerText = originalText;
-        return;
-      }
+        document.querySelectorAll('[data-translate]').forEach(el=>{
+          const key = el.getAttribute('data-translate');
+          if (data[key]) el.innerHTML = data[key];
+        });
 
-      const animate = () => {
-        element.innerText = originalText.split("").map((letter, index) => {
-          if (index < iterations) return originalText[index];
-          return chars[Math.floor(Math.random() * chars.length)];
-        }).join("");
+        document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
+        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-        if (iterations >= originalText.length) {
-          element.innerText = originalText;
-        } else {
-          iterations += 1/3;
-          requestAnimationFrame(animate);
+        try{ localStorage.setItem('lang', lang); }catch(_){}
+
+        this.updateGraduationCountdown();
+        this.updateProgressUI();
+      },
+
+      updateProgressUI(){
+        const total = 8;
+        const percent = Math.max(0, Math.min(100, (this.currentCourse - 1) / total * 100));
+        const bar = document.getElementById('progress_bar');
+        const txt = document.getElementById('progress_text');
+        if (bar) bar.style.width = `${percent}%`;
+        if (txt) txt.textContent = `${Math.round(percent)}%`;
+
+        // Optional: set timeline states automatically based on currentCourse
+        document.querySelectorAll('.timeline-item').forEach(item=>{
+          const c = parseInt(item.getAttribute('data-course') || '0', 10);
+          item.classList.remove('done','active','future');
+          if (!c) return;
+          if (c < this.currentCourse) item.classList.add('done');
+          else if (c === this.currentCourse) item.classList.add('active');
+          else item.classList.add('future');
+        });
+      },
+
+      // Milestone counter (keep your date or change it)
+      updateGraduationCountdown(){
+        const targetDate = new Date('2026-02-09T00:00:00');
+        const now = new Date();
+        const diff = targetDate - now;
+        const el = document.getElementById('grad-counter');
+        if (!el) return;
+
+        if (diff <= 0){
+          el.innerText = this.lang === 'pt' ? "Marco atingido ✅" : "Milestone reached ✅";
+          return;
         }
-      };
+        const daysLeft = Math.ceil(diff / (1000*60*60*24));
+        el.innerText = this.lang === 'pt'
+          ? `⏳ Próximo marco em ${daysLeft} dias`
+          : `⏳ Next milestone in ${daysLeft} days`;
+      },
 
-      requestAnimationFrame(animate);
-    },
+      // Subtle name effect (kept minimal)
+      runNameEffect(el){
+        if (!el) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    cipher(str, shift, decrypt = false) {
-      if (decrypt) shift = (26 - (parseInt(shift) % 26)) % 26;
-      else shift = parseInt(shift);
+        const original = el.dataset.value || el.textContent;
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        let i = 0;
 
-      return str.replace(/[a-zA-Z]/g, (char) => {
-        const base = char >= 'a' ? 97 : 65;
-        return String.fromCharCode(((char.charCodeAt(0) - base + shift) % 26) + base);
-      });
-    },
+        const tick = () => {
+          el.textContent = original.split("").map((ch, idx)=>{
+            if (idx < i) return original[idx];
+            return chars[Math.floor(Math.random()*chars.length)];
+          }).join("");
 
-    encrypt() {
-      const input = document.getElementById('input_text').value;
-      let shift = parseInt(document.getElementById('shift_amount').value) || 0;
-      const t = translations[this.lang];
-      const out = document.getElementById('output_text');
+          if (i >= original.length){
+            el.textContent = original;
+            return;
+          }
+          i += 1/4;
+          requestAnimationFrame(tick);
+        };
 
-      if (!input) {
-        out.innerText = t.out_empty;
-        out.style.color = 'var(--accent-alert)';
-        return;
-      }
+        requestAnimationFrame(tick);
+      },
 
-      if (isNaN(shift) || shift < 0 || shift > 25) {
-        out.innerText = this.lang === 'pt' ? 'ERRO: Shift deve estar entre 0 e 25' : 'ERROR: Shift must be 0–25';
-        out.style.color = 'var(--accent-alert)';
-        return;
-      }
+      cipher(str, shift, decrypt=false){
+        if (decrypt) shift = (26 - (parseInt(shift) % 26)) % 26;
+        else shift = parseInt(shift);
 
-      const result = this.cipher(input, shift, false);
-      out.innerText = `${t.out_encrypt}${result}`;
-      out.style.color = 'var(--accent-primary)';
-    },
+        return str.replace(/[a-zA-Z]/g, (ch)=>{
+          const base = ch >= 'a' ? 97 : 65;
+          return String.fromCharCode(((ch.charCodeAt(0)-base+shift)%26)+base);
+        });
+      },
 
-    decrypt() {
-      const input = document.getElementById('input_text').value;
-      let shift = parseInt(document.getElementById('shift_amount').value) || 0;
-      const t = translations[this.lang];
-      const out = document.getElementById('output_text');
+      encrypt(){
+        const input = document.getElementById('input_text').value;
+        const shift = parseInt(document.getElementById('shift_amount').value) || 0;
+        const t = translations[this.lang];
+        const out = document.getElementById('output_text');
 
-      if (!input) {
-        out.innerText = t.out_empty;
-        out.style.color = 'var(--accent-alert)';
-        return;
-      }
-
-      if (isNaN(shift) || shift < 0 || shift > 25) {
-        out.innerText = this.lang === 'pt' ? 'ERRO: Shift deve estar entre 0 e 25' : 'ERROR: Shift must be 0–25';
-        out.style.color = 'var(--accent-alert)';
-        return;
-      }
-
-      const result = this.cipher(input, shift, true);
-      out.innerText = `${t.out_decrypt}${result}`;
-      out.style.color = 'var(--accent-secondary)';
-    }
-  };
-
-  document.addEventListener('DOMContentLoaded', () => {
-    app.setLang(app.lang);
-    app.updateGraduationCountdown();
-
-    const nameEl = document.getElementById("hacker-name");
-    if (nameEl) app.runHackerEffect(nameEl);
-
-    // Reveal animation
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          observer.unobserve(entry.target);
+        if (!input){
+          out.innerText = t.out_empty;
+          out.style.color = 'var(--accent-alert)';
+          return;
         }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-    // Reset output label on input
-    const outputEl = document.getElementById('output_text');
-    const inputEl = document.getElementById('input_text');
-    if (inputEl && outputEl) {
-      inputEl.addEventListener('input', () => {
-        outputEl.style.color = 'var(--text-secondary)';
-        outputEl.innerText = '// Awaiting Input...';
-      });
-    }
-
-    // Active link (scroll spy)
-    const miniLinks = Array.from(document.querySelectorAll('.mini-nav a'));
-    const spyObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          miniLinks.forEach(link => {
-            const target = link.getAttribute('href');
-            const isActive = target === `#${entry.target.id}`;
-            link.classList.toggle('active-link', isActive);
-          });
+        if (isNaN(shift) || shift < 0 || shift > 25){
+          out.innerText = this.lang === 'pt' ? 'ERRO: Shift deve estar entre 0 e 25' : 'ERROR: Shift must be 0–25';
+          out.style.color = 'var(--accent-alert)';
+          return;
         }
-      });
-    }, { threshold: 0.5 });
 
-    miniLinks
-      .map(link => document.querySelector(link.getAttribute('href')))
-      .filter(Boolean)
-      .forEach(section => spyObserver.observe(section));
-  });
-</script>
+        out.innerText = `${t.out_encrypt}${this.cipher(input, shift, false)}`;
+        out.style.color = 'var(--accent-primary)';
+      },
+
+      decrypt(){
+        const input = document.getElementById('input_text').value;
+        const shift = parseInt(document.getElementById('shift_amount').value) || 0;
+        const t = translations[this.lang];
+        const out = document.getElementById('output_text');
+
+        if (!input){
+          out.innerText = t.out_empty;
+          out.style.color = 'var(--accent-alert)';
+          return;
+        }
+        if (isNaN(shift) || shift < 0 || shift > 25){
+          out.innerText = this.lang === 'pt' ? 'ERRO: Shift deve estar entre 0 e 25' : 'ERROR: Shift must be 0–25';
+          out.style.color = 'var(--accent-alert)';
+          return;
+        }
+
+        out.innerText = `${t.out_decrypt}${this.cipher(input, shift, true)}`;
+        out.style.color = 'var(--accent-secondary)';
+      }
+    };
+
+    // ====== INIT ======
+    document.addEventListener('DOMContentLoaded', () => {
+      app.setLang(app.lang);
+      app.updateProgressUI();
+      app.runNameEffect(document.getElementById('name'));
+
+      // Reveal animation
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if (e.isIntersecting){
+            e.target.classList.add('active');
+            observer.unobserve(e.target);
+          }
+        });
+      }, {threshold:0.12});
+      document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+      // Reset output label on input change
+      const outputEl = document.getElementById('output_text');
+      const inputEl = document.getElementById('input_text');
+      if (inputEl && outputEl){
+        inputEl.addEventListener('input', ()=>{
+          outputEl.style.color = 'var(--text-secondary)';
+          outputEl.innerText = '// Awaiting Input...';
+        });
+      }
+
+      // Scroll spy
+      const miniLinks = Array.from(document.querySelectorAll('.mini-nav a'));
+      const spyObserver = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if (entry.isIntersecting){
+            miniLinks.forEach(link=>{
+              const target = link.getAttribute('href');
+              link.classList.toggle('active-link', target === `#${entry.target.id}`);
+            });
+          }
+        });
+      }, {threshold:0.5});
+
+      miniLinks
+        .map(a => document.querySelector(a.getAttribute('href')))
+        .filter(Boolean)
+        .forEach(sec => spyObserver.observe(sec));
+    });
+  </script>
 </body>
 </html>
