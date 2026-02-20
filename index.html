@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<!-- 
-====================================================================
-🛡️ THIAGO LOPES — BLUE TEAM / SECURITY OPERATIONS PORTFOLIO
-- PT/EN toggle
-- Recruiter-friendly UX + visual refinements
-- Roadmap: Google Cybersecurity Certificate (Coursera) — 8 courses
-- Print-friendly mode (@media print)
-====================================================================
+<!--
+===========================================================
+THIAGO LOPES — SOC N1 / BLUE TEAM (BR MARKET POSITIONING)
+- Data-driven sections (incidents/projects rendered from arrays)
+- PT/EN toggle (DRY translations)
+- SOC N1-first UX: Incident Reports + Workflow + Capabilities
+- Print-friendly
+===========================================================
 -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO -->
-  <title>Thiago Lopes | Blue Team & Security Ops</title>
-  <meta name="description" content="Portfólio de Thiago Lopes — Blue Team, Security Operations, automação Python e SIEM (Wazuh). Roadmap: Google Cybersecurity Certificate (Coursera)." />
+  <title>Thiago Lopes | SOC Analyst (N1) — Blue Team</title>
+  <meta name="description" content="Portfólio de Thiago Lopes — SOC N1 / Blue Team. Triagem de alertas, análise de logs, documentação e laboratório SIEM (Wazuh)." />
   <meta name="author" content="Thiago Lopes" />
   <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://thiagolopessec.github.io/" />
+  <meta name="theme-color" content="#0a0a0b" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://thiagolopessec.github.io/" />
-  <meta property="og:title" content="Thiago Lopes | Blue Team & Security Ops" />
-  <meta property="og:description" content="Blue Team Ops, automação Python e SIEM (Wazuh). Projetos, labs e jornada no Google Cybersecurity Certificate." />
+  <meta property="og:title" content="Thiago Lopes | SOC Analyst (N1) — Blue Team" />
+  <meta property="og:description" content="SOC N1 focado em triagem, análise de logs e documentação. Home lab com Wazuh SIEM." />
   <meta property="og:image" content="https://github.com/thiagolopessec.png" />
   <meta property="og:locale" content="pt_BR" />
 
@@ -37,7 +39,6 @@
 
   <style>
     :root{
-      /* Dashboard palette */
       --bg-body:#0a0a0b;
       --bg-card:#121214;
       --bg-card-hover:#1c1c1f;
@@ -45,9 +46,9 @@
       --text-primary:#ededed;
       --text-secondary:#a1a1aa;
 
-      --accent-primary:#10b981; /* emerald */
-      --accent-secondary:#3b82f6; /* blue */
-      --accent-purple:#8b5cf6; /* purple */
+      --accent-primary:#10b981;
+      --accent-secondary:#3b82f6;
+      --accent-purple:#8b5cf6;
       --accent-alert:#ef4444;
 
       --border-color:#27272a;
@@ -67,18 +68,18 @@
       overflow-x:hidden;
     }
 
-    h1,h2,h3,.mono,button,input,.tag{
+    h1,h2,h3,.mono,button,input,.tag,textarea{
       font-family:'JetBrains Mono',monospace;
     }
 
     a{color:inherit}
-    a:focus-visible,button:focus-visible,.card:focus-visible{
+    a:focus-visible,button:focus-visible,.card:focus-visible,textarea:focus-visible{
       outline:2px solid var(--accent-secondary);
       outline-offset:3px;
       border-radius:8px;
     }
 
-    .container{max-width:1020px;margin:0 auto;padding:2rem;position:relative}
+    .container{max-width:1040px;margin:0 auto;padding:2rem;position:relative}
 
     /* Language switch */
     .lang-switch{
@@ -122,14 +123,15 @@
 
     /* Grid */
     .grid{display:grid; gap:1.2rem}
-    .grid-2{grid-template-columns:repeat(auto-fit,minmax(310px,1fr))}
+    .grid-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+    .grid-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
 
     /* Header */
     header{
       display:flex; flex-direction:column; align-items:center; text-align:center;
-      padding:5.25rem 0 3.25rem;
+      padding:5.25rem 0 3.15rem;
       border-bottom:1px solid var(--border-color);
-      margin-bottom:3.25rem;
+      margin-bottom:2.75rem;
     }
 
     .profile-container{position:relative; width:118px; height:118px; margin-bottom:1.25rem}
@@ -170,13 +172,13 @@
       border-radius:999px;
       border:1px solid rgba(16,185,129,0.22);
       display:inline-block;
-      margin-bottom:.9rem;
+      margin-bottom:.85rem;
     }
 
     .subtitle{
       color:var(--text-secondary);
-      font-size:.92rem;
-      max-width:860px;
+      font-size:.95rem;
+      max-width:920px;
       line-height:1.75;
       margin-bottom:1.05rem;
     }
@@ -228,9 +230,9 @@
     .sep{color:var(--border-color)}
 
     /* Sections */
-    section{margin-bottom:4rem}
+    section{margin-bottom:3.5rem}
     section.alt{
-      padding:2.25rem 0;
+      padding:2.15rem 0;
       border-top:1px solid rgba(255,255,255,0.02);
       border-bottom:1px solid rgba(255,255,255,0.02);
       background:rgba(255,255,255,0.015);
@@ -238,7 +240,7 @@
     }
     .section-header{
       display:flex; align-items:center; gap:1rem;
-      margin-bottom:1.6rem;
+      margin-bottom:1.4rem;
       padding:0 0.2rem;
     }
     .section-title{font-size:1.45rem; color:var(--text-primary)}
@@ -259,7 +261,7 @@
       background:var(--bg-card);
       border:1px solid var(--border-color);
       border-radius:var(--radius-lg);
-      padding:1.4rem;
+      padding:1.35rem;
       transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
       display:flex; flex-direction:column; height:100%;
     }
@@ -268,25 +270,37 @@
       transform:translateY(-2px);
       box-shadow:var(--shadow-lg);
     }
-    .card-icon{font-size:1.5rem; margin-bottom:.9rem}
-    .card h3{font-size:1.05rem; margin-bottom:.45rem}
-    .card p{font-size:.92rem; color:var(--text-secondary); line-height:1.55; flex:1}
+    .card-icon{font-size:1.5rem; margin-bottom:.85rem}
+    .card h3{font-size:1.05rem; margin-bottom:.35rem}
+    .card p{font-size:.92rem; color:var(--text-secondary); line-height:1.55}
 
-    .card-footer{margin-top:auto}
-    .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:1rem}
+    .meta-row{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin-top:.85rem;
+    }
     .tag{
       font-size:.74rem;
       padding:3px 9px;
       border-radius:7px;
       background:rgba(255,255,255,0.05);
       color:var(--text-secondary);
+      border:1px solid rgba(255,255,255,0.06);
     }
+    .tag.good{border-color:rgba(16,185,129,0.35); background:rgba(16,185,129,0.08); color:var(--accent-primary)}
+    .tag.info{border-color:rgba(59,130,246,0.35); background:rgba(59,130,246,0.08); color:var(--accent-secondary)}
+    .tag.warn{border-color:rgba(239,68,68,0.35); background:rgba(239,68,68,0.08); color:#ffb4b4}
 
+    .link-row{
+      margin-top:1rem;
+      display:flex;
+      gap:.75rem;
+      flex-wrap:wrap;
+      align-items:center;
+    }
     .project-link{
       display:inline-flex;
       align-items:center;
       gap:.4rem;
-      margin-top:1rem;
       font-size:.84rem;
       color:var(--accent-secondary);
       text-decoration:none;
@@ -294,110 +308,62 @@
       width:fit-content;
     }
     .project-link:hover{opacity:.9; border-bottom-style:solid}
-
-    /* Roadmap Progress */
-    .progress-wrap{
-      margin:.4rem 0 1.2rem;
-      padding:0 .2rem;
-    }
-    .progress-meta{
-      display:flex; align-items:center; justify-content:space-between;
+    .muted{
       color:var(--text-secondary);
-      font-size:.8rem;
-      margin-bottom:.5rem;
-      font-family:'JetBrains Mono',monospace;
-      gap:1rem;
-    }
-    .progress{
-      width:100%;
-      height:10px;
-      background:rgba(255,255,255,0.06);
+      font-size:.84rem;
       border:1px solid var(--border-color);
-      border-radius:999px;
-      overflow:hidden;
-    }
-    .progress-bar{
-      height:100%;
-      width:0%;
-      background:linear-gradient(90deg, rgba(16,185,129,0.95), rgba(59,130,246,0.95));
-      border-radius:999px;
-      transition:width .35s ease;
+      padding:6px 10px;
+      border-radius:10px;
+      background:rgba(255,255,255,0.02);
+      font-family:'JetBrains Mono',monospace;
     }
 
-    /* Timeline */
-    .timeline{position:relative; border-left:2px solid var(--border-color); margin-left:1rem; padding-left:2rem}
-    .timeline-item{position:relative; margin-bottom:2.1rem}
-    .timeline-item:last-child{margin-bottom:0}
-    .timeline-marker{
-      position:absolute; left:-2.6rem; top:.1rem;
-      width:1.18rem; height:1.18rem;
-      border-radius:50%;
-      background:var(--bg-body);
-      border:2px solid var(--border-color);
-      z-index:2;
+    /* Incident detail */
+    .incident-body{
+      margin-top:.65rem;
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding-top:.9rem;
+      display:grid;
+      gap:.65rem;
     }
-    .timeline-item.done .timeline-marker{
-      border-color:var(--accent-primary);
-      background:rgba(16,185,129,0.12);
-      box-shadow:0 0 0 4px rgba(16,185,129,0.12);
-    }
-    .timeline-item.active .timeline-marker{
-      border-color:var(--accent-primary);
-      background:rgba(16,185,129,0.12);
-      box-shadow:0 0 0 4px rgba(16,185,129,0.18);
-      animation:pulse 2s infinite;
-    }
-    .timeline-item.future .timeline-marker{border-color:rgba(161,161,170,0.65); opacity:.7}
-    @keyframes pulse{
-      0%{box-shadow:0 0 0 0 rgba(16,185,129,0.35)}
-      70%{box-shadow:0 0 0 8px rgba(16,185,129,0)}
-      100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}
-    }
-    .timeline-dates{
-      font-size:.75rem;
-      color:var(--text-secondary);
-      opacity:.85;
-      display:inline-block;
-      padding:2px 7px;
-      border:1px solid var(--border-color);
-      border-radius:7px;
-      margin-bottom:.45rem;
+    .kv{
       font-family:'JetBrains Mono',monospace;
+      font-size:.84rem;
+      color:var(--text-secondary);
+      background:rgba(255,255,255,0.02);
+      border:1px solid var(--border-color);
+      border-radius:12px;
+      padding:.85rem;
+      white-space:pre-wrap;
+      line-height:1.55;
+    }
+
+    /* Workflow */
+    .steps{
+      display:grid;
+      gap:10px;
+    }
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:12px 12px;
+      border:1px solid var(--border-color);
+      border-radius:14px;
       background:rgba(255,255,255,0.02);
     }
-    .timeline-content span{
-      font-size:.75rem;
-      font-weight:700;
-      margin-bottom:.45rem;
-      display:block;
-      font-family:'JetBrains Mono',monospace;
-    }
-    .timeline-content h3{font-size:1rem; margin-bottom:.35rem}
-    .timeline-content p{font-size:.92rem; color:var(--text-secondary); line-height:1.55}
-
-    .roadmap-cert{
-      display:inline-flex;
-      align-items:center;
-      gap:6px;
-      background:rgba(16,185,129,0.1);
-      border:1px solid rgba(16,185,129,0.32);
-      border-radius:8px;
-      padding:5px 10px;
-      margin-top:10px;
-      font-size:.76rem;
+    .step-num{
+      width:34px;height:34px;border-radius:10px;
+      display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(16,185,129,0.35);
+      background:rgba(16,185,129,0.08);
       color:var(--accent-primary);
       font-family:'JetBrains Mono',monospace;
-      width:fit-content;
+      flex:0 0 auto;
     }
-    .roadmap-cert::before{content:'🎯'}
-    .roadmap-cert.pending{
-      background:rgba(255,255,255,0.04);
-      border-color:var(--border-color);
-      color:var(--text-secondary);
-      filter:grayscale(1);
-    }
+    .step p{color:var(--text-secondary); font-size:.92rem; margin-top:2px}
 
-    /* Lab terminal */
+    /* Lab (Triage helper) */
     .terminal-window{
       background:#0d0d0d;
       border:1px solid var(--border-color);
@@ -415,19 +381,37 @@
     .dot.yellow{background:#f59e0b}
     .dot.green{background:#10b981}
     .terminal-title{color:var(--text-secondary)}
-    .terminal-body{padding:1.6rem}
-    .terminal-input{
-      width:100%;
-      background:transparent;
-      border:none;
-      border-bottom:1px solid var(--border-color);
-      color:var(--accent-primary);
-      padding:.5rem 0;
-      font-size:1rem;
-      margin-bottom:1.1rem;
-      font-family:'JetBrains Mono',monospace;
+    .terminal-body{padding:1.35rem}
+
+    .lab-grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:12px;
     }
-    .terminal-input:focus{outline:none; border-color:rgba(16,185,129,0.75)}
+    @media (min-width:860px){
+      .lab-grid{grid-template-columns:1.2fr 0.8fr}
+    }
+
+    .terminal-textarea{
+      width:100%;
+      min-height:190px;
+      resize:vertical;
+      background:transparent;
+      border:1px solid var(--border-color);
+      border-radius:12px;
+      padding:.85rem .9rem;
+      font-family:'JetBrains Mono',monospace;
+      font-size:.9rem;
+      color:var(--text-primary);
+      outline:none;
+      line-height:1.55;
+    }
+    .terminal-textarea:focus{border-color:rgba(16,185,129,0.7)}
+
+    .btn-row{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:.75rem;
+    }
     .btn{
       background:var(--bg-card-hover);
       color:var(--text-primary);
@@ -436,10 +420,36 @@
       border-radius:var(--radius-md);
       font-size:.88rem;
       cursor:pointer;
-      width:100%;
       transition:all .18s ease;
+      font-family:'JetBrains Mono',monospace;
     }
     .btn:hover{border-color:rgba(16,185,129,0.55); color:var(--accent-primary)}
+    .btn.secondary:hover{border-color:rgba(59,130,246,0.55); color:var(--accent-secondary)}
+    .btn.ghost:hover{border-color:rgba(161,161,170,0.55); color:var(--text-primary)}
+
+    .output-box{
+      border:1px solid var(--border-color);
+      border-radius:12px;
+      padding:1rem;
+      background:rgba(255,255,255,0.02);
+      color:var(--text-secondary);
+      min-height:190px;
+      font-family:'JetBrains Mono',monospace;
+      white-space:pre-wrap;
+      line-height:1.55;
+    }
+    .hint{
+      color:var(--text-secondary);
+      font-size:.82rem;
+      margin-top:.65rem;
+    }
+    .hint code{
+      color:var(--text-primary);
+      background:rgba(255,255,255,0.06);
+      padding:2px 6px;
+      border-radius:7px;
+      border:1px solid var(--border-color);
+    }
 
     /* Reveal */
     .reveal{opacity:0; transform:translateY(16px); transition:all .55s cubic-bezier(0.2,0.8,0.2,1)}
@@ -447,7 +457,7 @@
 
     /* Footer */
     footer{
-      margin-top:3rem;
+      margin-top:2.75rem;
       padding:1.5rem 0 1rem;
       border-top:1px solid var(--border-color);
     }
@@ -463,13 +473,11 @@
 
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
-      .status-ring, .reveal, .timeline-item.active .timeline-marker{animation:none !important}
+      .status-ring, .reveal{animation:none !important; transition:none !important}
       *{scroll-behavior:auto !important}
     }
 
-    /* =====================================================
-       PRINT FRIENDLY MODE
-       ===================================================== */
+    /* PRINT */
     @media print{
       *{
         background:transparent !important;
@@ -486,7 +494,7 @@
         line-height:1.4;
       }
       .lang-switch,.mini-nav,.status-ring,
-      .terminal-window,button,input,.btn,.cta{
+      .terminal-window,.btn,.cta{
         display:none !important;
       }
       header{
@@ -502,12 +510,12 @@
         border:1px solid #000 !important;
         background:none !important;
       }
-      .card{
+      .card, .step{
         border:1px solid #ccc !important;
         page-break-inside:avoid;
         margin-bottom:1rem !important;
       }
-      section, .timeline-item{page-break-inside:avoid}
+      section{page-break-inside:avoid}
       a::after{
         content:" (" attr(href) ")";
         font-size:9pt;
@@ -527,17 +535,18 @@
 
     <!-- Language Switch -->
     <nav class="lang-switch" aria-label="Language switch">
-      <button class="lang-btn active" id="btn-pt" onclick="app.setLang('pt')">PT</button>
-      <button class="lang-btn" id="btn-en" onclick="app.setLang('en')">EN</button>
+      <button class="lang-btn active" id="btn-pt" type="button" aria-pressed="true">PT</button>
+      <button class="lang-btn" id="btn-en" type="button" aria-pressed="false">EN</button>
     </nav>
 
     <!-- Mini Nav -->
     <nav class="mini-nav" aria-label="Navegação rápida / Quick nav">
+      <a href="#capabilities" data-translate="nav_cap">SOC Capabilities</a>
+      <a href="#incidents" data-translate="nav_inc">Incident Reports</a>
+      <a href="#workflow" data-translate="nav_flow">Workflow</a>
+      <a href="#projects" data-translate="nav_proj">Projetos</a>
+      <a href="#lab" data-translate="nav_lab">Triage Helper</a>
       <a href="#education" data-translate="nav_edu">Edu/Cert</a>
-      <a href="#stack" data-translate="nav_stack">Stack</a>
-      <a href="#projects" data-translate="nav_projects">Projetos</a>
-      <a href="#roadmap" data-translate="nav_roadmap">Roadmap</a>
-      <a href="#lab" data-translate="nav_lab">Lab</a>
     </nav>
 
     <!-- HEADER -->
@@ -548,30 +557,28 @@
       </div>
 
       <h1 id="name" data-value="Thiago Lopes">Thiago Lopes</h1>
-      <div class="tagline mono">&lt;Security Operations / Blue Team&gt;</div>
+      <div class="tagline mono" data-translate="headline">&lt;SOC Analyst (N1) / Blue Team&gt;</div>
 
       <div class="pill-row" aria-label="Key focus areas">
-        <span class="pill">SOC</span>
-        <span class="pill">Incident Response</span>
+        <span class="pill">Alert Triage</span>
         <span class="pill">Log Analysis</span>
-        <span class="pill">Python Automation</span>
+        <span class="pill">Incident Documentation</span>
         <span class="pill">Wazuh (SIEM)</span>
+        <span class="pill">Windows / Linux</span>
       </div>
 
       <p class="subtitle" data-translate="bio">
-        Profissional em transição para Cibersegurança, com 15 anos em Urgência/Emergência (PACS).
-        Levo disciplina operacional, triagem de risco e gestão de crise para detecção e resposta a incidentes (Blue Team / SOC).
+        Profissional em transição para Security Operations com 15 anos em ambiente crítico (Urgência/Emergência). Atuo com triagem estruturada, priorização sob pressão e documentação precisa — aplicando esses princípios à análise inicial de alertas e escalonamento em ambiente SOC.
       </p>
 
-      <!-- Recruiter-friendly CTA -->
       <div class="cta" role="group" aria-label="Calls to action">
         <a class="primary" href="mailto:tlopes.dev@gmail.com">
           <span class="mono" data-translate="cta_email">Contactar</span> ✉️
         </a>
-        <a href="#projects">
-          <span class="mono" data-translate="cta_projects">Ver Projetos</span> 🧪
+        <a href="#incidents">
+          <span class="mono" data-translate="cta_cases">Ver Incident Reports</span> 🧾
         </a>
-        <a href="javascript:void(0)" onclick="window.print()">
+        <a href="javascript:void(0)" id="btn-print">
           <span class="mono" data-translate="cta_pdf">Salvar PDF</span> 🖨️
         </a>
       </div>
@@ -585,12 +592,140 @@
       </nav>
     </header>
 
-    <!-- EDUCATION -->
-    <section class="reveal alt" id="education">
+    <!-- CAPABILITIES -->
+    <section class="reveal alt" id="capabilities">
       <div class="section-header">
-        <h2 class="section-title mono" data-translate="edu_title">01. Formação & Certificações</h2>
+        <h2 class="section-title mono" data-translate="cap_title">01. SOC Operational Capabilities</h2>
         <div class="section-line"></div>
-        <span class="section-kicker" data-translate="edu_kicker">Credenciais</span>
+        <span class="section-kicker" data-translate="cap_kicker">N1 Focus</span>
+      </div>
+
+      <div class="grid grid-3" id="capabilities-grid"></div>
+    </section>
+
+    <!-- INCIDENT REPORTS -->
+    <section class="reveal" id="incidents">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="inc_title">02. Incident Reports (Lab-Based)</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="inc_kicker">Triage-ready</span>
+      </div>
+
+      <div class="grid grid-2" id="incidents-grid"></div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="reveal alt" id="workflow">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="flow_title">03. My Alert Triage Workflow</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="flow_kicker">Process</span>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h3 data-translate="flow_card_title">Workflow (SOC N1)</h3>
+          <p data-translate="flow_card_desc">Fluxo de triagem e documentação voltado a reduzir falso positivo e escalar corretamente quando necessário.</p>
+
+          <div class="incident-body">
+            <div class="steps" id="workflow-steps"></div>
+          </div>
+
+          <div class="meta-row" style="margin-top:1rem">
+            <span class="tag good" data-translate="flow_tag_1">Consistency</span>
+            <span class="tag info" data-translate="flow_tag_2">Communication</span>
+            <span class="tag" data-translate="flow_tag_3">Ticketing</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🧠</div>
+          <h3 data-translate="transfer_title">Transferable Skills</h3>
+          <p data-translate="transfer_desc">
+            Minha experiência em Urgência/Emergência fortalece triagem sob pressão, priorização, handoff e comunicação objetiva — pilares de operação SOC 24/7.
+          </p>
+
+          <div class="kv" data-translate="transfer_block">
+Emergency Care → SOC
+- Triagem rápida → Alert Triage
+- Priorização → Severity Classification
+- Crise → Incident Handling
+- Handoff → Escalation + Ticket Notes
+          </div>
+
+          <div class="meta-row">
+            <span class="tag good" data-translate="shift_tag">Shift-ready</span>
+            <span class="tag" data-translate="pressure_tag">High-pressure ops</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="reveal" id="projects">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="proj_title">04. Projects</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="proj_kicker">Evidence</span>
+      </div>
+
+      <div class="grid grid-2" id="projects-grid"></div>
+    </section>
+
+    <!-- LAB (Triage Helper) -->
+    <section class="reveal alt" id="lab">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="lab_title">05. Triage Helper — Log Parsing (Windows 4625)</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="lab_kicker">SOC N1</span>
+      </div>
+
+      <div class="terminal-window" role="region" aria-label="Triage helper">
+        <div class="terminal-header">
+          <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+          <div class="terminal-title mono">triage_helper_regex.js (simulator)</div>
+        </div>
+
+        <div class="terminal-body">
+          <div class="lab-grid">
+            <div>
+              <textarea id="log_input" class="terminal-textarea" spellcheck="false"></textarea>
+
+              <div class="btn-row">
+                <button class="btn" id="btn_parse" type="button" style="border-color:rgba(16,185,129,0.55); color:var(--accent-primary)">
+                  <span data-translate="btn_parse">EXTRAIR (IoCs + Severidade)</span>
+                </button>
+                <button class="btn secondary" id="btn_sample" type="button" style="border-color:rgba(59,130,246,0.55); color:var(--accent-secondary)">
+                  <span data-translate="btn_sample">CARREGAR EXEMPLO 4625</span>
+                </button>
+                <button class="btn ghost" id="btn_clear" type="button" style="border-color:rgba(161,161,170,0.55);">
+                  <span data-translate="btn_clear">LIMPAR</span>
+                </button>
+              </div>
+
+              <div class="hint" data-translate="lab_hint">
+                Dica: isso simula a extração rápida para “first-pass triage” (IP, user, host, event_id) + sugestão de severidade e próximos passos.
+              </div>
+            </div>
+
+            <div>
+              <div class="output-box" id="parse_output" aria-live="polite" role="status">// Awaiting Input...</div>
+              <div class="hint" data-translate="lab_hint2">
+                Objetivo: acelerar documentação em ticket e decisão de escalonamento.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="reveal" id="education">
+      <div class="section-header">
+        <h2 class="section-title mono" data-translate="edu_title">06. Education & Certifications</h2>
+        <div class="section-line"></div>
+        <span class="section-kicker" data-translate="edu_kicker">Roadmap</span>
       </div>
 
       <div class="grid grid-2">
@@ -598,280 +733,21 @@
           <div class="card-icon">🎓</div>
           <h3 data-translate="edu_1_title">Análise e Desenvolvimento de Sistemas</h3>
           <p data-translate="edu_1_desc">FADERGS. Base em redes, arquitetura e segurança da informação.</p>
-          <div class="card-footer">
-            <div class="tags">
-              <span id="grad-counter" class="tag" style="border:1px solid rgba(139,92,246,0.45); color:var(--accent-purple); font-weight:700;">
-                Calculando...
-              </span>
-              <span class="tag" data-translate="edu_tag_1">Redes</span>
-              <span class="tag" data-translate="edu_tag_2">Segurança</span>
-            </div>
+          <div class="meta-row">
+            <span class="tag" id="grad-counter">⏳ ...</span>
+            <span class="tag info" data-translate="edu_tag_1">Networking</span>
+            <span class="tag" data-translate="edu_tag_2">Security</span>
           </div>
         </div>
 
         <div class="card">
           <div class="card-icon">📜</div>
           <h3 data-translate="edu_2_title">Google Cybersecurity Certificate</h3>
-          <p data-translate="edu_2_desc">Certificação profissional (Coursera). Roadmap completo com 8 cursos e entregáveis práticos.</p>
-          <div class="card-footer">
-            <div class="tags">
-              <span class="tag" style="border:1px solid rgba(16,185,129,0.45); color:var(--accent-primary);" data-translate="cert_in_progress">Em andamento</span>
-              <span class="tag">SOC</span>
-              <span class="tag">Blue Team</span>
-              <span class="tag">SIEM</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STACK -->
-    <section class="reveal" id="stack">
-      <div class="section-header">
-        <h2 class="section-title mono" data-translate="stack_title">02. Tech Stack</h2>
-        <div class="section-line"></div>
-        <span class="section-kicker" data-translate="stack_kicker">Foco operacional</span>
-      </div>
-
-      <div class="grid grid-2">
-        <article class="card">
-          <div class="card-icon">🐍</div>
-          <h3 data-translate="skill_1_title">Python (Automação)</h3>
-          <p data-translate="skill_1_desc">Scripts para tarefas repetitivas, parsing de logs e integrações com APIs para apoiar operações de segurança.</p>
-          <div class="card-footer">
-            <div class="tags">
-              <span class="tag">Automation</span>
-              <span class="tag">Scripting</span>
-              <span class="tag">Parsing</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">🛡️</div>
-          <h3 data-translate="skill_2_title">Security Operations (SOC/Blue Team)</h3>
-          <p data-translate="skill_2_desc">Monitoramento, análise de eventos, triagem de alertas e fundamentos de resposta a incidentes.</p>
-          <div class="card-footer">
-            <div class="tags">
-              <span class="tag">Triage</span>
-              <span class="tag">IR Basics</span>
-              <span class="tag">MITRE</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">🦅</div>
-          <h3 data-translate="skill_3_title">SIEM / Wazuh (Lab)</h3>
-          <p data-translate="skill_3_desc">Lab controlado com Wazuh para ingestão de logs, alertas e estudo de detecção baseada em eventos.</p>
-          <div class="card-footer">
-            <div class="tags">
-              <span class="tag">Wazuh</span>
-              <span class="tag">Logs</span>
-              <span class="tag">Docker</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-icon">🐧</div>
-          <h3 data-translate="skill_4_title">Linux (Fundamentos)</h3>
-          <p data-translate="skill_4_desc">Linha de comando, permissões, processos e manipulação de arquivos — base para análise e investigação.</p>
-          <div class="card-footer">
-            <div class="tags">
-              <span class="tag">Shell</span>
-              <span class="tag">Permissions</span>
-              <span class="tag">Processes</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="reveal alt" id="projects">
-      <div class="section-header">
-        <h2 class="section-title mono" data-translate="projects_title">03. Projetos</h2>
-        <div class="section-line"></div>
-        <span class="section-kicker" data-translate="projects_kicker">Evidência prática</span>
-      </div>
-
-      <div class="grid grid-2">
-        <div class="card" style="border-left:4px solid rgba(16,185,129,0.9); background:linear-gradient(135deg, rgba(16,185,129,0.06), transparent);">
-          <div class="card-icon">🔍</div>
-          <h3 data-translate="proj_1_title">Port Scanner (Python)</h3>
-          <p data-translate="proj_1_desc">Descoberta de serviços e inventário básico, apoiando análise de superfície de ataque e hardening em ambiente controlado.</p>
-          <div class="card-footer">
-            <div class="tags">
-              <span class="tag" style="border:1px solid rgba(16,185,129,0.45); color:var(--accent-primary); background:rgba(16,185,129,0.12)">Python</span>
-              <span class="tag" style="border:1px solid rgba(16,185,129,0.45); color:var(--accent-primary); background:rgba(16,185,129,0.12)">Networking</span>
-            </div>
-            <a class="project-link" data-translate="proj_link" href="https://github.com/thiagolopessec/projetos_python/blob/main/port_scanner.py" target="_blank" rel="noopener noreferrer">
-              Ver projeto →
-            </a>
-          </div>
-        </div>
-
-        <div class="card" style="border-left:3px solid rgba(59,130,246,0.8);">
-          <div class="card-icon">🛡️</div>
-          <h3 data-translate="proj_2_title">Security Home Lab (Wazuh)</h3>
-          <p data-translate="proj_2_desc">Ambiente com Wazuh para ingestão de logs, simulação de alertas e prática de triagem em cenário controlado.</p>
-          <div class="card-footer">
-            <div class="tags">
-              <span class="tag">SIEM</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Logs</span>
-            </div>
-            <a class="project-link" data-translate="proj_2_link" href="#" onclick="return false;">
-              Write-up (em breve) →
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROADMAP -->
-    <section class="reveal" id="roadmap">
-      <div class="section-header">
-        <h2 class="section-title mono" data-translate="roadmap_title">04. Roadmap — Google Cybersecurity Certificate</h2>
-        <div class="section-line"></div>
-        <span class="section-kicker" data-translate="roadmap_kicker">Trilha oficial</span>
-      </div>
-
-      <!-- Progress bar -->
-      <div class="progress-wrap">
-        <div class="progress-meta">
-          <span class="mono" data-translate="progress_label">Progresso</span>
-          <span class="mono" id="progress_text">0%</span>
-        </div>
-        <div class="progress" aria-label="Course progress">
-          <div class="progress-bar" id="progress_bar"></div>
-        </div>
-      </div>
-
-      <div class="timeline" aria-label="Roadmap timeline">
-  <!-- Foundations of Cybersecurity (Concluído) -->
-  <div class="timeline-item done" data-course="1">
-    <div class="timeline-marker"></div>
-    <div class="timeline-content">
-      <span style="color:var(--accent-primary)" class="mono" data-translate="c1_status">CONCLUÍDO</span>
-      <div class="timeline-dates" data-translate="c1_dates">Curso 1/8</div>
-      <h3 data-translate="c1_title">Foundations of Cybersecurity</h3>
-      <p data-translate="c1_desc">Introdução ao papel do analista...</p>
-      <div class="roadmap-cert" data-translate="c1_deliv">Entregável: atividades + quizzes do curso</div>
-    </div>
-  </div>
-
-  <!-- Play It Safe: Manage Security Risks (Em Execução) -->
-  <div class="timeline-item active" data-course="2">
-    <div class="timeline-marker"></div>
-    <div class="timeline-content">
-      <span style="color:var(--accent-primary)" class="mono" data-translate="c2_status">EM EXECUÇÃO</span>
-      <div class="timeline-dates" data-translate="c2_dates">Curso 2/8</div>
-      <h3 data-translate="c2_title">Play It Safe: Manage Security Risks</h3>
-      <p data-translate="c2_desc">Gestão de riscos...</p>
-      <div class="roadmap-cert" data-translate="c2_deliv">Entregável: exercícios + análise de risco</div>
-    </div>
-  </div>
-
-  <!-- Connect and Protect: Networks and Network Security Next Up -->
-     <div class="timeline-item future" data-course="3">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="mono" style="color:var(--text-secondary)" data-translate="c3_status">PRÓXIMO</span>
-            <div class="timeline-dates" data-translate="c3_dates">Curso 3/8</div>
-            <h3 data-translate="c3_title">Connect and Protect: Networks and Network Security</h3>
-            <p data-translate="c3_desc">Fundamentos de redes, segurança de tráfego, dispositivos de proteção e defesa em camadas.</p>
-            <div class="roadmap-cert pending" data-translate="c3_deliv">Entregável: exercícios + notas de estudo</div>
-          </div>
-        </div>
-
-        <div class="timeline-item future" data-course="4">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="mono" style="color:var(--text-secondary)" data-translate="c4_status">FUTURO</span>
-            <div class="timeline-dates" data-translate="c4_dates">Curso 4/8</div>
-            <h3 data-translate="c4_title">Tools of the Trade: Linux and SQL</h3>
-            <p data-translate="c4_desc">Linux e SQL aplicados à investigação e análise — base operacional para SOC.</p>
-            <div class="roadmap-cert pending" data-translate="c4_deliv">Entregável: cheatsheet (comandos + queries)</div>
-          </div>
-        </div>
-
-        <div class="timeline-item future" data-course="5">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="mono" style="color:var(--text-secondary)" data-translate="c5_status">FUTURO</span>
-            <div class="timeline-dates" data-translate="c5_dates">Curso 5/8</div>
-            <h3 data-translate="c5_title">Assets, Threats, and Vulnerabilities</h3>
-            <p data-translate="c5_desc">Gestão de ativos, avaliação de ameaças/vulnerabilidades e hardening.</p>
-            <div class="roadmap-cert pending" data-translate="c5_deliv">Entregável: inventário (lab) + relatório</div>
-          </div>
-        </div>
-
-        <div class="timeline-item future" data-course="6">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="mono" style="color:var(--text-secondary)" data-translate="c6_status">FUTURO</span>
-            <div class="timeline-dates" data-translate="c6_dates">Curso 6/8</div>
-            <h3 data-translate="c6_title">Sound the Alarm: Detection and Response</h3>
-            <p data-translate="c6_desc">Detecção e resposta: monitoramento, triagem de alertas e fluxo de incident response.</p>
-            <div class="roadmap-cert pending" data-translate="c6_deliv">Entregável: simulação + relatório de incidente</div>
-          </div>
-        </div>
-
-        <div class="timeline-item future" data-course="7">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="mono" style="color:var(--text-secondary)" data-translate="c7_status">FUTURO</span>
-            <div class="timeline-dates" data-translate="c7_dates">Curso 7/8</div>
-            <h3 data-translate="c7_title">Automate Cybersecurity Tasks with Python</h3>
-            <p data-translate="c7_desc">Automação de tarefas de segurança com Python (uso em SOC e operações).</p>
-            <div class="roadmap-cert pending" data-translate="c7_deliv">Entregável: scripts + repositório organizado</div>
-          </div>
-        </div>
-
-        <div class="timeline-item future" data-course="8">
-          <div class="timeline-marker"></div>
-          <div class="timeline-content">
-            <span class="mono" style="color:var(--text-secondary)" data-translate="c8_status">FUTURO</span>
-            <div class="timeline-dates" data-translate="c8_dates">Curso 8/8</div>
-            <h3 data-translate="c8_title">Put It to Work: Prepare for Cybersecurity Jobs</h3>
-            <p data-translate="c8_desc">Preparação para vagas: portfólio, entrevista e próximos passos de empregabilidade.</p>
-            <div class="roadmap-cert pending" data-translate="c8_deliv">Entregável: portfólio final + currículo</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LAB -->
-    <section class="reveal alt" id="lab">
-      <div class="section-header">
-        <h2 class="section-title mono" data-translate="lab_title">05. Lab: Criptografia</h2>
-        <div class="section-line"></div>
-        <span class="section-kicker" data-translate="lab_kicker">Hands-on</span>
-      </div>
-
-      <div class="terminal-window" role="region" aria-label="Caesar cipher lab">
-        <div class="terminal-header">
-          <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
-          <div class="terminal-title mono">caesar_cipher.py</div>
-        </div>
-
-        <div class="terminal-body">
-          <input type="text" id="input_text" class="terminal-input" placeholder="ENTER_MESSAGE >>" autocomplete="off">
-          <input type="number" id="shift_amount" class="terminal-input" value="3" placeholder="SHIFT_KEY >>">
-
-          <div style="display:flex; gap:10px; margin-bottom:1rem;">
-            <button class="btn" onclick="app.encrypt()" style="border-color:rgba(16,185,129,0.55); color:var(--accent-primary)">
-              <span data-translate="btn_encrypt">CRIPTOGRAFAR</span>
-            </button>
-            <button class="btn" onclick="app.decrypt()" style="border-color:rgba(59,130,246,0.55); color:var(--accent-secondary)">
-              <span data-translate="btn_decrypt">DESCRIPTOGRAFAR</span>
-            </button>
-          </div>
-
-          <div class="mono" id="output_text" style="min-height:20px; color:var(--text-secondary)" aria-live="polite" role="status">
-            // Awaiting Input...
+          <p data-translate="edu_2_desc">Trilha focada em fundamentos e prática para operações de segurança. (Em andamento.)</p>
+          <div class="meta-row">
+            <span class="tag good" data-translate="cert_in_progress">In progress</span>
+            <span class="tag" data-translate="edu_focus_1">SOC fundamentals</span>
+            <span class="tag" data-translate="edu_focus_2">Risk + logs</span>
           </div>
         </div>
       </div>
@@ -879,280 +755,458 @@
 
     <footer>
       <p class="mono">
-        Thiago Lopes © 2026 — <span style="color:var(--accent-primary)" data-translate="footer_tag">ADS student & Blue Team.</span>
+        Thiago Lopes © 2026 — <span style="color:var(--accent-primary)" data-translate="footer_tag">SOC N1 mindset: triage • documentation • escalation.</span>
       </p>
     </footer>
 
   </div>
 
   <script>
-    // ====== TRANSLATIONS ======
+    // =======================
+    // TRANSLATIONS (DRY)
+    // =======================
     const translations = {
       pt: {
+        nav_cap: "SOC Capabilities",
+        nav_inc: "Incident Reports",
+        nav_flow: "Workflow",
+        nav_proj: "Projetos",
+        nav_lab: "Triage Helper",
         nav_edu: "Edu/Cert",
-        nav_stack: "Stack",
-        nav_projects: "Projetos",
-        nav_roadmap: "Roadmap",
-        nav_lab: "Lab",
 
-        bio: "Profissional em transição para Cibersegurança, com <strong>15 anos em Urgência/Emergência (PACS)</strong>. Levo disciplina operacional, triagem de risco e gestão de crise para <strong>detecção e resposta a incidentes</strong> (Blue Team / SOC).",
+        headline: "<SOC Analyst (N1) / Blue Team>",
+        bio: "Profissional em transição para Security Operations com <strong>15 anos</strong> em ambiente crítico (Urgência/Emergência). Atuo com triagem estruturada, priorização sob pressão e documentação precisa — aplicando esses princípios à <strong>análise inicial de alertas</strong> e <strong>escalonamento</strong> em ambiente SOC.",
 
         cta_email: "Contactar",
-        cta_projects: "Ver Projetos",
+        cta_cases: "Ver Incident Reports",
         cta_pdf: "Salvar PDF",
 
-        edu_title: "01. Formação & Certificações",
-        edu_kicker: "Credenciais",
+        cap_title: "01. SOC Operational Capabilities",
+        cap_kicker: "N1 Focus",
+
+        inc_title: "02. Incident Reports (Baseados em Lab)",
+        inc_kicker: "Triage-ready",
+
+        flow_title: "03. Meu Workflow de Triagem",
+        flow_kicker: "Process",
+        flow_card_title: "Workflow (SOC N1)",
+        flow_card_desc: "Fluxo de triagem e documentação voltado a reduzir falso positivo e escalar corretamente quando necessário.",
+        flow_tag_1: "Consistência",
+        flow_tag_2: "Comunicação",
+        flow_tag_3: "Ticketing",
+
+        transfer_title: "Competências Transferíveis",
+        transfer_desc: "Minha experiência em Urgência/Emergência fortalece triagem sob pressão, priorização, handoff e comunicação objetiva — pilares de operação SOC 24/7.",
+        transfer_block: `Urgência/Emergência → SOC
+- Triagem rápida → Alert Triage
+- Priorização → Severity Classification
+- Crise → Incident Handling
+- Handoff → Escalation + Ticket Notes`,
+        shift_tag: "Pronto para turno",
+        pressure_tag: "Operação sob pressão",
+
+        proj_title: "04. Projetos",
+        proj_kicker: "Evidência",
+
+        lab_title: "05. Triage Helper — Log Parsing (Windows 4625)",
+        lab_kicker: "SOC N1",
+        btn_parse: "EXTRAIR (IoCs + Severidade)",
+        btn_sample: "CARREGAR EXEMPLO 4625",
+        btn_clear: "LIMPAR",
+        lab_hint: "Dica: isso simula a extração rápida para “first-pass triage” (IP, user, host, event_id) + sugestão de severidade e próximos passos.",
+        lab_hint2: "Objetivo: acelerar documentação em ticket e decisão de escalonamento.",
+
+        edu_title: "06. Formação & Certificações",
+        edu_kicker: "Roadmap",
         edu_1_title: "Análise e Desenvolvimento de Sistemas",
         edu_1_desc: "FADERGS. Base em redes, arquitetura e segurança da informação.",
+        edu_2_title: "Google Cybersecurity Certificate",
+        edu_2_desc: "Trilha focada em fundamentos e prática para operações de segurança. (Em andamento.)",
         edu_tag_1: "Redes",
         edu_tag_2: "Segurança",
-        edu_2_title: "Google Cybersecurity Certificate",
-        edu_2_desc: "Certificação profissional (Coursera). Roadmap completo com 8 cursos e entregáveis práticos.",
         cert_in_progress: "Em andamento",
+        edu_focus_1: "Fundamentos SOC",
+        edu_focus_2: "Risco + logs",
 
-        stack_title: "02. Tech Stack",
-        stack_kicker: "Foco operacional",
-        skill_1_title: "Python (Automação)",
-        skill_1_desc: "Scripts para tarefas repetitivas, parsing de logs e integrações com APIs para apoiar operações de segurança.",
-        skill_2_title: "Security Operations (SOC/Blue Team)",
-        skill_2_desc: "Monitoramento, análise de eventos, triagem de alertas e fundamentos de resposta a incidentes.",
-        skill_3_title: "SIEM / Wazuh (Lab)",
-        skill_3_desc: "Lab controlado com Wazuh para ingestão de logs, alertas e estudo de detecção baseada em eventos.",
-        skill_4_title: "Linux (Fundamentos)",
-        skill_4_desc: "Linha de comando, permissões, processos e manipulação de arquivos — base para análise e investigação.",
+        footer_tag: "Mindset SOC N1: triagem • documentação • escalonamento.",
 
-        projects_title: "03. Projetos",
-        projects_kicker: "Evidência prática",
-        proj_1_title: "Port Scanner (Python)",
-        proj_1_desc: "Descoberta de serviços e inventário básico, apoiando análise de superfície de ataque e hardening em ambiente controlado.",
-        proj_link: "Ver projeto →",
-        proj_2_title: "Security Home Lab (Wazuh)",
-        proj_2_desc: "Ambiente com Wazuh para ingestão de logs, simulação de alertas e prática de triagem em cenário controlado.",
-        proj_2_link: "Write-up (em breve) →",
-
-        roadmap_title: "04. Roadmap — Google Cybersecurity Certificate",
-        roadmap_kicker: "Trilha oficial",
-        progress_label: "Progresso",
-
-        c1_status: "CONCLUÍDO",
-        c1_dates: "Curso 1/8",
-        c1_title: "Foundations of Cybersecurity",
-        c1_desc: "Introdução ao papel do analista, impacto de ataques, ética e fundamentos (inclui CIA Triad e visão geral de domínios).",
-        c1_deliv: "Entregável: atividades + quizzes do curso",
-
-        c2_status: "EM EXECUÇÃO",
-        c2_dates: "Curso 2/8",
-        c2_title: "Play It Safe: Manage Security Risks",
-        c2_desc: "Gestão de riscos: ameaças, vulnerabilidades, controles e noções de frameworks aplicados.",
-        c2_deliv: "Entregável: exercícios + análise de risco",
-
-        c3_status: "PRÓXIMO",
-        c3_dates: "Curso 3/8",
-        c3_title: "Connect and Protect: Networks and Network Security",
-        c3_desc: "Fundamentos de redes, segurança de tráfego, dispositivos de proteção e defesa em camadas.",
-        c3_deliv: "Entregável: exercícios + notas de estudo",
-
-        c4_status: "FUTURO",
-        c4_dates: "Curso 4/8",
-        c4_title: "Tools of the Trade: Linux and SQL",
-        c4_desc: "Linux e SQL aplicados à investigação e análise — base operacional para SOC.",
-        c4_deliv: "Entregável: cheatsheet (comandos + queries)",
-
-        c5_status: "FUTURO",
-        c5_dates: "Curso 5/8",
-        c5_title: "Assets, Threats, and Vulnerabilities",
-        c5_desc: "Gestão de ativos, avaliação de ameaças/vulnerabilidades e hardening.",
-        c5_deliv: "Entregável: inventário (lab) + relatório",
-
-        c6_status: "FUTURO",
-        c6_dates: "Curso 6/8",
-        c6_title: "Sound the Alarm: Detection and Response",
-        c6_desc: "Detecção e resposta: monitoramento, triagem de alertas e fluxo de incident response.",
-        c6_deliv: "Entregável: simulação + relatório de incidente",
-
-        c7_status: "FUTURO",
-        c7_dates: "Curso 7/8",
-        c7_title: "Automate Cybersecurity Tasks with Python",
-        c7_desc: "Automação de tarefas de segurança com Python (uso em SOC e operações).",
-        c7_deliv: "Entregável: scripts + repositório organizado",
-
-        c8_status: "FUTURO",
-        c8_dates: "Curso 8/8",
-        c8_title: "Put It to Work: Prepare for Cybersecurity Jobs",
-        c8_desc: "Preparação para vagas: portfólio, entrevista e próximos passos de empregabilidade.",
-        c8_deliv: "Entregável: portfólio final + currículo",
-
-        lab_title: "05. Lab: Criptografia",
-        lab_kicker: "Hands-on",
-        btn_encrypt: "CRIPTOGRAFAR",
-        btn_decrypt: "DESCRIPTOGRAFAR",
-        out_encrypt: "DADO CIFRADO: ",
-        out_decrypt: "DADO DECIFRADO: ",
         out_empty: "ERRO: Entrada vazia.",
-
-        footer_tag: "Estudante de ADS & Blue Team."
+        out_nohits: "Nenhum match encontrado. Verifique o formato do log.",
+        out_results: "RESULTADO (extraído para triagem):",
+        out_next: "Próximos passos sugeridos (N1):",
+        sev_low: "Baixa",
+        sev_med: "Média",
+        sev_high: "Alta"
       },
 
       en: {
+        nav_cap: "SOC Capabilities",
+        nav_inc: "Incident Reports",
+        nav_flow: "Workflow",
+        nav_proj: "Projects",
+        nav_lab: "Triage Helper",
         nav_edu: "Edu/Cert",
-        nav_stack: "Stack",
-        nav_projects: "Projects",
-        nav_roadmap: "Roadmap",
-        nav_lab: "Lab",
 
-        bio: "Career switcher into Cybersecurity with <strong>15 years in frontline Emergency Care (PACS)</strong>. Bringing operational discipline, risk triage and crisis management into <strong>detection and incident response</strong> (Blue Team / SOC).",
+        headline: "<SOC Analyst (N1) / Blue Team>",
+        bio: "Career switcher into Security Operations with <strong>15 years</strong> in high-pressure frontline emergency care. Strong in structured triage, prioritization and precise documentation — applying those principles to <strong>first-pass alert analysis</strong> and <strong>proper escalation</strong> in a SOC environment.",
 
         cta_email: "Contact",
-        cta_projects: "View Projects",
+        cta_cases: "View Incident Reports",
         cta_pdf: "Save PDF",
 
-        edu_title: "01. Education & Certifications",
-        edu_kicker: "Credentials",
+        cap_title: "01. SOC Operational Capabilities",
+        cap_kicker: "N1 Focus",
+
+        inc_title: "02. Incident Reports (Lab-Based)",
+        inc_kicker: "Triage-ready",
+
+        flow_title: "03. My Alert Triage Workflow",
+        flow_kicker: "Process",
+        flow_card_title: "Workflow (SOC N1)",
+        flow_card_desc: "Triage + documentation workflow designed to reduce false positives and escalate correctly when needed.",
+        flow_tag_1: "Consistency",
+        flow_tag_2: "Communication",
+        flow_tag_3: "Ticketing",
+
+        transfer_title: "Transferable Skills",
+        transfer_desc: "Frontline emergency care experience strengthens triage under pressure, prioritization, handoff and concise communication — core skills for a 24/7 SOC.",
+        transfer_block: `Emergency Care → SOC
+- Rapid triage → Alert Triage
+- Prioritization → Severity Classification
+- Crisis handling → Incident Handling
+- Handoff → Escalation + Ticket Notes`,
+        shift_tag: "Shift-ready",
+        pressure_tag: "High-pressure ops",
+
+        proj_title: "04. Projects",
+        proj_kicker: "Evidence",
+
+        lab_title: "05. Triage Helper — Log Parsing (Windows 4625)",
+        lab_kicker: "SOC N1",
+        btn_parse: "EXTRACT (IoCs + Severity)",
+        btn_sample: "LOAD 4625 SAMPLE",
+        btn_clear: "CLEAR",
+        lab_hint: "Tip: this simulates quick first-pass triage extraction (IP, user, host, event_id) + severity suggestion and next steps.",
+        lab_hint2: "Goal: speed up ticket notes and escalation decisions.",
+
+        edu_title: "06. Education & Certifications",
+        edu_kicker: "Roadmap",
         edu_1_title: "Systems Analysis & Development",
         edu_1_desc: "FADERGS. Foundations in networking, architecture and information security.",
+        edu_2_title: "Google Cybersecurity Certificate",
+        edu_2_desc: "Track focused on fundamentals and hands-on security operations practice. (In progress.)",
         edu_tag_1: "Networking",
         edu_tag_2: "Security",
-        edu_2_title: "Google Cybersecurity Certificate",
-        edu_2_desc: "Professional certificate (Coursera). Full 8-course roadmap with practical deliverables.",
         cert_in_progress: "In progress",
+        edu_focus_1: "SOC fundamentals",
+        edu_focus_2: "Risk + logs",
 
-        stack_title: "02. Tech Stack",
-        stack_kicker: "Ops focus",
-        skill_1_title: "Python (Automation)",
-        skill_1_desc: "Scripts for repetitive tasks, log parsing and API integrations to support security operations.",
-        skill_2_title: "Security Operations (SOC/Blue Team)",
-        skill_2_desc: "Monitoring, event analysis, alert triage and incident response fundamentals.",
-        skill_3_title: "SIEM / Wazuh (Lab)",
-        skill_3_desc: "Controlled Wazuh lab for log ingestion, alerting and event-based detection studies.",
-        skill_4_title: "Linux (Fundamentals)",
-        skill_4_desc: "Command line, permissions, processes and file handling — core skills for analysis and investigation.",
+        footer_tag: "SOC N1 mindset: triage • documentation • escalation.",
 
-        projects_title: "03. Projects",
-        projects_kicker: "Hands-on proof",
-        proj_1_title: "Port Scanner (Python)",
-        proj_1_desc: "Service discovery and basic inventory tool supporting attack surface analysis and hardening in a controlled environment.",
-        proj_link: "View project →",
-        proj_2_title: "Security Home Lab (Wazuh)",
-        proj_2_desc: "Wazuh environment for log ingestion, alert simulation and triage practice in a controlled scenario.",
-        proj_2_link: "Write-up (soon) →",
-
-        roadmap_title: "04. Roadmap — Google Cybersecurity Certificate",
-        roadmap_kicker: "Official track",
-        progress_label: "Progress",
-
-        c1_status: "COMPLETED",
-        c1_dates: "Course 1/8",
-        c1_title: "Foundations of Cybersecurity",
-        c1_desc: "Intro to the analyst role, business impact, ethics and core foundations (includes the CIA triad and domain overview).",
-        c1_deliv: "Deliverable: activities + quizzes",
-
-        c2_status: "IN PROGRESS",
-        c2_dates: "Course 2/8",
-        c2_title: "Play It Safe: Manage Security Risks",
-        c2_desc: "Risk management: threats, vulnerabilities, controls and applied framework basics.",
-        c2_deliv: "Deliverable: exercises + risk analysis",
-
-        c3_status: "NEXT UP",
-        c3_dates: "Course 3/8",
-        c3_title: "Connect and Protect: Networks and Network Security",
-        c3_desc: "Networking fundamentals, traffic security, protective devices and defense-in-depth principles.",
-        c3_deliv: "Deliverable: exercises + study notes",
-
-        c4_status: "FUTURE",
-        c4_dates: "Course 4/8",
-        c4_title: "Tools of the Trade: Linux and SQL",
-        c4_desc: "Linux and SQL for investigation and analysis — operational foundation for SOC.",
-        c4_deliv: "Deliverable: cheatsheet (commands + queries)",
-
-        c5_status: "FUTURE",
-        c5_dates: "Course 5/8",
-        c5_title: "Assets, Threats, and Vulnerabilities",
-        c5_desc: "Asset management, threat/vulnerability assessment and hardening.",
-        c5_deliv: "Deliverable: lab inventory + report",
-
-        c6_status: "FUTURE",
-        c6_dates: "Course 6/8",
-        c6_title: "Sound the Alarm: Detection and Response",
-        c6_desc: "Detection and response: monitoring, alert triage and incident response workflows.",
-        c6_deliv: "Deliverable: simulation + incident report",
-
-        c7_status: "FUTURE",
-        c7_dates: "Course 7/8",
-        c7_title: "Automate Cybersecurity Tasks with Python",
-        c7_desc: "Python automation for cybersecurity tasks (SOC/ops oriented).",
-        c7_deliv: "Deliverable: scripts + organized repository",
-
-        c8_status: "FUTURE",
-        c8_dates: "Course 8/8",
-        c8_title: "Put It to Work: Prepare for Cybersecurity Jobs",
-        c8_desc: "Job preparation: portfolio, interview and next steps toward employability.",
-        c8_deliv: "Deliverable: final portfolio + resume",
-
-        lab_title: "05. Lab: Cryptography",
-        lab_kicker: "Hands-on",
-        btn_encrypt: "ENCRYPT",
-        btn_decrypt: "DECRYPT",
-        out_encrypt: "ENCRYPTED DATA: ",
-        out_decrypt: "DECRYPTED DATA: ",
         out_empty: "ERROR: Empty input.",
-
-        footer_tag: "ADS student & Blue Team."
+        out_nohits: "No matches found. Check the log format.",
+        out_results: "RESULT (triage extraction):",
+        out_next: "Suggested next steps (N1):",
+        sev_low: "Low",
+        sev_med: "Medium",
+        sev_high: "High"
       }
     };
 
-    // ====== APP ======
+    // =======================
+    // APP (DATA-DRIVEN)
+    // =======================
     const app = {
-      lang: localStorage.getItem('lang') || (document.documentElement.lang?.toLowerCase().startsWith('pt') ? 'pt' : 'en'),
+      lang: (() => {
+        try{
+          return localStorage.getItem('lang') || (document.documentElement.lang?.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+        }catch(_){
+          return (document.documentElement.lang?.toLowerCase().startsWith('pt') ? 'pt' : 'en');
+        }
+      })(),
 
-      // Configure progress (change this as you advance)
-      currentCourse: 1, // <-- update to 2..8 when you advance
+      milestoneTargetISO: "2026-06-30T00:00:00-03:00",
 
+      capabilities: [
+        {
+          icon: "🛰️",
+          title: { pt: "Alert Triage", en: "Alert Triage" },
+          desc:  { pt: "Triagem inicial de alertas (contexto, repetição, impacto).", en: "First-pass triage (context, repetition, potential impact)." },
+          tags:  ["N1", "Process"]
+        },
+        {
+          icon: "🧾",
+          title: { pt: "Incident Documentation", en: "Incident Documentation" },
+          desc:  { pt: "Registro claro em ticket: evidências, decisão e próximos passos.", en: "Clear ticket notes: evidence, decision, and next actions." },
+          tags:  ["Tickets", "Handoff"]
+        },
+        {
+          icon: "🪵",
+          title: { pt: "Log Analysis (Win/Linux)", en: "Log Analysis (Win/Linux)" },
+          desc:  { pt: "Leitura e extração de campos úteis (4625/4624/4688, auth logs).", en: "Reading and extracting useful fields (4625/4624/4688, auth logs)." },
+          tags:  ["Windows", "Linux"]
+        },
+        {
+          icon: "🧭",
+          title: { pt: "Severity Classification", en: "Severity Classification" },
+          desc:  { pt: "Classificação Low/Medium/High com justificativa objetiva.", en: "Low/Medium/High classification with objective rationale." },
+          tags:  ["Impact", "Priority"]
+        },
+        {
+          icon: "🧩",
+          title: { pt: "Basic Correlation", en: "Basic Correlation" },
+          desc:  { pt: "Correlação simples (ex.: 4625 → 4624; IP → usuário → host).", en: "Basic correlation (e.g., 4625 → 4624; IP → user → host)." },
+          tags:  ["Context", "Pattern"]
+        },
+        {
+          icon: "🛡️",
+          title: { pt: "SIEM Monitoring (Wazuh)", en: "SIEM Monitoring (Wazuh)" },
+          desc:  { pt: "Lab com ingestão de logs, alertas e prática de triagem.", en: "Lab SIEM with log ingestion, alerts, and triage practice." },
+          tags:  ["Wazuh", "Lab"]
+        }
+      ],
+
+      incidents: [
+        {
+          icon: "🔐",
+          title: { pt: "Multiple Failed Logons (Windows 4625)", en: "Multiple Failed Logons (Windows 4625)" },
+          summary: {
+            pt: "Triagem de falhas repetidas de autenticação com extração de evidências e decisão de escalonamento.",
+            en: "Triage repeated authentication failures with evidence extraction and escalation decision."
+          },
+          meta: [
+            { k: "Log Source", v: { pt: "Windows Security", en: "Windows Security" } },
+            { k: "Event ID",   v: { pt: "4625", en: "4625" } },
+            { k: "Severity",   v: { pt: "Média", en: "Medium" } },
+            { k: "MITRE",      v: { pt: "T1110 (Brute Force)", en: "T1110 (Brute Force)" } }
+          ],
+          evidence: `EventID=4625
+TargetUserName=thiago
+IpAddress=192.168.1.23
+LogonType=3
+Status=0xC000006D
+SubStatus=0xC000006A`,
+          decision: {
+            pt: "Decisão: True Positive (simulado em lab). Ação: documentar, verificar 4624 subsequente e origem do IP; escalar se houver sucesso/impacto.",
+            en: "Decision: True Positive (lab simulated). Action: document, check subsequent 4624 and IP origin; escalate if success/impact exists."
+          },
+          tags: ["Auth", "Triage", "4625"]
+        },
+        {
+          icon: "🌐",
+          title: { pt: "Exposed Service / Port Scan Validation", en: "Exposed Service / Port Scan Validation" },
+          summary: {
+            pt: "Identificação de serviço exposto e validação via banner/Nmap para recomendar hardening.",
+            en: "Identify exposed service and validate via banner/Nmap to recommend hardening."
+          },
+          meta: [
+            { k: "Source",   v: { pt: "Scanner + Nmap", en: "Scanner + Nmap" } },
+            { k: "Finding",  v: { pt: "Porta 8009 (AJP)", en: "Port 8009 (AJP)" } },
+            { k: "Severity", v: { pt: "Baixa/Média", en: "Low/Medium" } },
+            { k: "Outcome",  v: { pt: "Hardening", en: "Hardening" } }
+          ],
+          evidence: `nmap -p 8009 --script=banner 192.168.1.4
+PORT     STATE SERVICE
+8009/tcp open  ajp13`,
+          decision: {
+            pt: "Decisão: exposição desnecessária em cenário interno. Ação: recomendar restrição via firewall/ACL e registrar evidência no ticket.",
+            en: "Decision: unnecessary internal exposure. Action: recommend firewall/ACL restriction and document evidence in ticket."
+          },
+          tags: ["Network", "Inventory", "Hardening"]
+        },
+        {
+          icon: "🧪",
+          title: { pt: "Suspicious Process (Windows 4688 / Simulado)", en: "Suspicious Process (Windows 4688 / Simulated)" },
+          summary: {
+            pt: "Caso de treino: criação de processo com parâmetros suspeitos para praticar documentação e correlação básica.",
+            en: "Training case: suspicious process creation to practice documentation and basic correlation."
+          },
+          meta: [
+            { k: "Log Source", v: { pt: "Windows Security", en: "Windows Security" } },
+            { k: "Event ID",   v: { pt: "4688", en: "4688" } },
+            { k: "Severity",   v: { pt: "Média (treino)", en: "Medium (training)" } },
+            { k: "MITRE",      v: { pt: "T1059 (Command & Scripting)", en: "T1059 (Command & Scripting)" } }
+          ],
+          evidence: `EventID=4688
+NewProcessName=powershell.exe
+CommandLine=powershell -enc <base64>
+ParentProcess=explorer.exe`,
+          decision: {
+            pt: "Decisão: cenário simulado. Ação: documentar (parent/child, cmdline), comparar baseline e escalar se ocorrer fora de padrão.",
+            en: "Decision: simulated scenario. Action: document (parent/child, cmdline), compare baseline and escalate if out-of-pattern."
+          },
+          tags: ["Windows", "4688", "Documentation"]
+        }
+      ],
+
+      projects: [
+        {
+          icon: "🔍",
+          title: { pt: "Port Scanner (Python) — Inventory + Evidence", en: "Port Scanner (Python) — Inventory + Evidence" },
+          desc: {
+            pt: "Ferramenta de inventário e validação: identifica serviços expostos, registra evidências e apoia triagem/hardening em ambiente controlado.",
+            en: "Inventory + validation tool: identifies exposed services, records evidence, supports triage/hardening in a controlled environment."
+          },
+          tags: ["Python", "Networking", "SOC basics"],
+          link: { href: "https://github.com/thiagolopessec/projetos_python/blob/main/port_scanner.py", label_pt: "Ver projeto →", label_en: "View project →" }
+        },
+        {
+          icon: "🛡️",
+          title: { pt: "Security Home Lab (Wazuh) — SIEM Practice", en: "Security Home Lab (Wazuh) — SIEM Practice" },
+          desc: {
+            pt: "Lab com ingestão de logs e simulação de alertas para treinar triagem, documentação e escalonamento (mindset SOC N1).",
+            en: "Lab with log ingestion and alert simulations to train triage, documentation, and escalation (SOC N1 mindset)."
+          },
+          tags: ["Wazuh", "Logs", "Triage"],
+          link: null
+        }
+      ],
+
+      workflow: [
+        { pt: "Validar a fonte e o tipo do alerta (log source / rule).", en: "Validate source and alert type (log source / rule)." },
+        { pt: "Confirmar relevância (event ID, contexto, escopo).", en: "Confirm relevance (event ID, context, scope)." },
+        { pt: "Checar repetição/padrão (frequência, timeframe, IP/usuário).", en: "Check repetition/pattern (frequency, timeframe, IP/user)." },
+        { pt: "Correlacionar eventos relacionados (ex.: 4625 → 4624).", en: "Correlate related events (e.g., 4625 → 4624)." },
+        { pt: "Classificar severidade (impacto + evidência objetiva).", en: "Classify severity (impact + objective evidence)." },
+        { pt: "Documentar no ticket: evidências, hipótese, decisão e ação.", en: "Document ticket: evidence, hypothesis, decision, action." },
+        { pt: "Escalar para N2 quando houver sucesso/impacto/ambiguidades.", en: "Escalate to N2 on success/impact/uncertainty." }
+      ],
+
+      // ---------- i18n + rendering ----------
       setLang(lang){
         this.lang = lang;
         const data = translations[lang];
+
+        document.documentElement.lang = (lang === 'pt') ? 'pt-BR' : 'en';
 
         document.querySelectorAll('[data-translate]').forEach(el=>{
           const key = el.getAttribute('data-translate');
           if (data[key]) el.innerHTML = data[key];
         });
 
-        document.getElementById('btn-pt').classList.toggle('active', lang === 'pt');
-        document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+        const btnPT = document.getElementById('btn-pt');
+        const btnEN = document.getElementById('btn-en');
+        btnPT.classList.toggle('active', lang === 'pt');
+        btnEN.classList.toggle('active', lang === 'en');
+        btnPT.setAttribute('aria-pressed', String(lang === 'pt'));
+        btnEN.setAttribute('aria-pressed', String(lang === 'en'));
 
         try{ localStorage.setItem('lang', lang); }catch(_){}
 
-        this.updateGraduationCountdown();
-        this.updateProgressUI();
+        this.renderCapabilities();
+        this.renderIncidents();
+        this.renderProjects();
+        this.renderWorkflow();
+        this.updateMilestoneCountdown();
+        this.seedLab();
       },
 
-      updateProgressUI(){
-        const total = 8;
-        const percent = Math.max(0, Math.min(100, (this.currentCourse - 1) / total * 100));
-        const bar = document.getElementById('progress_bar');
-        const txt = document.getElementById('progress_text');
-        if (bar) bar.style.width = `${percent}%`;
-        if (txt) txt.textContent = `${Math.round(percent)}%`;
+      renderCapabilities(){
+        const el = document.getElementById('capabilities-grid');
+        if (!el) return;
+        el.innerHTML = "";
+        for (const c of this.capabilities){
+          const tags = c.tags.map(t => `<span class="tag">${t}</span>`).join("");
+          el.insertAdjacentHTML('beforeend', `
+            <article class="card">
+              <div class="card-icon">${c.icon}</div>
+              <h3>${c.title[this.lang] || c.title.pt}</h3>
+              <p>${c.desc[this.lang] || c.desc.pt}</p>
+              <div class="meta-row">${tags}</div>
+            </article>
+          `);
+        }
+      },
 
-        // Optional: set timeline states automatically based on currentCourse
-        document.querySelectorAll('.timeline-item').forEach(item=>{
-          const c = parseInt(item.getAttribute('data-course') || '0', 10);
-          item.classList.remove('done','active','future');
-          if (!c) return;
-          if (c < this.currentCourse) item.classList.add('done');
-          else if (c === this.currentCourse) item.classList.add('active');
-          else item.classList.add('future');
+      renderIncidents(){
+        const el = document.getElementById('incidents-grid');
+        if (!el) return;
+        el.innerHTML = "";
+        for (const inc of this.incidents){
+          const metaTags = inc.meta.map(m => {
+            const label = m.k;
+            const val = (m.v && (m.v[this.lang] || m.v.pt)) ? (m.v[this.lang] || m.v.pt) : "";
+            const cls =
+              (label === "Severity" || label === "Severidade") ?
+                (String(val).toLowerCase().includes("high") || String(val).toLowerCase().includes("alta") ? "tag warn" :
+                 String(val).toLowerCase().includes("medium") || String(val).toLowerCase().includes("média") ? "tag info" :
+                 "tag") :
+              "tag";
+            return `<span class="${cls}">${label}: ${val}</span>`;
+          }).join("");
+
+          const tags = inc.tags.map(t => `<span class="tag">${t}</span>`).join("");
+
+          el.insertAdjacentHTML('beforeend', `
+            <div class="card" style="border-left:4px solid rgba(16,185,129,0.75)">
+              <div class="card-icon">${inc.icon}</div>
+              <h3>${inc.title[this.lang] || inc.title.pt}</h3>
+              <p>${inc.summary[this.lang] || inc.summary.pt}</p>
+
+              <div class="meta-row">${metaTags}</div>
+
+              <div class="incident-body">
+                <div class="kv">${inc.evidence}</div>
+                <p style="color:var(--text-secondary); font-size:.92rem">${inc.decision[this.lang] || inc.decision.pt}</p>
+              </div>
+
+              <div class="meta-row" style="margin-top:1rem">${tags}</div>
+            </div>
+          `);
+        }
+      },
+
+      renderProjects(){
+        const el = document.getElementById('projects-grid');
+        if (!el) return;
+        el.innerHTML = "";
+        for (const p of this.projects){
+          const tags = p.tags.map(t => `<span class="tag">${t}</span>`).join("");
+          const linkHTML = p.link
+            ? `<a class="project-link" href="${p.link.href}" target="_blank" rel="noopener noreferrer">${this.lang === 'pt' ? p.link.label_pt : p.link.label_en}</a>`
+            : `<span class="muted">${this.lang === 'pt' ? 'Write-up: em construção' : 'Write-up: in progress'}</span>`;
+
+          el.insertAdjacentHTML('beforeend', `
+            <article class="card">
+              <div class="card-icon">${p.icon}</div>
+              <h3>${p.title[this.lang] || p.title.pt}</h3>
+              <p>${p.desc[this.lang] || p.desc.pt}</p>
+              <div class="meta-row">${tags}</div>
+              <div class="link-row">${linkHTML}</div>
+            </article>
+          `);
+        }
+      },
+
+      renderWorkflow(){
+        const el = document.getElementById('workflow-steps');
+        if (!el) return;
+        el.innerHTML = "";
+        this.workflow.forEach((s, idx) => {
+          el.insertAdjacentHTML('beforeend', `
+            <div class="step">
+              <div class="step-num">${idx+1}</div>
+              <div>
+                <div class="mono" style="font-size:.88rem; color:var(--text-primary)">${this.lang === 'pt' ? 'Passo' : 'Step'} ${idx+1}</div>
+                <p>${s[this.lang] || s.pt}</p>
+              </div>
+            </div>
+          `);
         });
       },
 
-      // Milestone counter (keep your date or change it)
-      updateGraduationCountdown(){
-        const targetDate = new Date('2026-02-09T00:00:00');
-        const now = new Date();
-        const diff = targetDate - now;
+      updateMilestoneCountdown(){
         const el = document.getElementById('grad-counter');
         if (!el) return;
 
+        const targetDate = new Date(this.milestoneTargetISO);
+        const now = new Date();
+        const diff = targetDate - now;
+
+        if (isNaN(targetDate.getTime())){
+          el.innerText = this.lang === 'pt' ? "⏳ Ajustar data" : "⏳ Set date";
+          return;
+        }
         if (diff <= 0){
           el.innerText = this.lang === 'pt' ? "Marco atingido ✅" : "Milestone reached ✅";
           return;
@@ -1163,8 +1217,178 @@
           : `⏳ Next milestone in ${daysLeft} days`;
       },
 
-      // Subtle name effect (kept minimal)
+      // ---------- lab ----------
+      sample4625(){
+        return [
+          "EventID=4625",
+          "ProviderName=Microsoft-Windows-Security-Auditing",
+          "Computer=WIN10-LAB01",
+          "SubjectUserName=WIN10-LAB01$",
+          "TargetUserName=thiago",
+          "IpAddress=192.168.1.23",
+          "WorkstationName=DESKTOP-OPS",
+          "LogonType=3",
+          "Status=0xC000006D",
+          "SubStatus=0xC000006A",
+          "FailureReason=Unknown user name or bad password",
+          "TimeCreated=2026-02-20T19:12:44-03:00"
+        ].join("\n");
+      },
+
+      seedLab(){
+        const ta = document.getElementById('log_input');
+        const out = document.getElementById('parse_output');
+        if (!ta || !out) return;
+        if (!ta.value.trim()){
+          ta.value = this.sample4625();
+        }
+        out.style.color = 'var(--text-secondary)';
+        out.textContent = "// Awaiting Input...";
+      },
+
+      extractIoCs(raw){
+        const ipv4 = raw.match(/\b(?:(?:25[0-5]|2[0-4]\d|1?\d?\d)\.){3}(?:25[0-5]|2[0-4]\d|1?\d?\d)\b/g) || [];
+        const eventIdMatch = raw.match(/\b(?:EventID|Event Id|event_id|eventid)\s*[:=]\s*(\d{4})\b/i);
+        const event_id = eventIdMatch ? eventIdMatch[1] : null;
+
+        const targetUserMatch = raw.match(/\bTargetUserName\s*[:=]\s*([^\s\\\/\r\n]+)\b/i);
+        const subjectUserMatch = raw.match(/\bSubjectUserName\s*[:=]\s*([^\s\\\/\r\n]+)\b/i);
+        const user = (targetUserMatch && targetUserMatch[1]) || (subjectUserMatch && subjectUserMatch[1]) || null;
+
+        const computerMatch = raw.match(/\bComputer\s*[:=]\s*([^\s\r\n]+)\b/i);
+        const workstationMatch = raw.match(/\bWorkstationName\s*[:=]\s*([^\s\r\n]+)\b/i);
+        const host = (computerMatch && computerMatch[1]) || (workstationMatch && workstationMatch[1]) || null;
+
+        const statusMatch = raw.match(/\bStatus\s*[:=]\s*(0x[0-9A-Fa-f]+)\b/i);
+        const subStatusMatch = raw.match(/\bSubStatus\s*[:=]\s*(0x[0-9A-Fa-f]+)\b/i);
+        const logonTypeMatch = raw.match(/\bLogonType\s*[:=]\s*(\d+)\b/i);
+
+        const uniqIps = Array.from(new Set(ipv4));
+
+        return {
+          event_id,
+          ipv4: uniqIps,
+          user,
+          host,
+          logon_type: logonTypeMatch ? logonTypeMatch[1] : null,
+          status: statusMatch ? statusMatch[1] : null,
+          sub_status: subStatusMatch ? subStatusMatch[1] : null
+        };
+      },
+
+      suggestSeverity(extracted, raw){
+        // Simple N1 heuristic:
+        // - 4625 => Medium baseline
+        // - if multiple IPs or "LogonType=3" => Medium
+        // - if also contains "4624" => High (possible success)
+        // - if no key fields => Low
+        const has4624 = /\b(?:EventID|eventid)\s*[:=]\s*4624\b/i.test(raw);
+        if (has4624) return "high";
+
+        if (extracted.event_id === "4625") return "med";
+        if (extracted.event_id) return "low";
+        if ((extracted.ipv4 && extracted.ipv4.length) || extracted.user || extracted.host) return "low";
+        return "low";
+      },
+
+      nextSteps(sev, extracted){
+        // Keep it SOC N1: document + validate + correlate + escalate
+        const stepsPT = [];
+        const stepsEN = [];
+
+        stepsPT.push("- Confirmar repetição (quantidade/timeframe) no SIEM.");
+        stepsPT.push("- Verificar se há 4624 subsequente (sucesso) para o mesmo user/IP.");
+        stepsPT.push("- Checar se IP é interno/externo e se o usuário é esperado.");
+        stepsPT.push("- Documentar evidência e decisão no ticket (campos extraídos).");
+        if (sev === "high"){
+          stepsPT.push("- Escalar para N2 imediatamente: possível comprometimento (sucesso pós-falha).");
+        } else if (sev === "med"){
+          stepsPT.push("- Escalar se houver impacto (múltiplas contas, IP externo, comportamento fora do baseline).");
+        } else {
+          stepsPT.push("- Monitorar recorrência e ajustar contexto antes de escalar.");
+        }
+
+        stepsEN.push("- Confirm repetition (count/timeframe) in SIEM.");
+        stepsEN.push("- Check for subsequent 4624 (success) for same user/IP.");
+        stepsEN.push("- Identify IP origin (internal/external) and whether user is expected.");
+        stepsEN.push("- Document evidence + decision in ticket (extracted fields).");
+        if (sev === "high"){
+          stepsEN.push("- Escalate to N2 immediately: potential compromise (success after failures).");
+        } else if (sev === "med"){
+          stepsEN.push("- Escalate if impact exists (multiple accounts, external IP, out-of-baseline behavior).");
+        } else {
+          stepsEN.push("- Monitor recurrence and gather context before escalating.");
+        }
+
+        return (this.lang === "pt") ? stepsPT.join("\n") : stepsEN.join("\n");
+      },
+
+      formatResults(extracted, sev){
+        const t = translations[this.lang];
+        const sevLabel =
+          sev === "high" ? t.sev_high :
+          sev === "med" ? t.sev_med : t.sev_low;
+
+        const lines = [];
+        lines.push(`event_id     : ${extracted.event_id ?? "-"}`);
+        lines.push(`user         : ${extracted.user ?? "-"}`);
+        lines.push(`host         : ${extracted.host ?? "-"}`);
+        lines.push(`ipv4         : ${(extracted.ipv4 && extracted.ipv4.length) ? extracted.ipv4.join(", ") : "-"}`);
+        lines.push(`logon_type   : ${extracted.logon_type ?? "-"}`);
+        lines.push(`status       : ${extracted.status ?? "-"}`);
+        lines.push(`sub_status   : ${extracted.sub_status ?? "-"}`);
+        lines.push("");
+        lines.push(`severity     : ${sevLabel}`);
+        if (extracted.event_id === "4625") lines.push(`mitre        : T1110 (Brute Force)`);
+        return lines.join("\n");
+      },
+
+      parseLab(){
+        const ta = document.getElementById('log_input');
+        const out = document.getElementById('parse_output');
+        if (!ta || !out) return;
+
+        const raw = ta.value || "";
+        const t = translations[this.lang];
+
+        if (!raw.trim()){
+          out.style.color = 'var(--accent-alert)';
+          out.textContent = t.out_empty;
+          return;
+        }
+
+        const extracted = this.extractIoCs(raw);
+        const anyHit =
+          extracted.event_id || (extracted.ipv4 && extracted.ipv4.length) ||
+          extracted.user || extracted.host || extracted.status || extracted.sub_status;
+
+        if (!anyHit){
+          out.style.color = 'var(--accent-alert)';
+          out.textContent = t.out_nohits;
+          return;
+        }
+
+        const sev = this.suggestSeverity(extracted, raw);
+
+        out.style.color = 'var(--text-primary)';
+        out.textContent =
+          `${t.out_results}\n\n` +
+          `${this.formatResults(extracted, sev)}\n\n` +
+          `${t.out_next}\n${this.nextSteps(sev, extracted)}`;
+      },
+
+      clearLab(){
+        const ta = document.getElementById('log_input');
+        const out = document.getElementById('parse_output');
+        if (ta) ta.value = "";
+        if (out){
+          out.style.color = 'var(--text-secondary)';
+          out.textContent = "// Awaiting Input...";
+        }
+      },
+
       runNameEffect(el){
+        // kept subtle; you can remove entirely if you want
         if (!el) return;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -1182,70 +1406,36 @@
             el.textContent = original;
             return;
           }
-          i += 1/4;
+          i += 1/5;
           requestAnimationFrame(tick);
         };
 
         requestAnimationFrame(tick);
-      },
-
-      cipher(str, shift, decrypt=false){
-        if (decrypt) shift = (26 - (parseInt(shift) % 26)) % 26;
-        else shift = parseInt(shift);
-
-        return str.replace(/[a-zA-Z]/g, (ch)=>{
-          const base = ch >= 'a' ? 97 : 65;
-          return String.fromCharCode(((ch.charCodeAt(0)-base+shift)%26)+base);
-        });
-      },
-
-      encrypt(){
-        const input = document.getElementById('input_text').value;
-        const shift = parseInt(document.getElementById('shift_amount').value) || 0;
-        const t = translations[this.lang];
-        const out = document.getElementById('output_text');
-
-        if (!input){
-          out.innerText = t.out_empty;
-          out.style.color = 'var(--accent-alert)';
-          return;
-        }
-        if (isNaN(shift) || shift < 0 || shift > 25){
-          out.innerText = this.lang === 'pt' ? 'ERRO: Shift deve estar entre 0 e 25' : 'ERROR: Shift must be 0–25';
-          out.style.color = 'var(--accent-alert)';
-          return;
-        }
-
-        out.innerText = `${t.out_encrypt}${this.cipher(input, shift, false)}`;
-        out.style.color = 'var(--accent-primary)';
-      },
-
-      decrypt(){
-        const input = document.getElementById('input_text').value;
-        const shift = parseInt(document.getElementById('shift_amount').value) || 0;
-        const t = translations[this.lang];
-        const out = document.getElementById('output_text');
-
-        if (!input){
-          out.innerText = t.out_empty;
-          out.style.color = 'var(--accent-alert)';
-          return;
-        }
-        if (isNaN(shift) || shift < 0 || shift > 25){
-          out.innerText = this.lang === 'pt' ? 'ERRO: Shift deve estar entre 0 e 25' : 'ERROR: Shift must be 0–25';
-          out.style.color = 'var(--accent-alert)';
-          return;
-        }
-
-        out.innerText = `${t.out_decrypt}${this.cipher(input, shift, true)}`;
-        out.style.color = 'var(--accent-secondary)';
       }
     };
 
-    // ====== INIT ======
+    // =======================
+    // INIT
+    // =======================
     document.addEventListener('DOMContentLoaded', () => {
+      // Language
+      document.getElementById('btn-pt')?.addEventListener('click', () => app.setLang('pt'));
+      document.getElementById('btn-en')?.addEventListener('click', () => app.setLang('en'));
+
+      // Print
+      document.getElementById('btn-print')?.addEventListener('click', (e) => { e.preventDefault(); window.print(); });
+
+      // Lab
+      document.getElementById('btn_parse')?.addEventListener('click', () => app.parseLab());
+      document.getElementById('btn_sample')?.addEventListener('click', () => {
+        const ta = document.getElementById('log_input');
+        if (ta) ta.value = app.sample4625();
+        app.parseLab();
+      });
+      document.getElementById('btn_clear')?.addEventListener('click', () => app.clearLab());
+
+      // Apply language + render
       app.setLang(app.lang);
-      app.updateProgressUI();
       app.runNameEffect(document.getElementById('name'));
 
       // Reveal animation
@@ -1258,16 +1448,6 @@
         });
       }, {threshold:0.12});
       document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-      // Reset output label on input change
-      const outputEl = document.getElementById('output_text');
-      const inputEl = document.getElementById('input_text');
-      if (inputEl && outputEl){
-        inputEl.addEventListener('input', ()=>{
-          outputEl.style.color = 'var(--text-secondary)';
-          outputEl.innerText = '// Awaiting Input...';
-        });
-      }
 
       // Scroll spy
       const miniLinks = Array.from(document.querySelectorAll('.mini-nav a'));
