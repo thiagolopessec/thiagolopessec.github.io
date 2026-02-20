@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Home Network Security Audit — NIST CSF</title>
+  <meta name="description" content="Auditoria de rede doméstica baseada no NIST CSF com evidências, findings e plano de ação." />
+  <style>
+    :root{--bg:#0a0a0b;--card:#121214;--border:#27272a;--text:#ededed;--muted:#a1a1aa;--acc:#10b981;--acc2:#3b82f6;}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Inter,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    .wrap{max-width:920px;margin:0 auto;padding:2.25rem}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.4rem;margin-top:1rem}
+    h1{font-size:1.7rem;margin-bottom:.5rem}
+    h2{font-size:1.05rem;margin:1rem 0 .5rem}
+    p{color:var(--muted)}
+    .pill{display:inline-block;margin:.35rem .35rem 0 0;padding:.25rem .55rem;border:1px solid var(--border);border-radius:999px;color:var(--muted);font-size:.85rem}
+    .btns{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+    a.btn{display:inline-block;text-decoration:none;color:var(--text);border:1px solid var(--border);border-radius:10px;padding:.6rem .85rem}
+    a.btn.primary{border-color:rgba(16,185,129,.5);background:rgba(16,185,129,.08);color:var(--acc)}
+    a.btn:hover{border-color:rgba(59,130,246,.6)}
+    .k{color:var(--acc);font-weight:700}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:.8rem;margin-top:1rem}
+    .small{font-size:.92rem}
+    code{background:rgba(255,255,255,.06);padding:.15rem .35rem;border-radius:6px}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="card">
+      <h1>Home Network Security Audit <span class="k">— NIST CSF</span></h1>
+      <p class="small">
+        Inventário de ativos e enumeração LAN (192.168.1.0/24) com <b>findings</b>, <b>severidade</b> e plano de ação (24h/7d/30d).
+        Projeto no estilo SOC N1: evidência → risco → recomendação.
+      </p>
+
+      <div>
+        <span class="pill">NIST CSF</span>
+        <span class="pill">SOC N1</span>
+        <span class="pill">Hardening</span>
+        <span class="pill">Evidence-Based</span>
+      </div>
+
+      <div class="btns">
+        <a class="btn primary" href="../">← Voltar ao Portfólio</a>
+        <a class="btn" href="./docs/executive-summary.md">Executive Summary</a>
+        <a class="btn" href="./findings/README.md">Findings</a>
+        <a class="btn" href="./evidence/README.md">Evidence</a>
+        <a class="btn" href="https://github.com/thiagolopessec/thiagolopessec.github.io/tree/main/home-network-security-audit" target="_blank" rel="noopener">Ver no GitHub</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Findings (resumo)</h2>
+      <div class="grid">
+        <div class="card" style="margin:0">
+          <h2 style="margin:0 0 .35rem">F-001 — Router HTTP habilitado</h2>
+          <p>192.168.1.254 com <code>80/tcp</code> e <code>443/tcp</code> abertos. Recomenda-se desativar HTTP e forçar HTTPS.</p>
+          <p class="small"><b>Risco:</b> Médio</p>
+        </div>
+        <div class="card" style="margin:0">
+          <h2 style="margin:0 0 .35rem">F-002 — IoT expõe 8888/tcp</h2>
+          <p>192.168.1.3 com <code>8888/tcp</code> aberto (identificação limitada). Validar serviço e segmentar IoT.</p>
+          <p class="small"><b>Risco:</b> Baixo → Médio</p>
+        </div>
+        <div class="card" style="margin:0">
+          <h2 style="margin:0 0 .35rem">F-003 — IoT expõe 8009/tcp</h2>
+          <p>192.168.1.4 com <code>8009/tcp</code> aberto (identificação limitada). Validar serviço e segmentar IoT.</p>
+          <p class="small"><b>Risco:</b> Baixo → Médio</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
