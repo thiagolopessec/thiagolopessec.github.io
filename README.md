@@ -49,8 +49,8 @@ Projetos desenhados para demonstrar **capacidade operacional** e **evolução t�
 
 Estou seguindo o **Google Cybersecurity Certificate (Coursera)** como trilha estruturada (8 cursos), com foco em construir base sólida para **SOC / Blue Team**.
 
-- [ ] **Curso 1/8 — Foundations of Cybersecurity** 🔄 *Em execução*
-- [ ] **Curso 2/8 — Play It Safe: Manage Security Risks**
+- [x] **Curso 1/8 — Foundations of Cybersecurity** 
+- [ ] **Curso 2/8 — Play It Safe: Manage Security Risks** 🔄 *Em execução*
 - [ ] **Curso 3/8 — Connect and Protect: Networks and Network Security**
 - [ ] **Curso 4/8 — Tools of the Trade: Linux and SQL**
 - [ ] **Curso 5/8 — Assets, Threats, and Vulnerabilities**
