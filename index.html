@@ -317,6 +317,13 @@ THIAGO LOPES — SOC N1 / BLUE TEAM (BR MARKET POSITIONING)
       background:rgba(255,255,255,0.02);
       font-family:'JetBrains Mono',monospace;
     }
+    /* Make inactive "chips" look clearly disabled */
+    .muted.disabled{
+      opacity:.65;
+      filter:grayscale(1);
+      cursor:not-allowed;
+      user-select:none;
+    }
 
     /* Incident detail */
     .incident-body{
@@ -774,7 +781,7 @@ Emergency Care → SOC
         nav_lab: "Triage Helper",
         nav_edu: "Edu/Cert",
 
-        headline: "<SOC Analyst (N1) / Blue Team>",
+        headline: "&lt;SOC Analyst (N1) / Blue Team&gt;",
         bio: "Profissional em transição para Security Operations com <strong>15 anos</strong> em ambiente crítico (Urgência/Emergência). Atuo com triagem estruturada, priorização sob pressão e documentação precisa — aplicando esses princípios à <strong>análise inicial de alertas</strong> e <strong>escalonamento</strong> em ambiente SOC.",
 
         cta_email: "Contactar",
@@ -836,7 +843,10 @@ Emergency Care → SOC
         out_next: "Próximos passos sugeridos (N1):",
         sev_low: "Baixa",
         sev_med: "Média",
-        sev_high: "Alta"
+        sev_high: "Alta",
+
+        proj_open: "Abrir projeto →",
+        proj_repo: "Repo (evidências) →"
       },
 
       en: {
@@ -847,7 +857,7 @@ Emergency Care → SOC
         nav_lab: "Triage Helper",
         nav_edu: "Edu/Cert",
 
-        headline: "<SOC Analyst (N1) / Blue Team>",
+        headline: "&lt;SOC Analyst (N1) / Blue Team&gt;",
         bio: "Career switcher into Security Operations with <strong>15 years</strong> in high-pressure frontline emergency care. Strong in structured triage, prioritization and precise documentation — applying those principles to <strong>first-pass alert analysis</strong> and <strong>proper escalation</strong> in a SOC environment.",
 
         cta_email: "Contact",
@@ -909,7 +919,10 @@ Emergency Care → SOC
         out_next: "Suggested next steps (N1):",
         sev_low: "Low",
         sev_med: "Medium",
-        sev_high: "High"
+        sev_high: "High",
+
+        proj_open: "Open project →",
+        proj_repo: "Repo (evidence) →"
       }
     };
 
@@ -1039,26 +1052,21 @@ ParentProcess=explorer.exe`,
         }
       ],
 
+      // ✅ PROJECTS: removed Port Scanner + Home Lab (not in production)
+      // ✅ Added: Home Network Security Audit (public GitHub Pages path + repo link)
       projects: [
         {
-          icon: "🔍",
-          title: { pt: "Port Scanner (Python) — Inventory + Evidence", en: "Port Scanner (Python) — Inventory + Evidence" },
-          desc: {
-            pt: "Ferramenta de inventário e validação: identifica serviços expostos, registra evidências e apoia triagem/hardening em ambiente controlado.",
-            en: "Inventory + validation tool: identifies exposed services, records evidence, supports triage/hardening in a controlled environment."
-          },
-          tags: ["Python", "Networking", "SOC basics"],
-          link: { href: "https://github.com/thiagolopessec/projetos_python/blob/main/port_scanner.py", label_pt: "Ver projeto →", label_en: "View project →" }
-        },
-        {
           icon: "🛡️",
-          title: { pt: "Security Home Lab (Wazuh) — SIEM Practice", en: "Security Home Lab (Wazuh) — SIEM Practice" },
+          title: { pt: "Home Network Security Audit — NIST CSF", en: "Home Network Security Audit — NIST CSF" },
           desc: {
-            pt: "Lab com ingestão de logs e simulação de alertas para treinar triagem, documentação e escalonamento (mindset SOC N1).",
-            en: "Lab with log ingestion and alert simulations to train triage, documentation, and escalation (SOC N1 mindset)."
+            pt: "Auditoria de rede doméstica baseada no NIST CSF: inventário (LAN), enumeração controlada, evidências (Nmap), findings e plano de hardening (roteador/IoT).",
+            en: "NIST CSF-based home network audit: LAN inventory, controlled enumeration, evidence (Nmap), findings and a hardening plan (router/IoT)."
           },
-          tags: ["Wazuh", "Logs", "Triage"],
-          link: null
+          tags: ["NIST CSF", "Network Inventory", "Hardening", "Evidence"],
+          links: {
+            page: { href: "./home-network-security-audit/", label_pt: "Abrir projeto →", label_en: "Open project →" },
+            repo: { href: "https://github.com/thiagolopessec/thiagolopessec.github.io/tree/main/home-network-security-audit", label_pt: "Repo (evidências) →", label_en: "Repo (evidence) →" }
+          }
         }
       ],
 
@@ -1160,11 +1168,23 @@ ParentProcess=explorer.exe`,
         const el = document.getElementById('projects-grid');
         if (!el) return;
         el.innerHTML = "";
+
         for (const p of this.projects){
           const tags = p.tags.map(t => `<span class="tag">${t}</span>`).join("");
-          const linkHTML = p.link
-            ? `<a class="project-link" href="${p.link.href}" target="_blank" rel="noopener noreferrer">${this.lang === 'pt' ? p.link.label_pt : p.link.label_en}</a>`
-            : `<span class="muted">${this.lang === 'pt' ? 'Write-up: em construção' : 'Write-up: in progress'}</span>`;
+
+          // ✅ Supports one or multiple links
+          const linksHTML = (() => {
+            if (p.links?.page && p.links?.repo){
+              return `
+                <a class="project-link" href="${p.links.page.href}">${this.lang === 'pt' ? p.links.page.label_pt : p.links.page.label_en}</a>
+                <a class="project-link" href="${p.links.repo.href}" target="_blank" rel="noopener noreferrer">${this.lang === 'pt' ? p.links.repo.label_pt : p.links.repo.label_en}</a>
+              `;
+            }
+            if (p.link){
+              return `<a class="project-link" href="${p.link.href}" target="_blank" rel="noopener noreferrer">${this.lang === 'pt' ? p.link.label_pt : p.link.label_en}</a>`;
+            }
+            return `<span class="muted disabled">${this.lang === 'pt' ? 'Write-up: em construção' : 'Write-up: in progress'}</span>`;
+          })();
 
           el.insertAdjacentHTML('beforeend', `
             <article class="card">
@@ -1172,7 +1192,7 @@ ParentProcess=explorer.exe`,
               <h3>${p.title[this.lang] || p.title.pt}</h3>
               <p>${p.desc[this.lang] || p.desc.pt}</p>
               <div class="meta-row">${tags}</div>
-              <div class="link-row">${linkHTML}</div>
+              <div class="link-row">${linksHTML}</div>
             </article>
           `);
         }
@@ -1277,22 +1297,15 @@ ParentProcess=explorer.exe`,
       },
 
       suggestSeverity(extracted, raw){
-        // Simple N1 heuristic:
-        // - 4625 => Medium baseline
-        // - if multiple IPs or "LogonType=3" => Medium
-        // - if also contains "4624" => High (possible success)
-        // - if no key fields => Low
         const has4624 = /\b(?:EventID|eventid)\s*[:=]\s*4624\b/i.test(raw);
         if (has4624) return "high";
-
         if (extracted.event_id === "4625") return "med";
         if (extracted.event_id) return "low";
         if ((extracted.ipv4 && extracted.ipv4.length) || extracted.user || extracted.host) return "low";
         return "low";
       },
 
-      nextSteps(sev, extracted){
-        // Keep it SOC N1: document + validate + correlate + escalate
+      nextSteps(sev){
         const stepsPT = [];
         const stepsEN = [];
 
@@ -1374,7 +1387,7 @@ ParentProcess=explorer.exe`,
         out.textContent =
           `${t.out_results}\n\n` +
           `${this.formatResults(extracted, sev)}\n\n` +
-          `${t.out_next}\n${this.nextSteps(sev, extracted)}`;
+          `${t.out_next}\n${this.nextSteps(sev)}`;
       },
 
       clearLab(){
@@ -1388,7 +1401,6 @@ ParentProcess=explorer.exe`,
       },
 
       runNameEffect(el){
-        // kept subtle; you can remove entirely if you want
         if (!el) return;
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
