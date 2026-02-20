@@ -1,80 +1,163 @@
-# Thiago Lopes | Blue Team & Security Operations
-> **"Eu não entro em pânico quando o alerta toca. Eu já gerenciei crises reais."**
+# Thiago Lopes — SOC Analyst (Tier 1) | Blue Team
 
-[![Portfolio Status](https://img.shields.io/badge/Portfolio-Online-success?style=for-the-badge&logo=github)](https://thiagolopessec.github.io/)
-[![Focus](https://img.shields.io/badge/Focus-Blue%20Team%20%2F%20SOC-blue?style=for-the-badge)](https://linkedin.com/in/thiagolopessec)
+Welcome to my professional portfolio repository.  
+This repository hosts my public website:
 
----
-
-## 🧭 Identidade: De Ambiente Crítico (Saúde) para Operações de Segurança (SOC)
-
-Sou profissional em transição para **Cibersegurança** com foco em **Blue Team / Security Operations (SOC)**, trazendo **15 anos de experiência em Urgência e Emergência (PACS — SUS / Porto Alegre)**.
-
-Meu *mindset* não foi construído em cenários ideais: foi formado em **ambientes críticos**, com **alta pressão**, **recursos limitados** e **decisões rápidas e responsáveis**.
-
-**Competências transferíveis (Healthcare -> Cyber):**
-- **Triagem de risco:** priorização de incidentes e tomada de decisão com informação incompleta.  
-- **Disciplina operacional:** aderência a procedimentos (SOPs), rastreabilidade e comunicação objetiva.  
-- **Gestão de crise:** atuação sob pressão, foco em contenção e continuidade do serviço.  
-
-> Migrando de sustentar sistemas críticos na saúde para **proteger ativos digitais** e **reduzir risco operacional**.
+🔗 https://thiagolopessec.github.io/
 
 ---
 
-## 🧰 Tech Stack (Foco: Defesa, Monitoramento e Automação)
+## 👤 Professional Background — From Emergency Response to Security Operations
 
-| Área | Tecnologias & Ferramentas |
-| :--- | :--- |
-| **🛡️ Blue Team / SOC** | **Wazuh (SIEM)**, Análise de Logs, Triage de Alertas, MITRE ATT&CK (fundamentos) |
-| **🐍 Automação** | **Python**, Bash, Regex, integração com APIs/Webhooks |
-| **🐧 Linux & Redes** | Linux fundamentals, TCP/IP, troubleshooting, hardening básico |
-| **📜 Governança** | LGPD (fundamentos), boas práticas de segurança e organização de evidências |
+I am transitioning into **Cybersecurity / Security Operations (SOC)** after **15 years working in frontline Emergency Care (SUS — Porto Alegre, Brazil)**.
 
----
+Throughout my career in urgent and high-risk environments, I operated under:
 
-## ⚙️ Projetos Ativos (Hands-on)
+- Critical decision-making scenarios  
+- Limited resources  
+- Time-sensitive escalation  
+- Strict procedural compliance  
+- High accountability  
 
-Projetos desenhados para demonstrar **capacidade operacional** e **evolução técnica**.
+I am fully accustomed to working in **12/36 and 12/60 shift rotations**, maintaining performance, focus, and structured communication during extended operational cycles — a model directly aligned with **24/7 SOC environments**.
 
-| Projeto | Stack | Status | Descrição |
-| :--- | :--- | :--- | :--- |
-| **Wazuh Home Lab** | Docker, Wazuh, Logs | 🟡 Em Dev | Lab para ingestão de logs, simulação de alertas e estudo de detecção baseada em eventos. |
-| **Port Scanner (Python)** | Python, Sockets | 🟢 Concluído | Descoberta de serviços e inventário básico, apoiando análise de superfície de ataque e hardening em ambiente controlado. |
-| **Crypto Lab (César)** | Python | 🟡 Em Dev | Implementação de cifra clássica para reforçar fundamentos e lógica aplicada. |
-| **Log Parser / Alert Bot** | Python, Regex, Webhook | 🚧 Em Breve | Parsing e sanitização de logs com alertas via webhook (uso defensivo em lab). |
+Today, I am formally building my technical foundation through:
 
----
+🎓 **Systems Analysis and Development (ADS)**  
+FADERGS — Porto Alegre (in progress)
 
-## 🗺️ Roadmap — Google Cybersecurity Certificate (Coursera)
+My objective is to apply my operational discipline and crisis management experience to **Cybersecurity**, specifically in:
 
-Estou seguindo o **Google Cybersecurity Certificate (Coursera)** como trilha estruturada (8 cursos), com foco em construir base sólida para **SOC / Blue Team**.
-
-- [x] **Curso 1/8 — Foundations of Cybersecurity** 
-- [ ] **Curso 2/8 — Play It Safe: Manage Security Risks** 🔄 *Em execução*
-- [ ] **Curso 3/8 — Connect and Protect: Networks and Network Security**
-- [ ] **Curso 4/8 — Tools of the Trade: Linux and SQL**
-- [ ] **Curso 5/8 — Assets, Threats, and Vulnerabilities**
-- [ ] **Curso 6/8 — Sound the Alarm: Detection and Response**
-- [ ] **Curso 7/8 — Automate Cybersecurity Tasks with Python**
-- [ ] **Curso 8/8 — Put It to Work: Prepare for Cybersecurity Jobs**
-
-🎓 **ADS (FADERGS):** em andamento.
+- SOC Tier 1 (N1)
+- Blue Team Operations
+- Detection & Response
+- Log Analysis & Incident Documentation
 
 ---
 
-## 📊 GitHub Stats
+## 🔄 Transferable Operational Skills (Healthcare → SOC)
 
-<div align="center">
-  <img height="160em" src="https://github-readme-stats.vercel.app/api?username=thiagolopessec&show_icons=true&theme=radical&hide_border=true&count_private=true" />
-  <img height="160em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=thiagolopessec&layout=compact&theme=radical&hide_border=true" />
-</div>
+| Emergency Care | Security Operations (SOC) |
+|---------------|---------------------------|
+| Rapid risk triage | Alert triage (first-pass analysis) |
+| Severity prioritization | Incident severity classification |
+| Crisis response | Incident handling & escalation |
+| Handoff between shifts | Ticket documentation & structured escalation |
+| Protocol adherence | SOP-driven security operations |
+
+The core mindset remains the same:
+**Assess → Prioritize → Document → Escalate → Monitor**
 
 ---
 
-## 📫 Contato
+## 🛡️ Current Focus — SOC Tier 1 (N1)
 
-Estou aberto a oportunidades **Jr / Estágio** em **SOC / Blue Team / Security Operations**, onde **disciplina operacional**, **triagem de risco** e **capacidade de resposta** sejam valorizadas.
+### 🔎 Alert Triage
+- Validate log source and detection rule  
+- Identify repetition and attack patterns  
+- Assess potential impact  
 
-- 🌐 **Portfolio:** https://thiagolopessec.github.io/
-- 💼 **LinkedIn:** https://linkedin.com/in/thiagolopessec
-- 📧 **Email:** tlopes.dev@gmail.com
+### 🪵 Log Analysis
+- Windows Event IDs: 4625, 4624, 4688  
+- Extraction of IoCs (IP, username, host, event_id)  
+- Regex-based parsing  
+
+### 📋 Incident Documentation
+- Evidence-based reporting  
+- Clear severity rationale  
+- Ticket-ready notes  
+- Escalation to Tier 2 when required  
+
+### 🧩 Basic Correlation
+- Failed → successful authentication mapping  
+- IP → user → host validation  
+- Baseline behavior comparison  
+
+---
+
+## 📂 Published Project
+
+### 🛡️ Home Network Security Audit — NIST CSF Based Assessment
+
+Structured security assessment aligned with the **NIST Cybersecurity Framework (Identify, Protect, Detect, Respond, Recover)**.
+
+Includes:
+
+- Controlled network enumeration  
+- Exposure validation  
+- Risk documentation  
+- Hardening recommendations  
+- Executive summary  
+
+🔗 Live Project:  
+https://thiagolopessec.github.io/home-network-security-audit/
+
+---
+
+## 🧰 Technical Stack
+
+**Security Operations**
+- Wazuh (Lab SIEM)
+- Log analysis (Windows / Linux)
+- MITRE ATT&CK (fundamentals)
+
+**Operating Systems**
+- Linux
+- Windows
+
+**Networking**
+- TCP/IP fundamentals
+- Controlled Nmap enumeration
+
+**Automation**
+- Python (fundamentals)
+- Bash (fundamentals)
+- Regex for log parsing
+
+**Frameworks**
+- NIST Cybersecurity Framework (practical application)
+
+---
+
+## 🎓 Education
+
+**Systems Analysis and Development (ADS)**  
+FADERGS — Porto Alegre (in progress)
+
+**Google Cybersecurity Certificate — Coursera** (in progress)  
+Focus areas:
+- Risk management
+- Detection & response
+- SOC workflows
+- Python automation
+
+---
+
+## 🎯 Career Objective
+
+Seeking opportunities in:
+
+- SOC Analyst (Tier 1 / N1)
+- Junior Security Analyst
+- Security Operations Analyst
+- Blue Team Internship
+
+I bring:
+
+- Operational discipline from 15 years in critical response environments  
+- Shift-based resilience (12/36 and 12/60 schedules)  
+- Structured escalation mindset  
+- Continuous technical development in cybersecurity  
+
+---
+
+## 📫 Contact
+
+🌐 Portfolio: https://thiagolopessec.github.io/  
+💼 LinkedIn: https://linkedin.com/in/thiagolopessec  
+📧 Email: tlopes.dev@gmail.com  
+
+---
+
+Operational mindset built in critical environments.  
+Now applied to protecting digital assets.
